@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard LoRaWAN - Campus Dr. Luis Rivas del Canto | UCT</title>
+  <meta name="description" content="Dashboard en tiempo real para monitorización de telemetría de la red LoRaWAN en el Campus Dr. Luis Rivas del Canto de la Universidad Católica de Temuco.">
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Chart.js para visualización de series temporales -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- Paho MQTT client para conexión WebSocket -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Encabezado Principal -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-badge">UCT • INFO-1197</div>
+        <div class="title-wrap">
+          <h1 class="main-title">Red LoRaWAN Campus Dr. Luis Rivas del Canto</h1>
+          <p class="subtitle">Trabajo de Título • Escuela de Ingeniería Informática • Universidad Católica de Temuco</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Indicador de Conexión -->
+        <div class="status-indicator-pill" id="connection-pill">
+          <span class="status-dot pulsating" id="status-dot"></span>
+          <span class="status-label" id="status-label">Modo Simulación Activo</span>
+        </div>
+
+        <!-- Botones de Acción -->
+        <button type="button" class="btn btn-secondary" id="btn-toggle-mode" title="Alternar entre datos en vivo por MQTT o simulación interna">
+          <svg class="btn-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          <span id="btn-mode-text">Pausar Simulación</span>
+        </button>
+
+        <button type="button" class="btn btn-primary" id="btn-open-settings" title="Configurar conexión MQTT / WebSockets">
+          <svg class="btn-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+          <span>Conexión</span>
+        </button>
+
+        <button type="button" class="btn btn-secondary" id="btn-export-csv" title="Exportar historial de telemetría a formato CSV">
+          <svg class="btn-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span>Exportar</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal -->
+  <main class="main-content">
+    <!-- Barra Superior de KPIs Globales -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap icon-cyan">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 11a9 9 0 0 1 9 9" /><path d="M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1" />
+          </svg>
+        </div>
+        <div class="kpi-body">
+          <span class="kpi-label">Tramas Recibidas</span>
+          <span class="kpi-value" id="kpi-total-frames">0</span>
+          <span class="kpi-subtext" id="kpi-last-frame-time">Esperando primera trama...</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap icon-green">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+            <line x1="6" y1="6" x2="6.01" y2="6" /><line x1="6" y1="18" x2="6.01" y2="18" />
+          </svg>
+        </div>
+        <div class="kpi-body">
+          <span class="kpi-label">Nodos Activos</span>
+          <span class="kpi-value" id="kpi-active-nodes">2 / 2</span>
+          <span class="kpi-subtext">Nodo 1 (LOS) • Nodo 2 (NLOS)</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap icon-blue">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+        </div>
+        <div class="kpi-body">
+          <span class="kpi-label">Disponibilidad (RQS3)</span>
+          <span class="kpi-value" id="kpi-availability">100 %</span>
+          <span class="kpi-subtext">Umbral de viabilidad: ≥ 90 %</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap icon-purple">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+          </svg>
+        </div>
+        <div class="kpi-body">
+          <span class="kpi-label">Banda & Potencia (RT1)</span>
+          <span class="kpi-value">AU915 • 14 dBm</span>
+          <span class="kpi-subtext">SUBTEL Res. Ex. 1.985 / 2017</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid de Nodos en Monitoreo -->
+    <section class="nodes-grid">
+      <!-- NODO 1: CONDICIÓN LOS -->
+      <article class="node-card" id="card-node-1">
+        <div class="node-card-header">
+          <div class="node-identity">
+            <div class="node-avatar avatar-los">N1</div>
+            <div>
+              <div class="node-title-row">
+                <h2 class="node-name">Nodo 1 — Sensor Exterior</h2>
+                <span class="tag-condition tag-los">LOS (Línea de Vista)</span>
+              </div>
+              <p class="node-location">Facultad de Ingeniería • Distancia tentativa: 50–200 m</p>
+            </div>
+          </div>
+          <div class="node-status-badge badge-online" id="node-1-status-badge">
+            <span class="dot"></span> Online
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <!-- Temperatura -->
+          <div class="metric-box">
+            <div class="metric-top">
+              <span class="metric-label">Temperatura</span>
+              <span class="metric-unit">°C</span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="metric-num" id="node-1-temp">--</span>
+            </div>
+            <div class="metric-progress-bar">
+              <div class="metric-fill fill-temp" id="node-1-temp-bar" style="width: 45%;"></div>
+            </div>
+          </div>
+
+          <!-- Humedad -->
+          <div class="metric-box">
+            <div class="metric-top">
+              <span class="metric-label">Humedad Relativa</span>
+              <span class="metric-unit">% RH</span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="metric-num" id="node-1-hum">--</span>
+            </div>
+            <div class="metric-progress-bar">
+              <div class="metric-fill fill-hum" id="node-1-hum-bar" style="width: 60%;"></div>
+            </div>
+          </div>
+
+          <!-- Batería -->
+          <div class="metric-box">
+            <div class="metric-top">
+              <span class="metric-label">Voltaje Batería</span>
+              <span class="metric-unit" id="node-1-batt-pct">--%</span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="metric-num" id="node-1-batt">--</span>
+              <span class="metric-unit-tag">V</span>
+            </div>
+            <div class="metric-progress-bar">
+              <div class="metric-fill fill-batt" id="node-1-batt-bar" style="width: 80%;"></div>
+            </div>
+          </div>
+
+          <!-- Señal RF (RSSI / SNR) -->
+          <div class="metric-box">
+            <div class="metric-top">
+              <span class="metric-label">Enlace RF (RSSI / SNR)</span>
+              <span class="metric-tag" id="node-1-rf-quality">Excelente</span>
+            </div>
+            <div class="rf-values-row">
+              <div>
+                <span class="rf-sublabel">RSSI:</span>
+                <span class="rf-val" id="node-1-rssi">-- dBm</span>
+              </div>
+              <div>
+                <span class="rf-sublabel">SNR:</span>
+                <span class="rf-val" id="node-1-snr">-- dB</span>
+              </div>
+            </div>
+            <div class="metric-progress-bar">
+              <div class="metric-fill fill-rf" id="node-1-rf-bar" style="width: 85%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="node-footer">
+          <div class="footer-meta">
+            <span>Secuencia: <strong id="node-1-seq">#0</strong></span>
+            <span>•</span>
+            <span>Última trama: <strong id="node-1-last-seen">Hace -- s</strong></span>
+          </div>
+          <div class="delta-indicator" id="node-1-delta-status">
+            Δt ≤ 3·T (Conforme)
+          </div>
+        </div>
+      </article>
+
+      <!-- NODO 2: CONDICIÓN NLOS -->
+      <article class="node-card" id="card-node-2">
+        <div class="node-card-header">
+          <div class="node-identity">
+            <div class="node-avatar avatar-nlos">N2</div>
+            <div>
+              <div class="node-title-row">
+                <h2 class="node-name">Nodo 2 — Obstrucción Parcial</h2>
+                <span class="tag-condition tag-nlos">NLOS (Con Muro/Edificio)</span>
+              </div>
+              <p class="node-location">Zona Posterior Edificio • Distancia tentativa: 100–350 m</p>
+            </div>
+          </div>
+          <div class="node-status-badge badge-online" id="node-2-status-badge">
+            <span class="dot"></span> Online
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <!-- Temperatura -->
+          <div class="metric-box">
+            <div class="metric-top">
+              <span class="metric-label">Temperatura</span>
+              <span class="metric-unit">°C</span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="metric-num" id="node-2-temp">--</span>
+            </div>
+            <div class="metric-progress-bar">
+              <div class="metric-fill fill-temp" id="node-2-temp-bar" style="width: 48%;"></div>
+            </div>
+          </div>
+
+          <!-- Humedad -->
+          <div class="metric-box">
+            <div class="metric-top">
+              <span class="metric-label">Humedad Relativa</span>
+              <span class="metric-unit">% RH</span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="metric-num" id="node-2-hum">--</span>
+            </div>
+            <div class="metric-progress-bar">
+              <div class="metric-fill fill-hum" id="node-2-hum-bar" style="width: 65%;"></div>
+            </div>
+          </div>
+
+          <!-- Batería -->
+          <div class="metric-box">
+            <div class="metric-top">
+              <span class="metric-label">Voltaje Batería</span>
+              <span class="metric-unit" id="node-2-batt-pct">--%</span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="metric-num" id="node-2-batt">--</span>
+              <span class="metric-unit-tag">V</span>
+            </div>
+            <div class="metric-progress-bar">
+              <div class="metric-fill fill-batt" id="node-2-batt-bar" style="width: 75%;"></div>
+            </div>
+          </div>
+
+          <!-- Señal RF (RSSI / SNR) -->
+          <div class="metric-box">
+            <div class="metric-top">
+              <span class="metric-label">Enlace RF (RSSI / SNR)</span>
+              <span class="metric-tag" id="node-2-rf-quality">Atenuado</span>
+            </div>
+            <div class="rf-values-row">
+              <div>
+                <span class="rf-sublabel">RSSI:</span>
+                <span class="rf-val" id="node-2-rssi">-- dBm</span>
+              </div>
+              <div>
+                <span class="rf-sublabel">SNR:</span>
+                <span class="rf-val" id="node-2-snr">-- dB</span>
+              </div>
+            </div>
+            <div class="metric-progress-bar">
+              <div class="metric-fill fill-rf" id="node-2-rf-bar" style="width: 55%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="node-footer">
+          <div class="footer-meta">
+            <span>Secuencia: <strong id="node-2-seq">#0</strong></span>
+            <span>•</span>
+            <span>Última trama: <strong id="node-2-last-seen">Hace -- s</strong></span>
+          </div>
+          <div class="delta-indicator" id="node-2-delta-status">
+            Δt ≤ 3·T (Conforme)
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Gráficas de Telemetría y Propagación -->
+    <section class="charts-section">
+      <div class="chart-card">
+        <div class="chart-header">
+          <div>
+            <h3 class="chart-title">Evolución de Temperatura y Humedad</h3>
+            <p class="chart-desc">Monitoreo ambiental comparativo de los nodos sensores</p>
+          </div>
+          <div class="chart-legend-badge">Canal Telemetría</div>
+        </div>
+        <div class="chart-container">
+          <canvas id="chart-telemetry"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-header">
+          <div>
+            <h3 class="chart-title">Atenuación de RF: RSSI y SNR (LOS vs NLOS)</h3>
+            <p class="chart-desc">Comportamiento del canal de radio en AU915 (Fundamento Ec. 4.7 Log-Distance)</p>
+          </div>
+          <div class="chart-legend-badge">Métricas Canal</div>
+        </div>
+        <div class="chart-container">
+          <canvas id="chart-rf"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabla Histórica de Telemetría Reciente -->
+    <section class="table-section">
+      <div class="table-header-row">
+        <div>
+          <h3 class="table-title">Registro Histórico de Tramas Recibidas (Últimos Eventos)</h3>
+          <p class="table-desc">Registro para cálculo de Packet Loss (RQS1) y Disponibilidad (RQS3)</p>
+        </div>
+        <span class="records-counter" id="records-count">0 registros</span>
+      </div>
+
+      <div class="table-wrapper">
+        <table id="telemetry-table">
+          <thead>
+            <tr>
+              <th scope="col">Marca Temporal</th>
+              <th scope="col">Nodo</th>
+              <th scope="col">Condición</th>
+              <th scope="col">Secuencia</th>
+              <th scope="col">Temperatura</th>
+              <th scope="col">Humedad</th>
+              <th scope="col">Batería</th>
+              <th scope="col">RSSI</th>
+              <th scope="col">SNR</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+          <tbody id="telemetry-tbody">
+            <!-- Filas inyectadas dinámicamente -->
+            <tr class="empty-row">
+              <td colspan="10" style="text-align: center; color: var(--text-muted); padding: 2rem;">
+                Esperando datos de enlace LoRaWAN o simulación...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de Configuración de Conexión MQTT -->
+  <dialog id="settings-modal" class="modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Configuración del Broker MQTT</h3>
+        <button type="button" class="btn-close" id="btn-close-modal" aria-label="Cerrar modal">&times;</button>
+      </div>
+      <form id="form-mqtt-settings" class="modal-body">
+        <p class="modal-intro">
+          Configura la conexión WebSocket al Broker MQTT (Mosquitto o ChirpStack) para recibir datos en vivo desde el puente serial o el gateway.
+        </p>
+
+        <div class="form-group">
+          <label for="input-mqtt-host">Host / Dirección IP:</label>
+          <input type="text" id="input-mqtt-host" class="form-input" value="localhost" placeholder="ej: localhost o 192.168.1.100" required>
+        </div>
+
+        <div class="form-group">
+          <label for="input-mqtt-port">Puerto WebSocket MQTT:</label>
+          <input type="number" id="input-mqtt-port" class="form-input" value="9001" placeholder="ej: 9001 para WebSockets" required>
+          <small class="form-hint">Asegúrate de que tu Mosquitto tenga un listener en protocolo `websockets` (típicamente puerto 9001).</small>
+        </div>
+
+        <div class="form-group">
+          <label for="input-mqtt-topic">Tópico de Suscripción:</label>
+          <input type="text" id="input-mqtt-topic" class="form-input" value="uct/campus/lora/uplink/#" required>
+          <small class="form-hint">O el de ChirpStack: `application/+/device/+/event/up`</small>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="btn-cancel-settings">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-settings">Conectar MQTT</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Pie de Página -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>Prototipo de Red LoRaWAN Intra-Campus • Universidad Católica de Temuco (2026)</p>
+      <p>Profesor Guía: <strong>Prof. Mario Villanueva</strong> • Tesista: <strong>Eduardo Remigio Mariqueo Porma</strong></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
