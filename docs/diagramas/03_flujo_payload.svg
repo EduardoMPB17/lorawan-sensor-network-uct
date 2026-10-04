@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 690" width="100%" height="100%" font-family="Arial, Helvetica, sans-serif" style="background:#ffffff;">
+  <!-- ENCABEZADO FORMAL DEL DIAGRAMA -->
+  <g transform="translate(40, 24)">
+    <text font-family="Arial, Helvetica, sans-serif" x="0" y="16" fill="#0f172a" font-size="16" font-weight="bold">Estructura del Payload Binario y Trazabilidad de Transformaciones</text>
+  </g>
+
+  <!-- SECCIÓN A -->
+  <rect x="40" y="65" width="1180" height="185" rx="3" fill="#f8fafc" stroke="none"/>
+  <path d="M 40 65 L 47 65 M 51 65 L 58 65 M 62 65 L 69 65 M 73 65 L 80 65 M 84 65 L 91 65 M 95 65 L 102 65 M 106 65 L 113 65 M 117 65 L 124 65 M 128 65 L 135 65 M 139 65 L 146 65 M 150 65 L 157 65 M 161 65 L 168 65 M 172 65 L 179 65 M 183 65 L 190 65 M 194 65 L 201 65 M 205 65 L 212 65 M 216 65 L 223 65 M 227 65 L 234 65 M 238 65 L 245 65 M 249 65 L 256 65 M 260 65 L 267 65 M 271 65 L 278 65 M 282 65 L 289 65 M 293 65 L 300 65 M 304 65 L 311 65 M 315 65 L 322 65 M 326 65 L 333 65 M 337 65 L 344 65 M 348 65 L 355 65 M 359 65 L 366 65 M 370 65 L 377 65 M 381 65 L 388 65 M 392 65 L 399 65 M 403 65 L 410 65 M 414 65 L 421 65 M 425 65 L 432 65 M 436 65 L 443 65 M 447 65 L 454 65 M 458 65 L 465 65 M 469 65 L 476 65 M 480 65 L 487 65 M 491 65 L 498 65 M 502 65 L 509 65 M 513 65 L 520 65 M 524 65 L 531 65 M 535 65 L 542 65 M 546 65 L 553 65 M 557 65 L 564 65 M 568 65 L 575 65 M 579 65 L 586 65 M 590 65 L 597 65 M 601 65 L 608 65 M 612 65 L 619 65 M 623 65 L 630 65 M 634 65 L 641 65 M 645 65 L 652 65 M 656 65 L 663 65 M 667 65 L 674 65 M 678 65 L 685 65 M 689 65 L 696 65 M 700 65 L 707 65 M 711 65 L 718 65 M 722 65 L 729 65 M 733 65 L 740 65 M 744 65 L 751 65 M 755 65 L 762 65 M 766 65 L 773 65 M 777 65 L 784 65 M 788 65 L 795 65 M 799 65 L 806 65 M 810 65 L 817 65 M 821 65 L 828 65 M 832 65 L 839 65 M 843 65 L 850 65 M 854 65 L 861 65 M 865 65 L 872 65 M 876 65 L 883 65 M 887 65 L 894 65 M 898 65 L 905 65 M 909 65 L 916 65 M 920 65 L 927 65 M 931 65 L 938 65 M 942 65 L 949 65 M 953 65 L 960 65 M 964 65 L 971 65 M 975 65 L 982 65 M 986 65 L 993 65 M 997 65 L 1004 65 M 1008 65 L 1015 65 M 1019 65 L 1026 65 M 1030 65 L 1037 65 M 1041 65 L 1048 65 M 1052 65 L 1059 65 M 1063 65 L 1070 65 M 1074 65 L 1081 65 M 1085 65 L 1092 65 M 1096 65 L 1103 65 M 1107 65 L 1114 65 M 1118 65 L 1125 65 M 1129 65 L 1136 65 M 1140 65 L 1147 65 M 1151 65 L 1158 65 M 1162 65 L 1169 65 M 1173 65 L 1180 65 M 1184 65 L 1191 65 M 1195 65 L 1202 65 M 1206 65 L 1213 65 M 1217 65 L 1220 65 M 1220 65 L 1220 72 M 1220 76 L 1220 83 M 1220 87 L 1220 94 M 1220 98 L 1220 105 M 1220 109 L 1220 116 M 1220 120 L 1220 127 M 1220 131 L 1220 138 M 1220 142 L 1220 149 M 1220 153 L 1220 160 M 1220 164 L 1220 171 M 1220 175 L 1220 182 M 1220 186 L 1220 193 M 1220 197 L 1220 204 M 1220 208 L 1220 215 M 1220 219 L 1220 226 M 1220 230 L 1220 237 M 1220 241 L 1220 248 M 1220 250 L 1213 250 M 1209 250 L 1202 250 M 1198 250 L 1191 250 M 1187 250 L 1180 250 M 1176 250 L 1169 250 M 1165 250 L 1158 250 M 1154 250 L 1147 250 M 1143 250 L 1136 250 M 1132 250 L 1125 250 M 1121 250 L 1114 250 M 1110 250 L 1103 250 M 1099 250 L 1092 250 M 1088 250 L 1081 250 M 1077 250 L 1070 250 M 1066 250 L 1059 250 M 1055 250 L 1048 250 M 1044 250 L 1037 250 M 1033 250 L 1026 250 M 1022 250 L 1015 250 M 1011 250 L 1004 250 M 1000 250 L 993 250 M 989 250 L 982 250 M 978 250 L 971 250 M 967 250 L 960 250 M 956 250 L 949 250 M 945 250 L 938 250 M 934 250 L 927 250 M 923 250 L 916 250 M 912 250 L 905 250 M 901 250 L 894 250 M 890 250 L 883 250 M 879 250 L 872 250 M 868 250 L 861 250 M 857 250 L 850 250 M 846 250 L 839 250 M 835 250 L 828 250 M 824 250 L 817 250 M 813 250 L 806 250 M 802 250 L 795 250 M 791 250 L 784 250 M 780 250 L 773 250 M 769 250 L 762 250 M 758 250 L 751 250 M 747 250 L 740 250 M 736 250 L 729 250 M 725 250 L 718 250 M 714 250 L 707 250 M 703 250 L 696 250 M 692 250 L 685 250 M 681 250 L 674 250 M 670 250 L 663 250 M 659 250 L 652 250 M 648 250 L 641 250 M 637 250 L 630 250 M 626 250 L 619 250 M 615 250 L 608 250 M 604 250 L 597 250 M 593 250 L 586 250 M 582 250 L 575 250 M 571 250 L 564 250 M 560 250 L 553 250 M 549 250 L 542 250 M 538 250 L 531 250 M 527 250 L 520 250 M 516 250 L 509 250 M 505 250 L 498 250 M 494 250 L 487 250 M 483 250 L 476 250 M 472 250 L 465 250 M 461 250 L 454 250 M 450 250 L 443 250 M 439 250 L 432 250 M 428 250 L 421 250 M 417 250 L 410 250 M 406 250 L 399 250 M 395 250 L 388 250 M 384 250 L 377 250 M 373 250 L 366 250 M 362 250 L 355 250 M 351 250 L 344 250 M 340 250 L 333 250 M 329 250 L 322 250 M 318 250 L 311 250 M 307 250 L 300 250 M 296 250 L 289 250 M 285 250 L 278 250 M 274 250 L 267 250 M 263 250 L 256 250 M 252 250 L 245 250 M 241 250 L 234 250 M 230 250 L 223 250 M 219 250 L 212 250 M 208 250 L 201 250 M 197 250 L 190 250 M 186 250 L 179 250 M 175 250 L 168 250 M 164 250 L 157 250 M 153 250 L 146 250 M 142 250 L 135 250 M 131 250 L 124 250 M 120 250 L 113 250 M 109 250 L 102 250 M 98 250 L 91 250 M 87 250 L 80 250 M 76 250 L 69 250 M 65 250 L 58 250 M 54 250 L 47 250 M 43 250 L 40 250 M 40 250 L 40 243 M 40 239 L 40 232 M 40 228 L 40 221 M 40 217 L 40 210 M 40 206 L 40 199 M 40 195 L 40 188 M 40 184 L 40 177 M 40 173 L 40 166 M 40 162 L 40 155 M 40 151 L 40 144 M 40 140 L 40 133 M 40 129 L 40 122 M 40 118 L 40 111 M 40 107 L 40 100 M 40 96 L 40 89 M 40 85 L 40 78 M 40 74 L 40 67" stroke="#475569" stroke-width="1.2" fill="none"/>
+  <g transform="translate(40, 65)">
+    <text font-family="Arial, Helvetica, sans-serif" x="16" y="22" fill="#0f172a" font-size="10" font-weight="bold" letter-spacing="0.5">A. ESTRUCTURA EN MEMORIA DEL PAYLOAD BINARIO (10 BYTES — FORMATO BIG-ENDIAN)</text>
+
+    <!-- Byte 0 -->
+    <g transform="translate(18, 38)">
+      <rect width="216" height="130" rx="3" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+      <rect width="216" height="24" rx="3" fill="#f1f5f9" stroke="#1e293b" stroke-width="1.3"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="108" y="16" fill="#0f172a" font-size="9.5" font-weight="bold" text-anchor="middle">BYTE 0 (1 Byte)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="44" fill="#0f172a" font-size="10" font-weight="bold">Node ID</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="60" fill="#475569" font-size="8.5">Tipo: uint8_t (1 – 255)</text>
+      <line x1="12" y1="70" x2="204" y2="70" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="86" fill="#334155" font-size="8.5">Valor Hex: <tspan font-family="Courier, monospace" font-weight="bold" fill="#0f172a">0x01</tspan></text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="104" fill="#334155" font-size="8.5">Valor Físico: Nodo 1</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="118" fill="#475569" font-size="8">(Línea de vista exterior)</text>
+    </g>
+
+    <!-- Bytes 1-4 -->
+    <g transform="translate(254, 38)">
+      <rect width="216" height="130" rx="3" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+      <rect width="216" height="24" rx="3" fill="#f1f5f9" stroke="#1e293b" stroke-width="1.3"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="108" y="16" fill="#0f172a" font-size="9.5" font-weight="bold" text-anchor="middle">BYTES 1–4 (4 Bytes)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="44" fill="#0f172a" font-size="10" font-weight="bold">Número de Secuencia</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="60" fill="#475569" font-size="8.5">Tipo: uint32_t (Big-Endian)</text>
+      <line x1="12" y1="70" x2="204" y2="70" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="86" fill="#334155" font-size="8.5">Valor Hex: <tspan font-family="Courier, monospace" font-weight="bold" fill="#0f172a">00 00 00 2A</tspan></text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="104" fill="#334155" font-size="8.5">Valor Físico: Trama #42</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="118" fill="#475569" font-size="8">(Cálculo de Packet Loss)</text>
+    </g>
+
+    <!-- Bytes 5-6 -->
+    <g transform="translate(490, 38)">
+      <rect width="216" height="130" rx="3" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+      <rect width="216" height="24" rx="3" fill="#f1f5f9" stroke="#1e293b" stroke-width="1.3"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="108" y="16" fill="#0f172a" font-size="9.5" font-weight="bold" text-anchor="middle">BYTES 5–6 (2 Bytes)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="44" fill="#0f172a" font-size="10" font-weight="bold">Temperatura × 100</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="60" fill="#475569" font-size="8.5">Tipo: int16_t (con signo)</text>
+      <line x1="12" y1="70" x2="204" y2="70" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="86" fill="#334155" font-size="8.5">Valor Hex: <tspan font-family="Courier, monospace" font-weight="bold" fill="#0f172a">0x07 0x3A</tspan></text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="104" fill="#334155" font-size="8.5">Fórmula: 1850 / 100.0</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="118" fill="#0f172a" font-size="8.5" font-weight="bold">= 18.50 °C</text>
+    </g>
+
+    <!-- Bytes 7-8 -->
+    <g transform="translate(726, 38)">
+      <rect width="216" height="130" rx="3" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+      <rect width="216" height="24" rx="3" fill="#f1f5f9" stroke="#1e293b" stroke-width="1.3"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="108" y="16" fill="#0f172a" font-size="9.5" font-weight="bold" text-anchor="middle">BYTES 7–8 (2 Bytes)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="44" fill="#0f172a" font-size="10" font-weight="bold">Humedad × 100</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="60" fill="#475569" font-size="8.5">Tipo: uint16_t (sin signo)</text>
+      <line x1="12" y1="70" x2="204" y2="70" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="86" fill="#334155" font-size="8.5">Valor Hex: <tspan font-family="Courier, monospace" font-weight="bold" fill="#0f172a">0x18 0x38</tspan></text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="104" fill="#334155" font-size="8.5">Fórmula: 6200 / 100.0</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="118" fill="#0f172a" font-size="8.5" font-weight="bold">= 62.00 % RH</text>
+    </g>
+
+    <!-- Byte 9 -->
+    <g transform="translate(962, 38)">
+      <rect width="200" height="130" rx="3" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+      <rect width="200" height="24" rx="3" fill="#f1f5f9" stroke="#1e293b" stroke-width="1.3"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="100" y="16" fill="#0f172a" font-size="9.5" font-weight="bold" text-anchor="middle">BYTE 9 (1 Byte)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="44" fill="#0f172a" font-size="10" font-weight="bold">Batería Escalada</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="60" fill="#475569" font-size="8.5">Tipo: uint8_t (0 – 255)</text>
+      <line x1="12" y1="70" x2="188" y2="70" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="86" fill="#334155" font-size="8.5">Valor Hex: <tspan font-family="Courier, monospace" font-weight="bold" fill="#0f172a">0xBC (188)</tspan></text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="104" fill="#334155" font-size="8.5">Fórmula: 2.0 + 188/100</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="12" y="118" fill="#0f172a" font-size="8.5" font-weight="bold">= 3.88 V LiPo</text>
+    </g>
+  </g>
+
+  <!-- SECCIÓN B -->
+  <rect x="40" y="275" width="1180" height="365" rx="3" fill="#f8fafc" stroke="none"/>
+  <path d="M 40 275 L 47 275 M 51 275 L 58 275 M 62 275 L 69 275 M 73 275 L 80 275 M 84 275 L 91 275 M 95 275 L 102 275 M 106 275 L 113 275 M 117 275 L 124 275 M 128 275 L 135 275 M 139 275 L 146 275 M 150 275 L 157 275 M 161 275 L 168 275 M 172 275 L 179 275 M 183 275 L 190 275 M 194 275 L 201 275 M 205 275 L 212 275 M 216 275 L 223 275 M 227 275 L 234 275 M 238 275 L 245 275 M 249 275 L 256 275 M 260 275 L 267 275 M 271 275 L 278 275 M 282 275 L 289 275 M 293 275 L 300 275 M 304 275 L 311 275 M 315 275 L 322 275 M 326 275 L 333 275 M 337 275 L 344 275 M 348 275 L 355 275 M 359 275 L 366 275 M 370 275 L 377 275 M 381 275 L 388 275 M 392 275 L 399 275 M 403 275 L 410 275 M 414 275 L 421 275 M 425 275 L 432 275 M 436 275 L 443 275 M 447 275 L 454 275 M 458 275 L 465 275 M 469 275 L 476 275 M 480 275 L 487 275 M 491 275 L 498 275 M 502 275 L 509 275 M 513 275 L 520 275 M 524 275 L 531 275 M 535 275 L 542 275 M 546 275 L 553 275 M 557 275 L 564 275 M 568 275 L 575 275 M 579 275 L 586 275 M 590 275 L 597 275 M 601 275 L 608 275 M 612 275 L 619 275 M 623 275 L 630 275 M 634 275 L 641 275 M 645 275 L 652 275 M 656 275 L 663 275 M 667 275 L 674 275 M 678 275 L 685 275 M 689 275 L 696 275 M 700 275 L 707 275 M 711 275 L 718 275 M 722 275 L 729 275 M 733 275 L 740 275 M 744 275 L 751 275 M 755 275 L 762 275 M 766 275 L 773 275 M 777 275 L 784 275 M 788 275 L 795 275 M 799 275 L 806 275 M 810 275 L 817 275 M 821 275 L 828 275 M 832 275 L 839 275 M 843 275 L 850 275 M 854 275 L 861 275 M 865 275 L 872 275 M 876 275 L 883 275 M 887 275 L 894 275 M 898 275 L 905 275 M 909 275 L 916 275 M 920 275 L 927 275 M 931 275 L 938 275 M 942 275 L 949 275 M 953 275 L 960 275 M 964 275 L 971 275 M 975 275 L 982 275 M 986 275 L 993 275 M 997 275 L 1004 275 M 1008 275 L 1015 275 M 1019 275 L 1026 275 M 1030 275 L 1037 275 M 1041 275 L 1048 275 M 1052 275 L 1059 275 M 1063 275 L 1070 275 M 1074 275 L 1081 275 M 1085 275 L 1092 275 M 1096 275 L 1103 275 M 1107 275 L 1114 275 M 1118 275 L 1125 275 M 1129 275 L 1136 275 M 1140 275 L 1147 275 M 1151 275 L 1158 275 M 1162 275 L 1169 275 M 1173 275 L 1180 275 M 1184 275 L 1191 275 M 1195 275 L 1202 275 M 1206 275 L 1213 275 M 1217 275 L 1220 275 M 1220 275 L 1220 282 M 1220 286 L 1220 293 M 1220 297 L 1220 304 M 1220 308 L 1220 315 M 1220 319 L 1220 326 M 1220 330 L 1220 337 M 1220 341 L 1220 348 M 1220 352 L 1220 359 M 1220 363 L 1220 370 M 1220 374 L 1220 381 M 1220 385 L 1220 392 M 1220 396 L 1220 403 M 1220 407 L 1220 414 M 1220 418 L 1220 425 M 1220 429 L 1220 436 M 1220 440 L 1220 447 M 1220 451 L 1220 458 M 1220 462 L 1220 469 M 1220 473 L 1220 480 M 1220 484 L 1220 491 M 1220 495 L 1220 502 M 1220 506 L 1220 513 M 1220 517 L 1220 524 M 1220 528 L 1220 535 M 1220 539 L 1220 546 M 1220 550 L 1220 557 M 1220 561 L 1220 568 M 1220 572 L 1220 579 M 1220 583 L 1220 590 M 1220 594 L 1220 601 M 1220 605 L 1220 612 M 1220 616 L 1220 623 M 1220 627 L 1220 634 M 1220 638 L 1220 640 M 1220 640 L 1213 640 M 1209 640 L 1202 640 M 1198 640 L 1191 640 M 1187 640 L 1180 640 M 1176 640 L 1169 640 M 1165 640 L 1158 640 M 1154 640 L 1147 640 M 1143 640 L 1136 640 M 1132 640 L 1125 640 M 1121 640 L 1114 640 M 1110 640 L 1103 640 M 1099 640 L 1092 640 M 1088 640 L 1081 640 M 1077 640 L 1070 640 M 1066 640 L 1059 640 M 1055 640 L 1048 640 M 1044 640 L 1037 640 M 1033 640 L 1026 640 M 1022 640 L 1015 640 M 1011 640 L 1004 640 M 1000 640 L 993 640 M 989 640 L 982 640 M 978 640 L 971 640 M 967 640 L 960 640 M 956 640 L 949 640 M 945 640 L 938 640 M 934 640 L 927 640 M 923 640 L 916 640 M 912 640 L 905 640 M 901 640 L 894 640 M 890 640 L 883 640 M 879 640 L 872 640 M 868 640 L 861 640 M 857 640 L 850 640 M 846 640 L 839 640 M 835 640 L 828 640 M 824 640 L 817 640 M 813 640 L 806 640 M 802 640 L 795 640 M 791 640 L 784 640 M 780 640 L 773 640 M 769 640 L 762 640 M 758 640 L 751 640 M 747 640 L 740 640 M 736 640 L 729 640 M 725 640 L 718 640 M 714 640 L 707 640 M 703 640 L 696 640 M 692 640 L 685 640 M 681 640 L 674 640 M 670 640 L 663 640 M 659 640 L 652 640 M 648 640 L 641 640 M 637 640 L 630 640 M 626 640 L 619 640 M 615 640 L 608 640 M 604 640 L 597 640 M 593 640 L 586 640 M 582 640 L 575 640 M 571 640 L 564 640 M 560 640 L 553 640 M 549 640 L 542 640 M 538 640 L 531 640 M 527 640 L 520 640 M 516 640 L 509 640 M 505 640 L 498 640 M 494 640 L 487 640 M 483 640 L 476 640 M 472 640 L 465 640 M 461 640 L 454 640 M 450 640 L 443 640 M 439 640 L 432 640 M 428 640 L 421 640 M 417 640 L 410 640 M 406 640 L 399 640 M 395 640 L 388 640 M 384 640 L 377 640 M 373 640 L 366 640 M 362 640 L 355 640 M 351 640 L 344 640 M 340 640 L 333 640 M 329 640 L 322 640 M 318 640 L 311 640 M 307 640 L 300 640 M 296 640 L 289 640 M 285 640 L 278 640 M 274 640 L 267 640 M 263 640 L 256 640 M 252 640 L 245 640 M 241 640 L 234 640 M 230 640 L 223 640 M 219 640 L 212 640 M 208 640 L 201 640 M 197 640 L 190 640 M 186 640 L 179 640 M 175 640 L 168 640 M 164 640 L 157 640 M 153 640 L 146 640 M 142 640 L 135 640 M 131 640 L 124 640 M 120 640 L 113 640 M 109 640 L 102 640 M 98 640 L 91 640 M 87 640 L 80 640 M 76 640 L 69 640 M 65 640 L 58 640 M 54 640 L 47 640 M 43 640 L 40 640 M 40 640 L 40 633 M 40 629 L 40 622 M 40 618 L 40 611 M 40 607 L 40 600 M 40 596 L 40 589 M 40 585 L 40 578 M 40 574 L 40 567 M 40 563 L 40 556 M 40 552 L 40 545 M 40 541 L 40 534 M 40 530 L 40 523 M 40 519 L 40 512 M 40 508 L 40 501 M 40 497 L 40 490 M 40 486 L 40 479 M 40 475 L 40 468 M 40 464 L 40 457 M 40 453 L 40 446 M 40 442 L 40 435 M 40 431 L 40 424 M 40 420 L 40 413 M 40 409 L 40 402 M 40 398 L 40 391 M 40 387 L 40 380 M 40 376 L 40 369 M 40 365 L 40 358 M 40 354 L 40 347 M 40 343 L 40 336 M 40 332 L 40 325 M 40 321 L 40 314 M 40 310 L 40 303 M 40 299 L 40 292 M 40 288 L 40 281 M 40 277 L 40 275" stroke="#475569" stroke-width="1.2" fill="none"/>
+  <g transform="translate(40, 275)">
+    <text font-family="Arial, Helvetica, sans-serif" x="16" y="22" fill="#0f172a" font-size="10" font-weight="bold" letter-spacing="0.5">B. PIPELINE DE TRANSFORMACIÓN DEL DATO A TRAVÉS DE LA PILA DE PROTOCOLOS</text>
+
+    <!-- 1. Firmware Nodo -->
+    <g transform="translate(18, 40)">
+      <rect width="205" height="305" rx="3" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+      <rect width="205" height="28" rx="3" fill="#f1f5f9" stroke="#1e293b" stroke-width="1.3"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="102" y="19" fill="#0f172a" font-size="9.5" font-weight="bold" text-anchor="middle">1. Firmware Nodo (C++)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="48" fill="#0f172a" font-size="8.5" font-weight="bold">Muestreo y Escala:</text>
+      <text font-family="Courier, monospace" x="10" y="63" fill="#475569" font-size="7.5">temp = 18.50;</text>
+      <text font-family="Courier, monospace" x="10" y="75" fill="#475569" font-size="7.5">hum  = 62.00;</text>
+      <text font-family="Courier, monospace" x="10" y="87" fill="#475569" font-size="7.5">vbat = 3.88;</text>
+      <text font-family="Courier, monospace" x="10" y="99" fill="#475569" font-size="7.5">seq  = 42;</text>
+      <line x1="8" y1="108" x2="197" y2="108" stroke="#e2e8f0" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="123" fill="#0f172a" font-size="8.5" font-weight="bold">Codificación encodePayload():</text>
+      <text font-family="Courier, monospace" x="10" y="137" fill="#334155" font-size="7.5">buf[0]   = 0x01;</text>
+      <text font-family="Courier, monospace" x="10" y="149" fill="#334155" font-size="7.5">buf[1..4]= seq_be;</text>
+      <text font-family="Courier, monospace" x="10" y="161" fill="#334155" font-size="7.5">buf[5..6]= 1850;</text>
+      <text font-family="Courier, monospace" x="10" y="173" fill="#334155" font-size="7.5">buf[7..8]= 6200;</text>
+      <text font-family="Courier, monospace" x="10" y="185" fill="#334155" font-size="7.5">buf[9]   = 188;</text>
+      <line x1="8" y1="194" x2="197" y2="194" stroke="#e2e8f0" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="209" fill="#0f172a" font-size="8.5" font-weight="bold">Salida Buffer (10 bytes):</text>
+      <rect x="8" y="217" width="189" height="34" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text font-family="Courier, monospace" x="102" y="231" fill="#0f172a" font-size="7.5" font-weight="bold" text-anchor="middle">01 00 00 00 2A</text>
+      <text font-family="Courier, monospace" x="102" y="244" fill="#0f172a" font-size="7.5" font-weight="bold" text-anchor="middle">07 3A 18 38 BC</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="102" y="280" fill="#475569" font-size="7.5" text-anchor="middle">Cero sobrecarga JSON</text>
+    </g>
+
+    <!-- 2. Capa MAC LoRaWAN -->
+    <g transform="translate(257, 40)">
+      <rect width="205" height="305" rx="3" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+      <rect width="205" height="28" rx="3" fill="#f1f5f9" stroke="#1e293b" stroke-width="1.3"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="102" y="19" fill="#0f172a" font-size="9.5" font-weight="bold" text-anchor="middle">2. Capa MAC LoRaWAN</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="48" fill="#0f172a" font-size="8.5" font-weight="bold">Trama PHY (23 bytes):</text>
+      <rect x="8" y="56" width="189" height="118" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="14" y="72" fill="#0f172a" font-size="7.8" font-weight="bold">• MHDR (1 byte)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="14" y="87" fill="#0f172a" font-size="7.8" font-weight="bold">• FHDR (7 bytes):</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="24" y="100" fill="#475569" font-size="7.2">DevAddr, FCnt, FCtrl</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="14" y="115" fill="#0f172a" font-size="7.8" font-weight="bold">• FPort = 1 (1 byte)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="14" y="130" fill="#0f172a" font-size="7.8" font-weight="bold">• FRMPayload (10B cifrado)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="24" y="143" fill="#475569" font-size="7.2">Cifrado AES-128 (AppSKey)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="14" y="158" fill="#0f172a" font-size="7.8" font-weight="bold">• MIC (4 bytes verif.)</text>
+      <line x1="8" y1="184" x2="197" y2="184" stroke="#e2e8f0" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="200" fill="#0f172a" font-size="8.5" font-weight="bold">Transmisión LoRa:</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="215" fill="#334155" font-size="8">AU915 Sub-banda 2 (Ch 8-15)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="229" fill="#334155" font-size="8">SF7 / BW 125 kHz / 14 dBm</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="244" fill="#0f172a" font-size="8" font-weight="bold">Time-on-Air (ToA) = 46.3 ms</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="102" y="280" fill="#475569" font-size="7.5" text-anchor="middle">Gateway reenvía UDP/IP</text>
+    </g>
+
+    <!-- 3. ChirpStack v4 -->
+    <g transform="translate(496, 40)">
+      <rect width="205" height="305" rx="3" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+      <rect width="205" height="28" rx="3" fill="#f1f5f9" stroke="#1e293b" stroke-width="1.3"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="102" y="19" fill="#0f172a" font-size="9.5" font-weight="bold" text-anchor="middle">3. ChirpStack v4 (Codec JS)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="48" fill="#0f172a" font-size="8.5" font-weight="bold">Procesamiento LoRaWAN:</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="63" fill="#334155" font-size="8">• Deduplicación de tramas</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="77" fill="#334155" font-size="8">• Verificación MIC con NwkSKey</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="91" fill="#0f172a" font-size="8" font-weight="bold">• Descifrado AES con AppSKey</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="112" fill="#0f172a" font-size="8.5" font-weight="bold">Ejecución decoder.js:</text>
+      <rect x="8" y="120" width="189" height="135" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text font-family="Courier, monospace" x="12" y="135" fill="#0f172a" font-size="7.5">decodeUplink(input) {</text>
+      <text font-family="Courier, monospace" x="18" y="148" fill="#334155" font-size="7.2">return { data: {</text>
+      <text font-family="Courier, monospace" x="24" y="160" fill="#334155" font-size="7.2">node_id: bytes[0],</text>
+      <text font-family="Courier, monospace" x="24" y="172" fill="#334155" font-size="7.2">sequence: seq,</text>
+      <text font-family="Courier, monospace" x="24" y="184" fill="#334155" font-size="7.2">temperature: 18.5,</text>
+      <text font-family="Courier, monospace" x="24" y="196" fill="#334155" font-size="7.2">humidity: 62.0,</text>
+      <text font-family="Courier, monospace" x="24" y="208" fill="#334155" font-size="7.2">battery_voltage: 3.88</text>
+      <text font-family="Courier, monospace" x="18" y="221" fill="#334155" font-size="7.2">}};</text>
+      <text font-family="Courier, monospace" x="12" y="234" fill="#0f172a" font-size="7.5">}</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="102" y="272" fill="#0f172a" font-size="7.5" font-weight="bold" text-anchor="middle">Objeto JSON tipado emitido</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="102" y="288" fill="#475569" font-size="7.5" text-anchor="middle">Entrega a capa de transporte</text>
+    </g>
+
+    <!-- 4. Broker MQTT -->
+    <g transform="translate(735, 40)">
+      <rect width="205" height="305" rx="3" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+      <rect width="205" height="28" rx="3" fill="#f1f5f9" stroke="#1e293b" stroke-width="1.3"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="102" y="19" fill="#0f172a" font-size="9.5" font-weight="bold" text-anchor="middle">4. Broker MQTT</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="48" fill="#0f172a" font-size="8.5" font-weight="bold">Tópico Publicado:</text>
+      <rect x="8" y="56" width="189" height="54" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text font-family="Courier, monospace" x="14" y="73" fill="#0f172a" font-size="7.5">application/{id}/</text>
+      <text font-family="Courier, monospace" x="14" y="87" fill="#0f172a" font-size="7.5">device/{devEUI}/</text>
+      <text font-family="Courier, monospace" x="14" y="101" fill="#0f172a" font-size="7.5" font-weight="bold">event/up</text>
+      <line x1="8" y1="120" x2="197" y2="120" stroke="#e2e8f0" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="136" fill="#0f172a" font-size="8.5" font-weight="bold">Metadata RF Adjunta:</text>
+      <rect x="8" y="144" width="189" height="70" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text font-family="Courier, monospace" x="14" y="161" fill="#334155" font-size="7.5">"rssi": -85,</text>
+      <text font-family="Courier, monospace" x="14" y="174" fill="#334155" font-size="7.5">"snr": 8.5,</text>
+      <text font-family="Courier, monospace" x="14" y="187" fill="#334155" font-size="7.5">"channel": 8,</text>
+      <text font-family="Courier, monospace" x="14" y="200" fill="#334155" font-size="7.5">"fCnt": 42</text>
+      <line x1="8" y1="224" x2="197" y2="224" stroke="#e2e8f0" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="240" fill="#0f172a" font-size="8.5" font-weight="bold">Distribución IP:</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="255" fill="#334155" font-size="8">• Puerto TCP: 1883</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="269" fill="#334155" font-size="8">• WebSockets: 9001 (ws://)</text>
+    </g>
+
+    <!-- 5. Dashboard Web -->
+    <g transform="translate(974, 40)">
+      <rect width="188" height="305" rx="3" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+      <rect width="188" height="28" rx="3" fill="#f1f5f9" stroke="#1e293b" stroke-width="1.3"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="94" y="19" fill="#0f172a" font-size="9.5" font-weight="bold" text-anchor="middle">5. Dashboard Web</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="48" fill="#0f172a" font-size="8.5" font-weight="bold">Cliente Paho MQTT:</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="63" fill="#334155" font-size="8">Suscripción WebSocket (ws://)</text>
+      <line x1="8" y1="74" x2="180" y2="74" stroke="#e2e8f0" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="90" fill="#0f172a" font-size="8.5" font-weight="bold">Visualización en UI:</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="105" fill="#334155" font-size="8">• Tarjetas Nodo 1 y Nodo 2</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="119" fill="#334155" font-size="8">• Gráficas Temp / Hum</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="133" fill="#334155" font-size="8">• Gráficas Batería / RSSI</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="147" fill="#334155" font-size="8">• Fila Tabla Histórica</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="161" fill="#334155" font-size="8">• Exportación CSV</text>
+      <line x1="8" y1="172" x2="180" y2="172" stroke="#e2e8f0" stroke-width="0.8"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="188" fill="#0f172a" font-size="8.5" font-weight="bold">Cálculo de Métricas:</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="203" fill="#0f172a" font-size="8" font-weight="bold">• Packet Loss (PL ≤ 10%)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="217" fill="#0f172a" font-size="8" font-weight="bold">• Retardo T_conf (≤ 6 s)</text>
+      <text font-family="Arial, Helvetica, sans-serif" x="10" y="231" fill="#b91c1c" font-size="8" font-weight="bold">• Alerta Caída: Δt &gt; 180 s</text>
+    </g>
+
+    <!-- FLECHAS POLIGONALES VECTORIALES ENTRE BLOQUES -->
+    <line x1="223" y1="192" x2="248" y2="192" stroke="#0f172a" stroke-width="2.0"/>
+    <polygon points="247,186 257,192 247,198" fill="#0f172a"/>
+
+    <line x1="462" y1="192" x2="487" y2="192" stroke="#0f172a" stroke-width="2.0"/>
+    <polygon points="486,186 496,192 486,198" fill="#0f172a"/>
+
+    <line x1="701" y1="192" x2="726" y2="192" stroke="#0f172a" stroke-width="2.0"/>
+    <polygon points="725,186 735,192 725,198" fill="#0f172a"/>
+
+    <line x1="940" y1="192" x2="965" y2="192" stroke="#0f172a" stroke-width="2.0"/>
+    <polygon points="964,186 974,192 964,198" fill="#0f172a"/>
+  </g>
+</svg>

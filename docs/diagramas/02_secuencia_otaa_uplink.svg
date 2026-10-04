@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 1150" width="100%" height="100%" font-family="Arial, Helvetica, sans-serif" style="background:#ffffff;">
+  <!-- TÍTULO FORMAL DEL DIAGRAMA -->
+  <g transform="translate(40, 24)">
+    <text font-family="Arial, Helvetica, sans-serif" x="0" y="16" fill="#0f172a" font-size="16" font-weight="bold">Diagrama de Secuencia: Activación OTAA y Ciclos de Transmisión Uplink</text>
+  </g>
+
+  <!-- FONDOS DE LAS 3 FASES -->
+  <rect x="30" y="145" width="1080" height="295" rx="4" fill="#f8fafc" stroke="none"/>
+  <rect x="30" y="465" width="1080" height="315" rx="4" fill="#f8fafc" stroke="none"/>
+  <rect x="30" y="805" width="1080" height="305" rx="4" fill="#f8fafc" stroke="none"/>
+
+  <!-- BORDES PUNTEADOS VECTORIALES DE LAS FASES -->
+  <path d="M 30 145 L 37 145 M 41 145 L 48 145 M 52 145 L 59 145 M 63 145 L 70 145 M 74 145 L 81 145 M 85 145 L 92 145 M 96 145 L 103 145 M 107 145 L 114 145 M 118 145 L 125 145 M 129 145 L 136 145 M 140 145 L 147 145 M 151 145 L 158 145 M 162 145 L 169 145 M 173 145 L 180 145 M 184 145 L 191 145 M 195 145 L 202 145 M 206 145 L 213 145 M 217 145 L 224 145 M 228 145 L 235 145 M 239 145 L 246 145 M 250 145 L 257 145 M 261 145 L 268 145 M 272 145 L 279 145 M 283 145 L 290 145 M 294 145 L 301 145 M 305 145 L 312 145 M 316 145 L 323 145 M 327 145 L 334 145 M 338 145 L 345 145 M 349 145 L 356 145 M 360 145 L 367 145 M 371 145 L 378 145 M 382 145 L 389 145 M 393 145 L 400 145 M 404 145 L 411 145 M 415 145 L 422 145 M 426 145 L 433 145 M 437 145 L 444 145 M 448 145 L 455 145 M 459 145 L 466 145 M 470 145 L 477 145 M 481 145 L 488 145 M 492 145 L 499 145 M 503 145 L 510 145 M 514 145 L 521 145 M 525 145 L 532 145 M 536 145 L 543 145 M 547 145 L 554 145 M 558 145 L 565 145 M 569 145 L 576 145 M 580 145 L 587 145 M 591 145 L 598 145 M 602 145 L 609 145 M 613 145 L 620 145 M 624 145 L 631 145 M 635 145 L 642 145 M 646 145 L 653 145 M 657 145 L 664 145 M 668 145 L 675 145 M 679 145 L 686 145 M 690 145 L 697 145 M 701 145 L 708 145 M 712 145 L 719 145 M 723 145 L 730 145 M 734 145 L 741 145 M 745 145 L 752 145 M 756 145 L 763 145 M 767 145 L 774 145 M 778 145 L 785 145 M 789 145 L 796 145 M 800 145 L 807 145 M 811 145 L 818 145 M 822 145 L 829 145 M 833 145 L 840 145 M 844 145 L 851 145 M 855 145 L 862 145 M 866 145 L 873 145 M 877 145 L 884 145 M 888 145 L 895 145 M 899 145 L 906 145 M 910 145 L 917 145 M 921 145 L 928 145 M 932 145 L 939 145 M 943 145 L 950 145 M 954 145 L 961 145 M 965 145 L 972 145 M 976 145 L 983 145 M 987 145 L 994 145 M 998 145 L 1005 145 M 1009 145 L 1016 145 M 1020 145 L 1027 145 M 1031 145 L 1038 145 M 1042 145 L 1049 145 M 1053 145 L 1060 145 M 1064 145 L 1071 145 M 1075 145 L 1082 145 M 1086 145 L 1093 145 M 1097 145 L 1104 145 M 1108 145 L 1110 145 M 1110 145 L 1110 152 M 1110 156 L 1110 163 M 1110 167 L 1110 174 M 1110 178 L 1110 185 M 1110 189 L 1110 196 M 1110 200 L 1110 207 M 1110 211 L 1110 218 M 1110 222 L 1110 229 M 1110 233 L 1110 240 M 1110 244 L 1110 251 M 1110 255 L 1110 262 M 1110 266 L 1110 273 M 1110 277 L 1110 284 M 1110 288 L 1110 295 M 1110 299 L 1110 306 M 1110 310 L 1110 317 M 1110 321 L 1110 328 M 1110 332 L 1110 339 M 1110 343 L 1110 350 M 1110 354 L 1110 361 M 1110 365 L 1110 372 M 1110 376 L 1110 383 M 1110 387 L 1110 394 M 1110 398 L 1110 405 M 1110 409 L 1110 416 M 1110 420 L 1110 427 M 1110 431 L 1110 438 M 1110 440 L 1103 440 M 1099 440 L 1092 440 M 1088 440 L 1081 440 M 1077 440 L 1070 440 M 1066 440 L 1059 440 M 1055 440 L 1048 440 M 1044 440 L 1037 440 M 1033 440 L 1026 440 M 1022 440 L 1015 440 M 1011 440 L 1004 440 M 1000 440 L 993 440 M 989 440 L 982 440 M 978 440 L 971 440 M 967 440 L 960 440 M 956 440 L 949 440 M 945 440 L 938 440 M 934 440 L 927 440 M 923 440 L 916 440 M 912 440 L 905 440 M 901 440 L 894 440 M 890 440 L 883 440 M 879 440 L 872 440 M 868 440 L 861 440 M 857 440 L 850 440 M 846 440 L 839 440 M 835 440 L 828 440 M 824 440 L 817 440 M 813 440 L 806 440 M 802 440 L 795 440 M 791 440 L 784 440 M 780 440 L 773 440 M 769 440 L 762 440 M 758 440 L 751 440 M 747 440 L 740 440 M 736 440 L 729 440 M 725 440 L 718 440 M 714 440 L 707 440 M 703 440 L 696 440 M 692 440 L 685 440 M 681 440 L 674 440 M 670 440 L 663 440 M 659 440 L 652 440 M 648 440 L 641 440 M 637 440 L 630 440 M 626 440 L 619 440 M 615 440 L 608 440 M 604 440 L 597 440 M 593 440 L 586 440 M 582 440 L 575 440 M 571 440 L 564 440 M 560 440 L 553 440 M 549 440 L 542 440 M 538 440 L 531 440 M 527 440 L 520 440 M 516 440 L 509 440 M 505 440 L 498 440 M 494 440 L 487 440 M 483 440 L 476 440 M 472 440 L 465 440 M 461 440 L 454 440 M 450 440 L 443 440 M 439 440 L 432 440 M 428 440 L 421 440 M 417 440 L 410 440 M 406 440 L 399 440 M 395 440 L 388 440 M 384 440 L 377 440 M 373 440 L 366 440 M 362 440 L 355 440 M 351 440 L 344 440 M 340 440 L 333 440 M 329 440 L 322 440 M 318 440 L 311 440 M 307 440 L 300 440 M 296 440 L 289 440 M 285 440 L 278 440 M 274 440 L 267 440 M 263 440 L 256 440 M 252 440 L 245 440 M 241 440 L 234 440 M 230 440 L 223 440 M 219 440 L 212 440 M 208 440 L 201 440 M 197 440 L 190 440 M 186 440 L 179 440 M 175 440 L 168 440 M 164 440 L 157 440 M 153 440 L 146 440 M 142 440 L 135 440 M 131 440 L 124 440 M 120 440 L 113 440 M 109 440 L 102 440 M 98 440 L 91 440 M 87 440 L 80 440 M 76 440 L 69 440 M 65 440 L 58 440 M 54 440 L 47 440 M 43 440 L 36 440 M 32 440 L 30 440 M 30 440 L 30 433 M 30 429 L 30 422 M 30 418 L 30 411 M 30 407 L 30 400 M 30 396 L 30 389 M 30 385 L 30 378 M 30 374 L 30 367 M 30 363 L 30 356 M 30 352 L 30 345 M 30 341 L 30 334 M 30 330 L 30 323 M 30 319 L 30 312 M 30 308 L 30 301 M 30 297 L 30 290 M 30 286 L 30 279 M 30 275 L 30 268 M 30 264 L 30 257 M 30 253 L 30 246 M 30 242 L 30 235 M 30 231 L 30 224 M 30 220 L 30 213 M 30 209 L 30 202 M 30 198 L 30 191 M 30 187 L 30 180 M 30 176 L 30 169 M 30 165 L 30 158 M 30 154 L 30 147" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <path d="M 30 465 L 37 465 M 41 465 L 48 465 M 52 465 L 59 465 M 63 465 L 70 465 M 74 465 L 81 465 M 85 465 L 92 465 M 96 465 L 103 465 M 107 465 L 114 465 M 118 465 L 125 465 M 129 465 L 136 465 M 140 465 L 147 465 M 151 465 L 158 465 M 162 465 L 169 465 M 173 465 L 180 465 M 184 465 L 191 465 M 195 465 L 202 465 M 206 465 L 213 465 M 217 465 L 224 465 M 228 465 L 235 465 M 239 465 L 246 465 M 250 465 L 257 465 M 261 465 L 268 465 M 272 465 L 279 465 M 283 465 L 290 465 M 294 465 L 301 465 M 305 465 L 312 465 M 316 465 L 323 465 M 327 465 L 334 465 M 338 465 L 345 465 M 349 465 L 356 465 M 360 465 L 367 465 M 371 465 L 378 465 M 382 465 L 389 465 M 393 465 L 400 465 M 404 465 L 411 465 M 415 465 L 422 465 M 426 465 L 433 465 M 437 465 L 444 465 M 448 465 L 455 465 M 459 465 L 466 465 M 470 465 L 477 465 M 481 465 L 488 465 M 492 465 L 499 465 M 503 465 L 510 465 M 514 465 L 521 465 M 525 465 L 532 465 M 536 465 L 543 465 M 547 465 L 554 465 M 558 465 L 565 465 M 569 465 L 576 465 M 580 465 L 587 465 M 591 465 L 598 465 M 602 465 L 609 465 M 613 465 L 620 465 M 624 465 L 631 465 M 635 465 L 642 465 M 646 465 L 653 465 M 657 465 L 664 465 M 668 465 L 675 465 M 679 465 L 686 465 M 690 465 L 697 465 M 701 465 L 708 465 M 712 465 L 719 465 M 723 465 L 730 465 M 734 465 L 741 465 M 745 465 L 752 465 M 756 465 L 763 465 M 767 465 L 774 465 M 778 465 L 785 465 M 789 465 L 796 465 M 800 465 L 807 465 M 811 465 L 818 465 M 822 465 L 829 465 M 833 465 L 840 465 M 844 465 L 851 465 M 855 465 L 862 465 M 866 465 L 873 465 M 877 465 L 884 465 M 888 465 L 895 465 M 899 465 L 906 465 M 910 465 L 917 465 M 921 465 L 928 465 M 932 465 L 939 465 M 943 465 L 950 465 M 954 465 L 961 465 M 965 465 L 972 465 M 976 465 L 983 465 M 987 465 L 994 465 M 998 465 L 1005 465 M 1009 465 L 1016 465 M 1020 465 L 1027 465 M 1031 465 L 1038 465 M 1042 465 L 1049 465 M 1053 465 L 1060 465 M 1064 465 L 1071 465 M 1075 465 L 1082 465 M 1086 465 L 1093 465 M 1097 465 L 1104 465 M 1108 465 L 1110 465 M 1110 465 L 1110 472 M 1110 476 L 1110 483 M 1110 487 L 1110 494 M 1110 498 L 1110 505 M 1110 509 L 1110 516 M 1110 520 L 1110 527 M 1110 531 L 1110 538 M 1110 542 L 1110 549 M 1110 553 L 1110 560 M 1110 564 L 1110 571 M 1110 575 L 1110 582 M 1110 586 L 1110 593 M 1110 597 L 1110 604 M 1110 608 L 1110 615 M 1110 619 L 1110 626 M 1110 630 L 1110 637 M 1110 641 L 1110 648 M 1110 652 L 1110 659 M 1110 663 L 1110 670 M 1110 674 L 1110 681 M 1110 685 L 1110 692 M 1110 696 L 1110 703 M 1110 707 L 1110 714 M 1110 718 L 1110 725 M 1110 729 L 1110 736 M 1110 740 L 1110 747 M 1110 751 L 1110 758 M 1110 762 L 1110 769 M 1110 773 L 1110 780 M 1110 780 L 1103 780 M 1099 780 L 1092 780 M 1088 780 L 1081 780 M 1077 780 L 1070 780 M 1066 780 L 1059 780 M 1055 780 L 1048 780 M 1044 780 L 1037 780 M 1033 780 L 1026 780 M 1022 780 L 1015 780 M 1011 780 L 1004 780 M 1000 780 L 993 780 M 989 780 L 982 780 M 978 780 L 971 780 M 967 780 L 960 780 M 956 780 L 949 780 M 945 780 L 938 780 M 934 780 L 927 780 M 923 780 L 916 780 M 912 780 L 905 780 M 901 780 L 894 780 M 890 780 L 883 780 M 879 780 L 872 780 M 868 780 L 861 780 M 857 780 L 850 780 M 846 780 L 839 780 M 835 780 L 828 780 M 824 780 L 817 780 M 813 780 L 806 780 M 802 780 L 795 780 M 791 780 L 784 780 M 780 780 L 773 780 M 769 780 L 762 780 M 758 780 L 751 780 M 747 780 L 740 780 M 736 780 L 729 780 M 725 780 L 718 780 M 714 780 L 707 780 M 703 780 L 696 780 M 692 780 L 685 780 M 681 780 L 674 780 M 670 780 L 663 780 M 659 780 L 652 780 M 648 780 L 641 780 M 637 780 L 630 780 M 626 780 L 619 780 M 615 780 L 608 780 M 604 780 L 597 780 M 593 780 L 586 780 M 582 780 L 575 780 M 571 780 L 564 780 M 560 780 L 553 780 M 549 780 L 542 780 M 538 780 L 531 780 M 527 780 L 520 780 M 516 780 L 509 780 M 505 780 L 498 780 M 494 780 L 487 780 M 483 780 L 476 780 M 472 780 L 465 780 M 461 780 L 454 780 M 450 780 L 443 780 M 439 780 L 432 780 M 428 780 L 421 780 M 417 780 L 410 780 M 406 780 L 399 780 M 395 780 L 388 780 M 384 780 L 377 780 M 373 780 L 366 780 M 362 780 L 355 780 M 351 780 L 344 780 M 340 780 L 333 780 M 329 780 L 322 780 M 318 780 L 311 780 M 307 780 L 300 780 M 296 780 L 289 780 M 285 780 L 278 780 M 274 780 L 267 780 M 263 780 L 256 780 M 252 780 L 245 780 M 241 780 L 234 780 M 230 780 L 223 780 M 219 780 L 212 780 M 208 780 L 201 780 M 197 780 L 190 780 M 186 780 L 179 780 M 175 780 L 168 780 M 164 780 L 157 780 M 153 780 L 146 780 M 142 780 L 135 780 M 131 780 L 124 780 M 120 780 L 113 780 M 109 780 L 102 780 M 98 780 L 91 780 M 87 780 L 80 780 M 76 780 L 69 780 M 65 780 L 58 780 M 54 780 L 47 780 M 43 780 L 36 780 M 32 780 L 30 780 M 30 780 L 30 773 M 30 769 L 30 762 M 30 758 L 30 751 M 30 747 L 30 740 M 30 736 L 30 729 M 30 725 L 30 718 M 30 714 L 30 707 M 30 703 L 30 696 M 30 692 L 30 685 M 30 681 L 30 674 M 30 670 L 30 663 M 30 659 L 30 652 M 30 648 L 30 641 M 30 637 L 30 630 M 30 626 L 30 619 M 30 615 L 30 608 M 30 604 L 30 597 M 30 593 L 30 586 M 30 582 L 30 575 M 30 571 L 30 564 M 30 560 L 30 553 M 30 549 L 30 542 M 30 538 L 30 531 M 30 527 L 30 520 M 30 516 L 30 509 M 30 505 L 30 498 M 30 494 L 30 487 M 30 483 L 30 476 M 30 472 L 30 465" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <path d="M 30 805 L 37 805 M 41 805 L 48 805 M 52 805 L 59 805 M 63 805 L 70 805 M 74 805 L 81 805 M 85 805 L 92 805 M 96 805 L 103 805 M 107 805 L 114 805 M 118 805 L 125 805 M 129 805 L 136 805 M 140 805 L 147 805 M 151 805 L 158 805 M 162 805 L 169 805 M 173 805 L 180 805 M 184 805 L 191 805 M 195 805 L 202 805 M 206 805 L 213 805 M 217 805 L 224 805 M 228 805 L 235 805 M 239 805 L 246 805 M 250 805 L 257 805 M 261 805 L 268 805 M 272 805 L 279 805 M 283 805 L 290 805 M 294 805 L 301 805 M 305 805 L 312 805 M 316 805 L 323 805 M 327 805 L 334 805 M 338 805 L 345 805 M 349 805 L 356 805 M 360 805 L 367 805 M 371 805 L 378 805 M 382 805 L 389 805 M 393 805 L 400 805 M 404 805 L 411 805 M 415 805 L 422 805 M 426 805 L 433 805 M 437 805 L 444 805 M 448 805 L 455 805 M 459 805 L 466 805 M 470 805 L 477 805 M 481 805 L 488 805 M 492 805 L 499 805 M 503 805 L 510 805 M 514 805 L 521 805 M 525 805 L 532 805 M 536 805 L 543 805 M 547 805 L 554 805 M 558 805 L 565 805 M 569 805 L 576 805 M 580 805 L 587 805 M 591 805 L 598 805 M 602 805 L 609 805 M 613 805 L 620 805 M 624 805 L 631 805 M 635 805 L 642 805 M 646 805 L 653 805 M 657 805 L 664 805 M 668 805 L 675 805 M 679 805 L 686 805 M 690 805 L 697 805 M 701 805 L 708 805 M 712 805 L 719 805 M 723 805 L 730 805 M 734 805 L 741 805 M 745 805 L 752 805 M 756 805 L 763 805 M 767 805 L 774 805 M 778 805 L 785 805 M 789 805 L 796 805 M 800 805 L 807 805 M 811 805 L 818 805 M 822 805 L 829 805 M 833 805 L 840 805 M 844 805 L 851 805 M 855 805 L 862 805 M 866 805 L 873 805 M 877 805 L 884 805 M 888 805 L 895 805 M 899 805 L 906 805 M 910 805 L 917 805 M 921 805 L 928 805 M 932 805 L 939 805 M 943 805 L 950 805 M 954 805 L 961 805 M 965 805 L 972 805 M 976 805 L 983 805 M 987 805 L 994 805 M 998 805 L 1005 805 M 1009 805 L 1016 805 M 1020 805 L 1027 805 M 1031 805 L 1038 805 M 1042 805 L 1049 805 M 1053 805 L 1060 805 M 1064 805 L 1071 805 M 1075 805 L 1082 805 M 1086 805 L 1093 805 M 1097 805 L 1104 805 M 1108 805 L 1110 805 M 1110 805 L 1110 812 M 1110 816 L 1110 823 M 1110 827 L 1110 834 M 1110 838 L 1110 845 M 1110 849 L 1110 856 M 1110 860 L 1110 867 M 1110 871 L 1110 878 M 1110 882 L 1110 889 M 1110 893 L 1110 900 M 1110 904 L 1110 911 M 1110 915 L 1110 922 M 1110 926 L 1110 933 M 1110 937 L 1110 944 M 1110 948 L 1110 955 M 1110 959 L 1110 966 M 1110 970 L 1110 977 M 1110 981 L 1110 988 M 1110 992 L 1110 999 M 1110 1003 L 1110 1010 M 1110 1014 L 1110 1021 M 1110 1025 L 1110 1032 M 1110 1036 L 1110 1043 M 1110 1047 L 1110 1054 M 1110 1058 L 1110 1065 M 1110 1069 L 1110 1076 M 1110 1080 L 1110 1087 M 1110 1091 L 1110 1098 M 1110 1102 L 1110 1109 M 1110 1110 L 1103 1110 M 1099 1110 L 1092 1110 M 1088 1110 L 1081 1110 M 1077 1110 L 1070 1110 M 1066 1110 L 1059 1110 M 1055 1110 L 1048 1110 M 1044 1110 L 1037 1110 M 1033 1110 L 1026 1110 M 1022 1110 L 1015 1110 M 1011 1110 L 1004 1110 M 1000 1110 L 993 1110 M 989 1110 L 982 1110 M 978 1110 L 971 1110 M 967 1110 L 960 1110 M 956 1110 L 949 1110 M 945 1110 L 938 1110 M 934 1110 L 927 1110 M 923 1110 L 916 1110 M 912 1110 L 905 1110 M 901 1110 L 894 1110 M 890 1110 L 883 1110 M 879 1110 L 872 1110 M 868 1110 L 861 1110 M 857 1110 L 850 1110 M 846 1110 L 839 1110 M 835 1110 L 828 1110 M 824 1110 L 817 1110 M 813 1110 L 806 1110 M 802 1110 L 795 1110 M 791 1110 L 784 1110 M 780 1110 L 773 1110 M 769 1110 L 762 1110 M 758 1110 L 751 1110 M 747 1110 L 740 1110 M 736 1110 L 729 1110 M 725 1110 L 718 1110 M 714 1110 L 707 1110 M 703 1110 L 696 1110 M 692 1110 L 685 1110 M 681 1110 L 674 1110 M 670 1110 L 663 1110 M 659 1110 L 652 1110 M 648 1110 L 641 1110 M 637 1110 L 630 1110 M 626 1110 L 619 1110 M 615 1110 L 608 1110 M 604 1110 L 597 1110 M 593 1110 L 586 1110 M 582 1110 L 575 1110 M 571 1110 L 564 1110 M 560 1110 L 553 1110 M 549 1110 L 542 1110 M 538 1110 L 531 1110 M 527 1110 L 520 1110 M 516 1110 L 509 1110 M 505 1110 L 498 1110 M 494 1110 L 487 1110 M 483 1110 L 476 1110 M 472 1110 L 465 1110 M 461 1110 L 454 1110 M 450 1110 L 443 1110 M 439 1110 L 432 1110 M 428 1110 L 421 1110 M 417 1110 L 410 1110 M 406 1110 L 399 1110 M 395 1110 L 388 1110 M 384 1110 L 377 1110 M 373 1110 L 366 1110 M 362 1110 L 355 1110 M 351 1110 L 344 1110 M 340 1110 L 333 1110 M 329 1110 L 322 1110 M 318 1110 L 311 1110 M 307 1110 L 300 1110 M 296 1110 L 289 1110 M 285 1110 L 278 1110 M 274 1110 L 267 1110 M 263 1110 L 256 1110 M 252 1110 L 245 1110 M 241 1110 L 234 1110 M 230 1110 L 223 1110 M 219 1110 L 212 1110 M 208 1110 L 201 1110 M 197 1110 L 190 1110 M 186 1110 L 179 1110 M 175 1110 L 168 1110 M 164 1110 L 157 1110 M 153 1110 L 146 1110 M 142 1110 L 135 1110 M 131 1110 L 124 1110 M 120 1110 L 113 1110 M 109 1110 L 102 1110 M 98 1110 L 91 1110 M 87 1110 L 80 1110 M 76 1110 L 69 1110 M 65 1110 L 58 1110 M 54 1110 L 47 1110 M 43 1110 L 36 1110 M 32 1110 L 30 1110 M 30 1110 L 30 1103 M 30 1099 L 30 1092 M 30 1088 L 30 1081 M 30 1077 L 30 1070 M 30 1066 L 30 1059 M 30 1055 L 30 1048 M 30 1044 L 30 1037 M 30 1033 L 30 1026 M 30 1022 L 30 1015 M 30 1011 L 30 1004 M 30 1000 L 30 993 M 30 989 L 30 982 M 30 978 L 30 971 M 30 967 L 30 960 M 30 956 L 30 949 M 30 945 L 30 938 M 30 934 L 30 927 M 30 923 L 30 916 M 30 912 L 30 905 M 30 901 L 30 894 M 30 890 L 30 883 M 30 879 L 30 872 M 30 868 L 30 861 M 30 857 L 30 850 M 30 846 L 30 839 M 30 835 L 30 828 M 30 824 L 30 817 M 30 813 L 30 806" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+
+  <!-- LÍNEAS DE VIDA VERTICALES (LIFELINES VECTORIALES PUNTEADAS) -->
+  <path d="M 130 113 L 130 121 M 130 126 L 130 134 M 130 139 L 130 147 M 130 152 L 130 160 M 130 165 L 130 173 M 130 178 L 130 186 M 130 191 L 130 199 M 130 204 L 130 212 M 130 217 L 130 225 M 130 230 L 130 238 M 130 243 L 130 251 M 130 256 L 130 264 M 130 269 L 130 277 M 130 282 L 130 290 M 130 295 L 130 303 M 130 308 L 130 316 M 130 321 L 130 329 M 130 334 L 130 342 M 130 347 L 130 355 M 130 360 L 130 368 M 130 373 L 130 381 M 130 386 L 130 394 M 130 399 L 130 407 M 130 412 L 130 420 M 130 425 L 130 433 M 130 438 L 130 446 M 130 451 L 130 459 M 130 464 L 130 472 M 130 477 L 130 485 M 130 490 L 130 498 M 130 503 L 130 511 M 130 516 L 130 524 M 130 529 L 130 537 M 130 542 L 130 550 M 130 555 L 130 563 M 130 568 L 130 576 M 130 581 L 130 589 M 130 594 L 130 602 M 130 607 L 130 615 M 130 620 L 130 628 M 130 633 L 130 641 M 130 646 L 130 654 M 130 659 L 130 667 M 130 672 L 130 680 M 130 685 L 130 693 M 130 698 L 130 706 M 130 711 L 130 719 M 130 724 L 130 732 M 130 737 L 130 745 M 130 750 L 130 758 M 130 763 L 130 771 M 130 776 L 130 784 M 130 789 L 130 797 M 130 802 L 130 810 M 130 815 L 130 823 M 130 828 L 130 836 M 130 841 L 130 849 M 130 854 L 130 862 M 130 867 L 130 875 M 130 880 L 130 888 M 130 893 L 130 901 M 130 906 L 130 914 M 130 919 L 130 927 M 130 932 L 130 940 M 130 945 L 130 953 M 130 958 L 130 966 M 130 971 L 130 979 M 130 984 L 130 992 M 130 997 L 130 1005 M 130 1010 L 130 1018 M 130 1023 L 130 1031 M 130 1036 L 130 1044 M 130 1049 L 130 1057 M 130 1062 L 130 1070 M 130 1075 L 130 1083 M 130 1088 L 130 1096 M 130 1101 L 130 1109 M 130 1114 L 130 1120 M 380 113 L 380 121 M 380 126 L 380 134 M 380 139 L 380 147 M 380 152 L 380 160 M 380 165 L 380 173 M 380 178 L 380 186 M 380 191 L 380 199 M 380 204 L 380 212 M 380 217 L 380 225 M 380 230 L 380 238 M 380 243 L 380 251 M 380 256 L 380 264 M 380 269 L 380 277 M 380 282 L 380 290 M 380 295 L 380 303 M 380 308 L 380 316 M 380 321 L 380 329 M 380 334 L 380 342 M 380 347 L 380 355 M 380 360 L 380 368 M 380 373 L 380 381 M 380 386 L 380 394 M 380 399 L 380 407 M 380 412 L 380 420 M 380 425 L 380 433 M 380 438 L 380 446 M 380 451 L 380 459 M 380 464 L 380 472 M 380 477 L 380 485 M 380 490 L 380 498 M 380 503 L 380 511 M 380 516 L 380 524 M 380 529 L 380 537 M 380 542 L 380 550 M 380 555 L 380 563 M 380 568 L 380 576 M 380 581 L 380 589 M 380 594 L 380 602 M 380 607 L 380 615 M 380 620 L 380 628 M 380 633 L 380 641 M 380 646 L 380 654 M 380 659 L 380 667 M 380 672 L 380 680 M 380 685 L 380 693 M 380 698 L 380 706 M 380 711 L 380 719 M 380 724 L 380 732 M 380 737 L 380 745 M 380 750 L 380 758 M 380 763 L 380 771 M 380 776 L 380 784 M 380 789 L 380 797 M 380 802 L 380 810 M 380 815 L 380 823 M 380 828 L 380 836 M 380 841 L 380 849 M 380 854 L 380 862 M 380 867 L 380 875 M 380 880 L 380 888 M 380 893 L 380 901 M 380 906 L 380 914 M 380 919 L 380 927 M 380 932 L 380 940 M 380 945 L 380 953 M 380 958 L 380 966 M 380 971 L 380 979 M 380 984 L 380 992 M 380 997 L 380 1005 M 380 1010 L 380 1018 M 380 1023 L 380 1031 M 380 1036 L 380 1044 M 380 1049 L 380 1057 M 380 1062 L 380 1070 M 380 1075 L 380 1083 M 380 1088 L 380 1096 M 380 1101 L 380 1109 M 380 1114 L 380 1120 M 630 113 L 630 121 M 630 126 L 630 134 M 630 139 L 630 147 M 630 152 L 630 160 M 630 165 L 630 173 M 630 178 L 630 186 M 630 191 L 630 199 M 630 204 L 630 212 M 630 217 L 630 225 M 630 230 L 630 238 M 630 243 L 630 251 M 630 256 L 630 264 M 630 269 L 630 277 M 630 282 L 630 290 M 630 295 L 630 303 M 630 308 L 630 316 M 630 321 L 630 329 M 630 334 L 630 342 M 630 347 L 630 355 M 630 360 L 630 368 M 630 373 L 630 381 M 630 386 L 630 394 M 630 399 L 630 407 M 630 412 L 630 420 M 630 425 L 630 433 M 630 438 L 630 446 M 630 451 L 630 459 M 630 464 L 630 472 M 630 477 L 630 485 M 630 490 L 630 498 M 630 503 L 630 511 M 630 516 L 630 524 M 630 529 L 630 537 M 630 542 L 630 550 M 630 555 L 630 563 M 630 568 L 630 576 M 630 581 L 630 589 M 630 594 L 630 602 M 630 607 L 630 615 M 630 620 L 630 628 M 630 633 L 630 641 M 630 646 L 630 654 M 630 659 L 630 667 M 630 672 L 630 680 M 630 685 L 630 693 M 630 698 L 630 706 M 630 711 L 630 719 M 630 724 L 630 732 M 630 737 L 630 745 M 630 750 L 630 758 M 630 763 L 630 771 M 630 776 L 630 784 M 630 789 L 630 797 M 630 802 L 630 810 M 630 815 L 630 823 M 630 828 L 630 836 M 630 841 L 630 849 M 630 854 L 630 862 M 630 867 L 630 875 M 630 880 L 630 888 M 630 893 L 630 901 M 630 906 L 630 914 M 630 919 L 630 927 M 630 932 L 630 940 M 630 945 L 630 953 M 630 958 L 630 966 M 630 971 L 630 979 M 630 984 L 630 992 M 630 997 L 630 1005 M 630 1010 L 630 1018 M 630 1023 L 630 1031 M 630 1036 L 630 1044 M 630 1049 L 630 1057 M 630 1062 L 630 1070 M 630 1075 L 630 1083 M 630 1088 L 630 1096 M 630 1101 L 630 1109 M 630 1114 L 630 1120 M 840 113 L 840 121 M 840 126 L 840 134 M 840 139 L 840 147 M 840 152 L 840 160 M 840 165 L 840 173 M 840 178 L 840 186 M 840 191 L 840 199 M 840 204 L 840 212 M 840 217 L 840 225 M 840 230 L 840 238 M 840 243 L 840 251 M 840 256 L 840 264 M 840 269 L 840 277 M 840 282 L 840 290 M 840 295 L 840 303 M 840 308 L 840 316 M 840 321 L 840 329 M 840 334 L 840 342 M 840 347 L 840 355 M 840 360 L 840 368 M 840 373 L 840 381 M 840 386 L 840 394 M 840 399 L 840 407 M 840 412 L 840 420 M 840 425 L 840 433 M 840 438 L 840 446 M 840 451 L 840 459 M 840 464 L 840 472 M 840 477 L 840 485 M 840 490 L 840 498 M 840 503 L 840 511 M 840 516 L 840 524 M 840 529 L 840 537 M 840 542 L 840 550 M 840 555 L 840 563 M 840 568 L 840 576 M 840 581 L 840 589 M 840 594 L 840 602 M 840 607 L 840 615 M 840 620 L 840 628 M 840 633 L 840 641 M 840 646 L 840 654 M 840 659 L 840 667 M 840 672 L 840 680 M 840 685 L 840 693 M 840 698 L 840 706 M 840 711 L 840 719 M 840 724 L 840 732 M 840 737 L 840 745 M 840 750 L 840 758 M 840 763 L 840 771 M 840 776 L 840 784 M 840 789 L 840 797 M 840 802 L 840 810 M 840 815 L 840 823 M 840 828 L 840 836 M 840 841 L 840 849 M 840 854 L 840 862 M 840 867 L 840 875 M 840 880 L 840 888 M 840 893 L 840 901 M 840 906 L 840 914 M 840 919 L 840 927 M 840 932 L 840 940 M 840 945 L 840 953 M 840 958 L 840 966 M 840 971 L 840 979 M 840 984 L 840 992 M 840 997 L 840 1005 M 840 1010 L 840 1018 M 840 1023 L 840 1031 M 840 1036 L 840 1044 M 840 1049 L 840 1057 M 840 1062 L 840 1070 M 840 1075 L 840 1083 M 840 1088 L 840 1096 M 840 1101 L 840 1109 M 840 1114 L 840 1120 M 1010 113 L 1010 121 M 1010 126 L 1010 134 M 1010 139 L 1010 147 M 1010 152 L 1010 160 M 1010 165 L 1010 173 M 1010 178 L 1010 186 M 1010 191 L 1010 199 M 1010 204 L 1010 212 M 1010 217 L 1010 225 M 1010 230 L 1010 238 M 1010 243 L 1010 251 M 1010 256 L 1010 264 M 1010 269 L 1010 277 M 1010 282 L 1010 290 M 1010 295 L 1010 303 M 1010 308 L 1010 316 M 1010 321 L 1010 329 M 1010 334 L 1010 342 M 1010 347 L 1010 355 M 1010 360 L 1010 368 M 1010 373 L 1010 381 M 1010 386 L 1010 394 M 1010 399 L 1010 407 M 1010 412 L 1010 420 M 1010 425 L 1010 433 M 1010 438 L 1010 446 M 1010 451 L 1010 459 M 1010 464 L 1010 472 M 1010 477 L 1010 485 M 1010 490 L 1010 498 M 1010 503 L 1010 511 M 1010 516 L 1010 524 M 1010 529 L 1010 537 M 1010 542 L 1010 550 M 1010 555 L 1010 563 M 1010 568 L 1010 576 M 1010 581 L 1010 589 M 1010 594 L 1010 602 M 1010 607 L 1010 615 M 1010 620 L 1010 628 M 1010 633 L 1010 641 M 1010 646 L 1010 654 M 1010 659 L 1010 667 M 1010 672 L 1010 680 M 1010 685 L 1010 693 M 1010 698 L 1010 706 M 1010 711 L 1010 719 M 1010 724 L 1010 732 M 1010 737 L 1010 745 M 1010 750 L 1010 758 M 1010 763 L 1010 771 M 1010 776 L 1010 784 M 1010 789 L 1010 797 M 1010 802 L 1010 810 M 1010 815 L 1010 823 M 1010 828 L 1010 836 M 1010 841 L 1010 849 M 1010 854 L 1010 862 M 1010 867 L 1010 875 M 1010 880 L 1010 888 M 1010 893 L 1010 901 M 1010 906 L 1010 914 M 1010 919 L 1010 927 M 1010 932 L 1010 940 M 1010 945 L 1010 953 M 1010 958 L 1010 966 M 1010 971 L 1010 979 M 1010 984 L 1010 992 M 1010 997 L 1010 1005 M 1010 1010 L 1010 1018 M 1010 1023 L 1010 1031 M 1010 1036 L 1010 1044 M 1010 1049 L 1010 1057 M 1010 1062 L 1010 1070 M 1010 1075 L 1010 1083 M 1010 1088 L 1010 1096 M 1010 1101 L 1010 1109 M 1010 1114 L 1010 1120" stroke="#94a3b8" stroke-width="1.8" fill="none"/>
+
+  <!-- CABECERAS DE FASE CON FONDO BLANCO PURO (OCULTAN LÍNEAS QUE PASAN POR DETRÁS) -->
+  <g transform="translate(30, 145)">
+    <rect x="0" y="0" width="500" height="28" rx="3" fill="#ffffff" stroke="#475569" stroke-width="1.2"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="14" y="18" fill="#0f172a" font-size="9.5" font-weight="bold" letter-spacing="0.5">FASE I: PROCEDIMIENTO DE ADHESIÓN POR AIRE (OTAA JOIN)</text>
+  </g>
+
+  <g transform="translate(30, 465)">
+    <rect x="0" y="0" width="640" height="28" rx="3" fill="#ffffff" stroke="#475569" stroke-width="1.2"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="14" y="18" fill="#0f172a" font-size="9.5" font-weight="bold" letter-spacing="0.5">FASE II: SESIÓN TIPO A — UPLINKS NO CONFIRMADOS (EVALUACIÓN PACKET LOSS, 100 TRAMAS)</text>
+  </g>
+
+  <g transform="translate(30, 805)">
+    <rect x="0" y="0" width="670" height="28" rx="3" fill="#ffffff" stroke="#475569" stroke-width="1.2"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="14" y="18" fill="#0f172a" font-size="9.5" font-weight="bold" letter-spacing="0.5">FASE III: SESIÓN TIPO B — UPLINKS CONFIRMADOS CON ACK (EVALUACIÓN RETARDO T_CONF ≤ 6000 MS)</text>
+  </g>
+
+  <!-- PARTICIPANTES / ACTORES (CABECERAS) -->
+  <g transform="translate(0, 65)">
+    <!-- Actor 1: Nodo Sensor -->
+    <rect x="50" y="0" width="160" height="48" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="130" y="20" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Nodo Heltec V3</text>
+    <line x1="60" y1="27" x2="200" y2="27" stroke="#cbd5e1" stroke-width="1"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="130" y="40" fill="#475569" font-size="8.5" text-anchor="middle">ESP32-S3 + SX1262</text>
+
+    <!-- Actor 2: Gateway -->
+    <rect x="300" y="0" width="160" height="48" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="380" y="20" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Gateway LoRaWAN</text>
+    <line x1="310" y1="27" x2="450" y2="27" stroke="#cbd5e1" stroke-width="1"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="380" y="40" fill="#475569" font-size="8.5" text-anchor="middle">Facultad de Ingeniería</text>
+
+    <!-- Actor 3: ChirpStack v4 -->
+    <rect x="550" y="0" width="160" height="48" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="630" y="20" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">ChirpStack v4</text>
+    <line x1="560" y1="27" x2="700" y2="27" stroke="#cbd5e1" stroke-width="1"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="630" y="40" fill="#475569" font-size="8.5" text-anchor="middle">Network &amp; Join Server</text>
+
+    <!-- Actor 4: Broker MQTT -->
+    <rect x="760" y="0" width="160" height="48" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="840" y="20" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Broker MQTT</text>
+    <line x1="775" y1="27" x2="905" y2="27" stroke="#cbd5e1" stroke-width="1"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="840" y="40" fill="#475569" font-size="8.5" text-anchor="middle">Mosquitto TCP/WS</text>
+
+    <!-- Actor 5: Dashboard Web -->
+    <rect x="930" y="0" width="160" height="48" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="1010" y="20" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Dashboard Web</text>
+    <line x1="945" y1="27" x2="1075" y2="27" stroke="#cbd5e1" stroke-width="1"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="1010" y="40" fill="#475569" font-size="8.5" text-anchor="middle">Interfaz de Usuario</text>
+  </g>
+
+  <!-- CONTENIDO FASE I (MENSAJES Y ACCIONES) -->
+  <g transform="translate(0, 145)">
+    <!-- Acción interna Nodo: Setup -->
+    <rect x="40" y="38" width="180" height="34" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="130" y="52" fill="#0f172a" font-size="8.5" font-weight="bold" text-anchor="middle">setup() Hardware Inicializado</text>
+    <text font-family="Arial, Helvetica, sans-serif" x="130" y="64" fill="#475569" font-size="7.5" text-anchor="middle">SX1262 init, AU915 SB2, 14 dBm</text>
+
+    <!-- Barras de activación -->
+    <rect x="124" y="82" width="12" height="24" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+    <rect x="374" y="88" width="12" height="56" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+
+    <!-- Mensaje 1: Join-Request (Nodo -> Gateway) -->
+    <line x1="136" y1="98" x2="365" y2="98" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="364,93 374,98 364,103" fill="#0f172a"/>
+    <g transform="translate(255, 86)">
+      <rect x="-110" y="-11" width="220" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">1. Join-Request (DevEUI, JoinEUI, DevNonce)</text>
+    </g>
+
+    <!-- Barra activación ChirpStack -->
+    <rect x="624" y="126" width="12" height="98" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+
+    <!-- Mensaje 2: Reenvío UDP/IP (Gateway -> ChirpStack) -->
+    <line x1="386" y1="134" x2="615" y2="134" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="614,129 624,134 614,139" fill="#0f172a"/>
+    <g transform="translate(505, 122)">
+      <rect x="-105" y="-11" width="210" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">2. Reenvío UDP/IP (Packet Forwarder + Meta)</text>
+    </g>
+
+    <!-- Acción interna ChirpStack -->
+    <rect x="540" y="156" width="180" height="34" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="630" y="170" fill="#0f172a" font-size="8.5" font-weight="bold" text-anchor="middle">Autenticación &amp; Derivación</text>
+    <text font-family="Arial, Helvetica, sans-serif" x="630" y="182" fill="#475569" font-size="7.5" text-anchor="middle">Valida DevNonce, deriva NwkSKey/AppSKey</text>
+
+    <!-- Mensaje 3: Join-Accept a GW (ChirpStack -> Gateway, flecha izquierda) -->
+    <line x1="624" y1="214" x2="395" y2="214" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="396,209 386,214 396,219" fill="#0f172a"/>
+    <g transform="translate(505, 202)">
+      <rect x="-100" y="-11" width="200" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">3. Join-Accept (DevAddr, RxDelay, CFList)</text>
+    </g>
+
+    <!-- Barras de activación transmisión RX1 -->
+    <rect x="374" y="208" width="12" height="52" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+    <rect x="124" y="246" width="12" height="24" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+
+    <!-- Mensaje 4: Join-Accept a Nodo (Gateway -> Nodo, flecha izquierda) -->
+    <line x1="374" y1="254" x2="145" y2="254" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="146,249 136,254 146,259" fill="#0f172a"/>
+    <g transform="translate(255, 242)">
+      <rect x="-115" y="-11" width="230" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">4. Transmisión Join-Accept en RX1 (923.3 MHz, 5.0 s)</text>
+    </g>
+  </g>
+
+  <!-- CONTENIDO FASE II (SESIÓN TIPO A - NO CONFIRMADA) -->
+  <g transform="translate(0, 465)">
+    <!-- Acción interna Nodo: Muestreo -->
+    <rect x="40" y="38" width="180" height="34" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="130" y="52" fill="#0f172a" font-size="8.5" font-weight="bold" text-anchor="middle">Muestreo &amp; Empaquetado</text>
+    <text font-family="Arial, Helvetica, sans-serif" x="130" y="64" fill="#475569" font-size="7.5" text-anchor="middle">encodePayload() → 10 bytes binario</text>
+
+    <!-- Barras de activación -->
+    <rect x="124" y="82" width="12" height="24" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+    <rect x="374" y="88" width="12" height="54" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+
+    <!-- Mensaje 5: Uplink No Confirmado (Nodo -> Gateway) -->
+    <line x1="136" y1="98" x2="365" y2="98" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="364,93 374,98 364,103" fill="#0f172a"/>
+    <g transform="translate(255, 86)">
+      <rect x="-110" y="-11" width="220" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">5. Uplink No Confirmado (fPort=1, 10B, Ch 8-15)</text>
+    </g>
+
+    <!-- Barra activación ChirpStack -->
+    <rect x="624" y="126" width="12" height="98" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+
+    <!-- Mensaje 6: GW -> ChirpStack -->
+    <line x1="386" y1="134" x2="615" y2="134" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="614,129 624,134 614,139" fill="#0f172a"/>
+    <g transform="translate(505, 122)">
+      <rect x="-105" y="-11" width="210" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">6. Reenvío Packet Forwarder + RSSI/SNR</text>
+    </g>
+
+    <!-- Acción interna ChirpStack: Decode -->
+    <rect x="540" y="156" width="180" height="34" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="630" y="170" fill="#0f172a" font-size="8.5" font-weight="bold" text-anchor="middle">Codec decoder.js</text>
+    <text font-family="Arial, Helvetica, sans-serif" x="630" y="182" fill="#475569" font-size="7.5" text-anchor="middle">Descifrado AES y conversión a JSON</text>
+
+    <!-- Barra activación Broker MQTT -->
+    <rect x="834" y="206" width="12" height="52" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+
+    <!-- Mensaje 7: ChirpStack -> MQTT -->
+    <line x1="636" y1="214" x2="825" y2="214" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="824,209 834,214 824,219" fill="#0f172a"/>
+    <g transform="translate(735, 202)">
+      <rect x="-85" y="-11" width="170" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">7. Publicación MQTT (JSON)</text>
+    </g>
+
+    <!-- Barra activación Dashboard -->
+    <rect x="1004" y="242" width="12" height="52" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+
+    <!-- Mensaje 8: MQTT -> Dashboard -->
+    <line x1="846" y1="250" x2="995" y2="250" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="994,245 1004,250 994,255" fill="#0f172a"/>
+    <g transform="translate(925, 238)">
+      <rect x="-75" y="-11" width="150" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">8. WebSockets (ws://9001)</text>
+    </g>
+
+    <!-- Nota Dashboard -->
+    <rect x="915" y="274" width="190" height="26" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="1010" y="291" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">Actualiza UI y calcula PL ≤ 10%</text>
+  </g>
+
+  <!-- CONTENIDO FASE III (SESIÓN TIPO B - RETARDO T_CONF) -->
+  <g transform="translate(0, 805)">
+    <!-- Acción interna: t_send -->
+    <rect x="40" y="38" width="180" height="28" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="130" y="56" fill="#0f172a" font-size="8.5" font-weight="bold" text-anchor="middle">t_send = millis() (Marca temporal)</text>
+
+    <!-- Barras de activación -->
+    <rect x="124" y="76" width="12" height="24" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+    <rect x="374" y="82" width="12" height="52" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+
+    <!-- Mensaje 9: Uplink Confirmado (Nodo -> Gateway) -->
+    <line x1="136" y1="90" x2="365" y2="90" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="364,85 374,90 364,95" fill="#0f172a"/>
+    <g transform="translate(255, 78)">
+      <rect x="-110" y="-11" width="220" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">9. Uplink CONFIRMADO (fPort=1, confirmed=true)</text>
+    </g>
+
+    <!-- Barra activación ChirpStack -->
+    <rect x="624" y="120" width="12" height="54" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+
+    <!-- Mensaje 10: Reenvío a CS -->
+    <line x1="386" y1="126" x2="615" y2="126" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="614,121 624,126 614,131" fill="#0f172a"/>
+    <g transform="translate(505, 114)">
+      <rect x="-95" y="-11" width="190" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">10. Reenvío de trama confirmada</text>
+    </g>
+
+    <!-- Mensaje 11: CS programa Downlink ACK (flecha izquierda a Gateway) -->
+    <line x1="624" y1="164" x2="395" y2="164" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="396,159 386,164 396,169" fill="#0f172a"/>
+    <g transform="translate(505, 152)">
+      <rect x="-100" y="-11" width="200" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">11. Downlink ACK encolado para RX1</text>
+    </g>
+
+    <!-- Barras activación recepción ACK -->
+    <rect x="374" y="158" width="12" height="54" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+    <rect x="124" y="198" width="12" height="24" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.2"/>
+
+    <!-- Mensaje 12: GW transmite ACK en RX1 (flecha izquierda a Nodo) -->
+    <line x1="374" y1="204" x2="145" y2="204" stroke="#0f172a" stroke-width="1.8"/>
+    <polygon points="146,199 136,204 146,209" fill="#0f172a"/>
+    <g transform="translate(255, 192)">
+      <rect x="-115" y="-11" width="230" height="18" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="0.9"/>
+      <text font-family="Arial, Helvetica, sans-serif" x="0" y="2" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle">12. Recepción de ACK en RX1 (923.3 MHz, delay = 1.0 s)</text>
+    </g>
+
+    <!-- Acción interna: Cálculo T_conf -->
+    <rect x="40" y="234" width="180" height="34" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+    <text font-family="Arial, Helvetica, sans-serif" x="130" y="248" fill="#0f172a" font-size="8.5" font-weight="bold" text-anchor="middle">T_conf = millis() − t_send</text>
+    <text font-family="Arial, Helvetica, sans-serif" x="130" y="260" fill="#475569" font-size="7.5" text-anchor="middle">Registro de métrica RQS2 (≤ 6000 ms)</text>
+  </g>
+</svg>
