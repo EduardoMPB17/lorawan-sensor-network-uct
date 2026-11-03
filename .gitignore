@@ -29,3 +29,14 @@ venv/
 # Archivos de sistema
 .DS_Store
 Thumbs.db
+
+
+# Base de datos local de telemetría (SQLite)
+*.db
+telemetry.db
+
+
+# Carpeta privada de contexto local y archivos no publicados
+privado/
+.privado/
+CONTEXTO_PROYECTO_IA.md

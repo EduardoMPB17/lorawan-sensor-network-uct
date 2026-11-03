@@ -41,3 +41,24 @@ Desde la terminal en este repositorio:
 python -m http.server 8080 --directory dashboard
 ```
 Luego abre tu navegador en `http://localhost:8080`.
+
+
+---
+
+## Opción 3: Servidor de Producción y Campañas Experimentales (`dashboard_server.py`)
+
+Para la recolección oficial de datos experimentales de la tesis con los gateways físicos Milesight UG65/UG63 y broker local Mosquitto:
+
+### Características
+* Servidor HTTP multi-hilo (`ThreadingHTTPServer` en puerto 5000) con cliente MQTT TCP integrado (`paho-mqtt` en puerto 1883).
+* Almacena cada trama en la base de datos persistente SQLite (`telemetry.db`).
+* Soporta decodificación directa del formato JSON de Milesight UG65 (Embedded NS) y ChirpStack v4, así como deserialización manual de payload binario de 10 bytes en Base64.
+* **Capturador de Sesiones Oficiales:** Permite iniciar y detener sesiones Tipo A (100 tramas) y Tipo B (30 tramas), aislar tramas en pantalla y descargar CSV delimitado por IDs de sesión (`since_id`, `until_id`).
+* Filtro avanzado para **Nodo 1**, **Nodo 2** y **Nodo 3 (`Heltec-V3-Nodo3B`)**.
+
+### Ejecución
+```bash
+pip install paho-mqtt
+python dashboard_server.py
+```
+Acceder en el navegador a: `http://localhost:5000`
