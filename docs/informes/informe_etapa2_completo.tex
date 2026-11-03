@@ -1,0 +1,2268 @@
+\documentclass[12pt,oneside,openany,spanish,oldfontcommands]{memoir}
+
+% ============================================================
+% CONTROL DE PÁGINAS Y SALTOS EN MEMOIR (SIN PÁGINAS EN BLANCO)
+% ============================================================
+\openany
+\let\cleardoublepage\clearpage
+
+% ============================================================
+% IDIOMA Y TIPOGRAFÍA
+% ============================================================
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{csquotes}
+\usepackage{mathpazo}
+
+% ============================================================
+% BIBLIOGRAFÍA
+% ============================================================
+\usepackage[
+  backend=biber,
+  style=apa,
+  sorting=nyt
+]{biblatex}
+\addbibresource{referencias.bib}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% Formato general
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+% ============================================================
+% MATEMÁTICAS, ALGORITMOS Y CÓDIGO
+% ============================================================
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+\algdef{SE}[VARIABLES]{Variables}{EndVariables}
+  {\algorithmicvariables}
+  {\algorithmicend\ \algorithmicvariables}
+\algnewcommand{\algorithmicvariables}{\textbf{variables globales}}
+
+\newcommand{\Tau}{\mathrm{T}}
+\newcommand{\I}{\mathds{1}}
+
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Listado de código}
+
+% ============================================================
+% FIGURAS Y TABLAS
+% ============================================================
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{adjustbox}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage[table]{xcolor}
+\usepackage{caption}
+
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  labelsep=colon
+}
+
+\renewcommand{\arraystretch}{1.15}
+
+% Colores institucionales y del proyecto
+\definecolor{uctblue}{HTML}{1B2A4B}
+\definecolor{uctlight}{HTML}{D9E6F5}
+\definecolor{ganttblue}{HTML}{1A659E}
+\definecolor{ganttlight}{HTML}{A7D2ED}
+
+% ============================================================
+% UTILIDADES
+% ============================================================
+\usepackage{url}
+\usepackage[none]{hyphenat}
+\usepackage{fancyvrb}
+\usepackage{alltt}
+
+\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\scriptsize}
+\renewenvironment{example*}{\begin{alltt}}{\end{alltt}}
+
+\DefineVerbatimEnvironment{Sinput}{Verbatim}{}
+\DefineVerbatimEnvironment{Soutput}{Verbatim}{}
+\DefineVerbatimEnvironment{Scode}{Verbatim}{}
+\DefineVerbatimEnvironment{Sin}{Verbatim}{}
+\DefineVerbatimEnvironment{Sout}{Verbatim}{}
+\newenvironment{Schunk}{}{}
+
+% ============================================================
+% HIPERVÍNCULOS
+% ============================================================
+\usepackage[
+  colorlinks=true,
+  linkcolor=uctblue,
+  citecolor=uctblue,
+  urlcolor=uctblue
+]{hyperref}
+
+% ============================================================
+% FORMATO DE CAPÍTULOS Y SECCIONES (COMPACTO Y EN UNA SOLA LÍNEA)
+% ============================================================
+\makechapterstyle{compacto}{%
+  \setlength{\beforechapskip}{0pt}
+  \setlength{\midchapskip}{0pt}
+  \setlength{\afterchapskip}{14pt}
+  \renewcommand*{\chapterheadstart}{\vspace*{0pt}}
+  \renewcommand*{\printchaptername}{}
+  \renewcommand*{\chapternamenum}{}
+  \renewcommand*{\chapnumfont}{\normalfont\LARGE\bfseries}
+  \renewcommand*{\chaptitlefont}{\normalfont\LARGE\bfseries}
+  \renewcommand*{\printchapternum}{\chapnumfont\thechapter.\space}
+  \renewcommand*{\afterchapternum}{}
+  \renewcommand*{\printchaptertitle}[1]{\chaptitlefont ##1}
+  \renewcommand*{\afterchaptertitle}{\par\nobreak\vskip \afterchapskip}
+}
+\chapterstyle{compacto}
+
+% Ajuste proporcional de secciones y subsecciones
+\setsecheadstyle{\normalfont\Large\bfseries}
+\setsubsecheadstyle{\normalfont\large\bfseries}
+\setsubsubsecheadstyle{\normalfont\normalsize\bfseries}
+
+% ============================================================
+% ENCABEZADO Y PIE DE PÁGINA
+% ============================================================
+\usepackage{fancyhdr}
+
+\setlength{\headheight}{38pt}
+\setlength{\headsep}{12pt}
+
+\fancypagestyle{mainstyle}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0pt}
+
+  \fancyhead[L]{%
+    \IfFileExists{logo.png}{%
+      \includegraphics[height=27pt]{logo.png}%
+    }{%
+      \scriptsize Logo UCT
+    }%
+  }
+
+  \fancyhead[R]{%
+    \small
+    \color{uctblue}
+    Trabajo de Título INFO-1197\\
+    \textit{Red LoRaWAN UCT}
+  }
+
+  \fancyfoot[C]{\small\thepage}
+}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0pt}
+
+  \fancyhead[L]{%
+    \IfFileExists{logo.png}{%
+      \includegraphics[height=27pt]{logo.png}%
+    }{%
+      \scriptsize Logo UCT
+    }%
+  }
+
+  \fancyhead[R]{%
+    \small
+    \color{uctblue}
+    Trabajo de Título INFO-1197\\
+    \textit{Red LoRaWAN UCT}
+  }
+
+  \fancyfoot[C]{\small\thepage}
+}
+
+\pagestyle{mainstyle}
+
+% ============================================================
+% TÍTULOS DE ÍNDICES
+% ============================================================
+\renewcommand{\printtoctitle}[1]{\chaptitlefont #1}
+\renewcommand{\printloftitle}[1]{\chaptitlefont #1}
+\renewcommand{\printlottitle}[1]{\chaptitlefont #1}
+
+% ============================================================
+% COMANDOS AUXILIARES
+% ============================================================
+\newcommand{\tituloTesis}{%
+  Diseño, implementación y evaluación del rendimiento de una red LoRaWAN
+  para la sensorización del Campus Dr. Luis Rivas del Canto%
+}
+
+\begin{document}
+\sloppy
+
+% ============================================================
+% PORTADA
+% ============================================================
+\thispagestyle{empty}
+\pagenumbering{gobble}
+
+\vspace*{-6\baselineskip}
+
+\begin{center}
+  \IfFileExists{logo.png}{%
+    \includegraphics[width=\textwidth]{logo.png}%
+  }{%
+    \fbox{\parbox[c][2.0cm][c]{0.90\textwidth}{\centering
+    \textbf{LOGO INSTITUCIONAL -- incorporar logo.png}}}%
+  }
+\end{center}
+
+\vspace{3.0cm}
+
+\begin{center}
+  \textbf{\tituloTesis}
+\end{center}
+
+\vspace{3.5cm}
+
+\begin{center}
+  por
+\end{center}
+
+\vspace{0.4cm}
+
+\begin{center}
+  Eduardo Remigio Mariqueo Porma
+\end{center}
+
+\vspace{3.0cm}
+
+\begin{center}
+  Trabajo de Título presentado a la\\
+  Facultad de Ingeniería de la Universidad Católica de Temuco\\
+  Para Optar al Título de Ingeniero Civil Informático.
+\end{center}
+
+\vfill
+
+\begin{center}
+  -- Temuco, Octubre 2026 --
+\end{center}
+
+% ============================================================
+% COMISIÓN EXAMEN DE TÍTULO
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+
+\begin{center}
+  \vspace*{-9\baselineskip}
+  \IfFileExists{logo.png}{%
+    \includegraphics[width=0.8\textwidth]{logo.png}%
+  }{}
+  \par
+  \textbf{COMISIÓN EXAMEN DE TÍTULO}
+\end{center}
+
+Este Examen de Título ha sido realizado en la Escuela de Ingeniería Informática:
+
+\vspace{0.4cm}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.38\textwidth}>{\centering\arraybackslash}p{0.48\textwidth}}
+Presidente Comisión: &
+\dotfill\\
+& \textbf{Por designar}\\
+& Escuela de Ingeniería Informática\\[0.8cm]
+
+Profesor Guía: &
+\dotfill\\
+& \textbf{Prof. Mario Villanueva}\\
+& Profesor Guía\\
+& Escuela de Ingeniería Informática\\[0.8cm]
+
+Profesor Informante: &
+\dotfill\\
+& \textbf{Por designar}\\
+& Escuela de Ingeniería Informática\\[0.8cm]
+
+Jefe de Carrera de Ingeniería Civil Informática: &
+\dotfill\\
+& \textbf{Prof. Mario Villanueva}\\
+& Magíster en Gestión de Tecnologías de la Información\\
+& Ingeniero Informático\\
+& Jefe de Carrera Ing. Civil Informática
+\end{tabular}
+
+\vfill
+Temuco, Octubre 2026.
+
+% ============================================================
+% INFORME PROFESOR GUÍA
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+
+\begin{center}
+  \vspace*{-9\baselineskip}
+  \IfFileExists{logo.png}{%
+    \includegraphics[width=0.8\textwidth]{logo.png}%
+  }{}
+  \par
+  \textbf{INFORME TRABAJO DE TÍTULO}
+\end{center}
+
+\vspace{1cm}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.02\textwidth}>{\raggedright\arraybackslash}p{0.70\textwidth}}
+TÍTULO & : & ``\tituloTesis''\\
+& & \\
+ALUMNO & : & Eduardo Mariqueo
+\end{tabular}
+
+\vspace{1cm}
+
+En mi calidad de Profesor Guía, mis apreciaciones del presente informe de Trabajo de Título
+son las siguientes:
+
+\begin{itemize}
+  \item Apreciación 1.
+  \item Apreciación 2.
+  \item Apreciación 3.
+\end{itemize}
+
+De acuerdo con estas consideraciones califico el desarrollo de este Trabajo de Título con
+\textbf{nota X,X (nota en letras).}
+
+\vspace{1cm}
+
+\begin{flushright}
+\rule{65mm}{0.2mm}\\
+\textbf{Prof. Mario Villanueva}\\
+\textbf{Profesor Guía}
+\end{flushright}
+
+\vspace{1cm}
+
+Temuco, Octubre 2026.
+
+% ============================================================
+% INFORME PROFESOR INFORMANTE
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+
+\begin{center}
+  \vspace*{-9\baselineskip}
+  \IfFileExists{logo.png}{%
+    \includegraphics[width=0.8\textwidth]{logo.png}%
+  }{}
+  \par
+  \textbf{INFORME TRABAJO DE TÍTULO}
+\end{center}
+
+\vspace{0.8cm}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.02\textwidth}>{\raggedright\arraybackslash}p{0.70\textwidth}}
+TÍTULO & : & ``\tituloTesis''\\
+& & \\
+ALUMNO & : & Eduardo Mariqueo
+\end{tabular}
+
+\vspace{1cm}
+
+En mi calidad de Profesor Informante, mis apreciaciones del presente informe de Trabajo de
+Título son las siguientes:
+
+\begin{itemize}
+  \item Apreciación 1.
+  \item Apreciación 2.
+  \item Apreciación 3.
+\end{itemize}
+
+De acuerdo con estas consideraciones califico el desarrollo de este Trabajo de Título con
+\textbf{nota X,X (nota en letras).}
+
+\vspace{1cm}
+
+\begin{flushright}
+\rule{65mm}{0.2mm}\\
+\textbf{Por designar}\\
+\textbf{Profesor Informante}
+\end{flushright}
+
+\vspace{1cm}
+
+Temuco, Octubre 2026.
+
+% ============================================================
+% AGRADECIMIENTOS
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+
+\begin{center}
+  \textbf{AGRADECIMIENTOS}
+\end{center}
+
+\vspace{1cm}
+
+Agradezco a mi profesor guía y Jefe de Carrera, Prof. Mario Villanueva, por su orientación,
+disposición y respaldo durante el desarrollo de este Trabajo de Título. Agradezco también a
+la Universidad Católica de Temuco y a la Escuela de Ingeniería Informática por facilitar el
+acceso a la infraestructura y el equipamiento necesarios para el desarrollo del prototipo.
+Finalmente, agradezco a mi familia por su apoyo constante a lo largo de este proceso.
+
+\vfill
+
+\noindent\textbf{Nota del autor:} \small Se declara que durante la redacción de este trabajo se utilizaron herramientas de inteligencia artificial exclusivamente como apoyo auxiliar para tareas de redacción y revisión lingüística, sin intervenir en el planteamiento conceptual, la metodología ni los resultados del estudio.
+
+% ============================================================
+% ÍNDICES
+% ============================================================
+\clearpage
+\pagenumbering{roman}
+\pagestyle{empty}
+
+\tableofcontents*
+\clearpage
+
+\listoftables*
+\clearpage
+
+\listoffigures*
+\clearpage
+
+% ============================================================
+% RESUMEN
+% ============================================================
+\thispagestyle{empty}
+
+\begin{abstract}
+\addcontentsline{toc}{chapter}{Resumen}
+
+Este documento consolida la Etapa~1 y presenta en su totalidad la Etapa~2 (Diseño de la Solución) del Trabajo de Título orientado a diseñar, implementar y evaluar el rendimiento de una red LoRaWAN para la sensorización del Campus Dr. Luis Rivas del Canto de la Universidad Católica de Temuco (UCT). Incorporando rigurosamente la retroalimentación docente, se formaliza el diseño arquitectónico y operacional de la solución: se dimensiona un Gateway LoRaWAN indoor central (Milesight UG63 con concentrador Semtech SX1302 de 8 canales concurrentes) emplazado en dependencias del Departamento de Informática (Facultad de Ingeniería), y se caracterizan espacialmente dos escenarios experimentales de enlace representativos (línea de vista directa LOS con despeje de la 1ª Zona de Fresnel, y sin línea de vista NLOS con atenuación severa por muros de hormigón armado).
+
+En el ámbito radioeléctrico, se fundamenta el cumplimiento estricto de la normativa nacional chilena fijada por la Resolución Exenta N° 1.985 de 2017 y su actualización mediante la Resolución Exenta N° 737 de 2025 de la SUBTEL para la banda 915--928~MHz, adoptando el plan regional LoRaWAN AU915 Sub-banda 2 (SB2) a una potencia de transmisión de 14~dBm (25~mW), manteniendo un margen de seguridad de 13~dB respecto al límite legal. Asimismo, se especifica la activación segura mediante OTAA (seguridad criptográfica AES-128 con derivación dinámica de claves de sesión), la infraestructura de middleware basada en ChirpStack v4, el árbol jerárquico de tópicos MQTT (\texttt{application/\{id\}/device/\{eui\}/event/up}), el protocolo de codificación binaria de 6 bytes con su correspondiente esquema JSON decodificado, y el diseño conceptual del dashboard de monitoreo en tiempo real. La planificación PPDIOO reporta un avance del 100\% en las 66 horas correspondientes a las épicas de diseño (Topología, Regulación y Arquitectura de Software), dejando el prototipo plenamente preparado para su posterior despliegue físico y evaluación empírica.
+
+\textbf{Palabras clave:} LoRaWAN, IoT, sensórica, dashboard, LPWAN, PPDIOO.
+\end{abstract}
+
+% ============================================================
+% ABSTRACT
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+
+\renewcommand{\abstractname}{Abstract}
+
+\begin{abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+This document consolidates Stage~1 and fully delivers Stage~2 (Solution Design) of the Degree Project aimed at designing, deploying, and evaluating the performance of a LoRaWAN network prototype for sensorizing the Dr. Luis Rivas del Canto Campus of the Universidad Católica de Temuco (UCT). Incorporating faculty feedback, the architectural and operational design is thoroughly formalized: a central indoor LoRaWAN Gateway (Milesight UG63 equipped with an 8-channel Semtech SX1302 baseband concentrator) is dimensioned at the Department of Computer Science (Faculty of Engineering), and two representative wireless link scenarios are spatially modeled (Line-of-Sight LOS with 1st Fresnel zone clearance, and Non-Line-of-Sight NLOS with severe building wall penetration attenuation).
+
+Regarding spectrum regulation, strict compliance with Chilean SUBTEL Exempt Resolution No. 1,985 of 2017 and its updated framework Exempt Resolution No. 737 of 2025 for the 915--928~MHz band is established, adopting the regional LoRaWAN AU915 Sub-band 2 (SB2) channel plan at a transmission power of 14~dBm (25~mW), providing a 13~dB safety margin below the regulatory ceiling. Furthermore, the design details secure Over-The-Air Activation (OTAA with AES-128 cryptographic key derivation), ChirpStack v4 middleware architecture, hierarchical MQTT topic naming (\texttt{application/\{id\}/device/\{eui\}/event/up}), 6-byte big-endian binary payload formatting with JSON schema decoding, and the conceptual user interface design for real-time telemetry and RF link health monitoring. Following the PPDIOO methodology, 100\% of the 66 planned design hours across Epics 1, 2, and 3 are successfully completed, preparing the system for physical campus deployment and empirical performance benchmarking.
+
+\textbf{Keywords:} LoRaWAN, IoT, sensing, dashboard, LPWAN, PPDIOO.
+\end{abstract}
+
+% ============================================================
+% CONTENIDO PRINCIPAL
+% ============================================================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\pagestyle{mainstyle}
+
+% ============================================================
+% CAPÍTULO 1: INTRODUCCIÓN
+% ============================================================
+\chapter{Introducción}
+
+\section{Contexto general}
+
+El proyecto aborda la necesidad de contar con una red de conectividad de bajo consumo
+para sensores IoT dentro del Campus Dr. Luis Rivas del Canto (Facultad de Ingeniería) de
+la Universidad Católica de Temuco. A diferencia de una red Wi-Fi tradicional, una solución
+basada en LoRaWAN permitiría transportar datos de sensores distribuidos en distintos
+puntos del campus con menor consumo energético y sin depender necesariamente de la
+cobertura inalámbrica institucional existente.
+
+La propuesta contempla la implementación de un prototipo de conectividad basado en
+tecnología LoRaWAN, con un Gateway LoRaWAN central y al menos dos nodos sensores desplegados
+dentro del campus, cuyos datos se publicarán hacia Internet y se visualizarán en un
+dashboard de visualización simple. El propósito de esta etapa no es presentar como
+demostrada la superioridad de LoRaWAN frente a otras tecnologías, sino establecer una base
+técnica y metodológica que permita evaluar posteriormente su desempeño en el escenario de
+estudio, considerando la presencia de obstáculos estructurales propios del campus
+(edificios, muros).
+
+\section{Problema}
+
+La necesidad de este proyecto se relaciona con la disponibilidad de una alternativa de
+conectividad de bajo consumo y de bajo costo operativo para el transporte de datos de
+sensores IoT dentro del campus. Actualmente no se cuenta con una infraestructura propia,
+de bajo consumo energético, orientada específicamente a este tipo de telemetría, lo que
+limita el desarrollo de futuras aplicaciones de sensórica dentro de la Facultad de
+Ingeniería.
+
+Una solución de conectividad para nodos de telemetría debe responder a las demandas
+reales de monitoreo intra-campus. Entre las aplicaciones concretas de sensorización
+identificadas para la Facultad de Ingeniería se incluyen: (1) el monitoreo de confort
+ambiental y habitabilidad (temperatura, humedad relativa y concentración de $\text{CO}_2$)
+en salas de clases y laboratorios docentes de informática; (2) la telemetría en áreas verdes
+y patios perimetrales del campus (humedad de suelo, luminosidad e índice de radiación); y
+(3) la supervisión del estado operativo y consumos eléctricos en tableros de talleres de
+especialidad. La implementación de tales iniciativas bajo la red actual se ve restringida
+por factores de consumo energético, limitaciones de alcance en exteriores, operación
+radioeléctrica ante obstáculos estructurales (edificios, muros de hormigón armado) y la
+dificultad de integrar microcontroladores de bajo costo a las redes Wi-Fi institucionales.
+Por ello, el proyecto considera necesario estudiar una alternativa basada en infraestructura
+propia, concebida específicamente para el transporte eficiente de datos de baja tasa.
+
+El problema se formula operacionalmente de la siguiente manera:
+
+\begin{quote}
+\textit{
+La UCT requiere evaluar una alternativa de conectividad propia para transportar datos de
+sensores IoT dentro del Campus Dr. Luis Rivas del Canto, considerando restricciones de
+consumo energético, la presencia de obstáculos estructurales y la dependencia de la
+infraestructura de red existente, y permitiendo la visualización de dichos datos en un
+dashboard.
+}
+\end{quote}
+
+A partir de esta formulación se plantea la siguiente pregunta de investigación:
+
+\begin{quote}
+\textit{
+¿En qué medida un prototipo de red LoRaWAN implementado dentro del Campus Dr. Luis Rivas
+del Canto permite transportar y visualizar datos de sensores IoT de manera técnicamente
+viable, considerando la presencia de obstáculos estructurales dentro del campus?
+}
+\end{quote}
+
+\subsection{Limitaciones de la infraestructura de conectividad actual}
+\label{sec:limitaciones-infra}
+
+La afirmación de insuficiencia de la infraestructura Wi-Fi existente para telemetría IoT
+de bajo consumo se fundamenta en las siguientes restricciones estructurales y tecnológicas:
+
+\begin{enumerate}
+  \item \textbf{Incompatibilidad energética:} Los nodos IoT de telemetría de baja tasa
+  están diseñados para operar con baterías durante meses o años. El estándar Wi-Fi
+  (IEEE 802.11) presenta consumos energéticos del orden de centenares de miliamperios
+  durante la transmisión, incompatibles con baterías de pequeña capacidad típicas en
+  sensores embarcados \parencite{callebaut2020}. LoRaWAN, en contraste, opera en el rango
+  de microamperios en reposo y pocos miliamperios en transmisión, siendo adecuado para
+  ciclos de trabajo muy bajos.
+
+  \item \textbf{Dependencia de infraestructura fija:} La red Wi-Fi institucional requiere
+  que los nodos estén dentro del rango de cobertura de los puntos de acceso (AP) existentes.
+  En un campus universitario con edificios y obstáculos estructurales, los sensores ubicados
+  en zonas exteriores, cubiertas o sectores sin AP cercano quedan fuera de la cobertura
+  disponible, sin posibilidad de conectividad sin extender la red Wi-Fi.
+
+  \item \textbf{Ausencia de infraestructura LPWAN propia:} La UCT no cuenta actualmente
+  con una red LPWAN (\textit{Low Power Wide Area Network}) propia para telemetría IoT,
+  lo que impide el desarrollo de aplicaciones de sensorización intra-campus que requieran
+  alcance kilométrico con bajo consumo y sin depender de proveedores externos.
+
+  \item \textbf{Necesidad de cuantificación formal -- trabajo en curso:} El levantamiento
+  detallado de la cobertura Wi-Fi en el Campus Dr. Luis Rivas del Canto, incluyendo la
+  identificación de zonas sin cobertura o con señal insuficiente y la estimación de sus
+  implicancias para la sensorización IoT, forma parte de las actividades planificadas para
+  la Etapa 2 del proyecto, en coordinación con el Área de Redes/TI de la universidad. Este
+  relevamiento permitirá cuantificar objetivamente las brechas de cobertura que refuerzan
+  la justificación de la alternativa LoRaWAN.
+\end{enumerate}
+
+En síntesis, la necesidad del proyecto no descansa únicamente en la ausencia de cobertura
+Wi-Fi, sino en la inadecuación estructural de Wi-Fi como tecnología de transporte para
+telemetría IoT de muy bajo consumo en un entorno intra-campus con obstáculos. La
+cuantificación formal de estas limitaciones queda planificada para la Etapa~2.
+
+\section{Alcance y delimitaciones}
+
+El alcance de esta etapa comprende la definición del problema, la identificación de
+stakeholders, el establecimiento de objetivos, la especificación inicial de requisitos,
+la revisión del fundamento técnico y la planificación del proyecto.
+
+La evaluación final se plantea mediante pruebas controladas sobre la red desplegada dentro
+del campus. No se considera, dentro del alcance declarado, una operación continua de la
+infraestructura durante periodos prolongados ni una optimización matemática de la red.
+
+La arquitectura de comunicaciones del prototipo será \textbf{LoRaWAN estándar}. Esta
+decisión se fundamenta en que el Gateway LoRaWAN opera nativamente bajo el protocolo LoRaWAN;
+una arquitectura LoRa punto a punto (P2P) habría requerido modificaciones adicionales de
+firmware o hardware sobre dicho equipo, incrementando la complejidad de la solución en lugar
+de reducirla. El detalle de esta arquitectura se presenta en la Sección~\ref{sec:arquitectura-lorawan}.
+
+\section{Estado del arte}
+
+El estado del arte sustenta la selección tecnológica y los requerimientos de
+rendimiento mediante estudios previos sobre LoRa/LoRaWAN, telemetría IoT, propagación y
+medición de enlaces. Dado que el escenario del proyecto involucra la propagación de señal
+dentro de un campus universitario --con edificios y otras estructuras que actúan como
+obstáculos relevantes-- se priorizan trabajos que caractericen empíricamente la pérdida
+de trayectoria en entornos urbanos y construidos bajo condiciones de obstrucción parcial
+\parencite{rademacher2021,callebaut2020,bianco2021,ahmed2024vegetacion}.
+
+En particular, \textcite{rademacher2021} reportan una campaña de medición a gran escala
+(más de 112.000 muestras) en un área urbana de 200~km\textsuperscript{2}, comparando once
+modelos de pérdida de trayectoria y concluyendo que el modelo log-distancia y modelos
+empíricos clásicos (Okumura, Winner+) ofrecen estimaciones razonables frente a modelos
+basados en terreno. Por su parte, \textcite{callebaut2020} caracterizan enlaces LoRa
+punto a punto en tres entornos --urbano, forestal y costero--, mostrando que la baja
+altura de las antenas incrementa la pérdida de trayectoria respecto a una topología
+estrella. El trabajo de \textcite{bianco2021} aporta un antecedente adicional sobre la
+propagación de LoRa en condiciones de obstrucción severa. Finalmente,
+\textcite{ahmed2024vegetacion} cuantifican el efecto de obstáculos naturales sobre el
+desempeño de nodos LoRa, observando caídas en la tasa de entrega de paquetes (PDR) y en la
+relación señal-ruido a medida que aumenta la distancia y la obstrucción.
+
+Respecto a la transferibilidad de estos resultados al escenario intra-campus, la literatura
+reciente aporta antecedentes directamente comparables. \textcite{kaur2024campus} realizan
+un análisis experimental de una red IoT de bajo ciclo de trabajo desplegada en el campus
+de Amity University (India), evaluando el comportamiento indoor y outdoor de nodos LoRa
+bajo distintas configuraciones de factor de dispersión (\textit{Spreading Factor}, SF) y
+tasa de codificación (\textit{Coding Rate}, CR). Sus resultados muestran que la
+confiabilidad del enlace y la tasa de entrega de paquetes son altamente sensibles a los
+parámetros de configuración y al tipo de obstrucción del entorno, con PDR superior al
+90\% en condiciones de línea de vista y degradaciones significativas en escenarios indoor
+bajo obstrucción de muros. Por su parte, \textcite{barrachina2023campus} presentan el
+análisis y despliegue de una red LoRaWAN multi-gateway en la Universitat Autònoma de
+Barcelona (UAB), combinando simulaciones de cobertura con mediciones de campo reales para
+identificar brechas de cobertura y optimizar la ubicación de los nodos en el recinto
+universitario construido.
+
+Estos antecedentes permiten establecer que las condiciones del canal intra-campus no
+deben modelarse únicamente mediante espacio libre cuando existen obstáculos estructurales,
+y que la evaluación empírica planificada para las etapas posteriores de este Trabajo de
+Título es coherente con la metodología utilizada en la literatura reciente.
+
+Aunque los estudios revisados caracterizan la propagación y pérdida de trayectoria de LoRa
+en entornos urbanos, forestales, bajo condiciones de obstrucción y en campus universitarios,
+estos antecedentes no caracterizan específicamente una implementación LoRaWAN orientada a
+sensorización intra-campus en el Campus Dr. Luis Rivas del Canto. En consecuencia, el
+presente trabajo propone evaluar experimentalmente el comportamiento de una red LoRaWAN en
+dicho escenario, cerrando este vacío local.
+
+\subsection{Síntesis de trabajos relacionados}
+
+En el Cuadro~\ref{tab:estado-arte} se resumen las principales investigaciones que
+sustentan el abordaje técnico del presente proyecto.
+
+\begin{table}[H]
+\centering
+\caption{Síntesis del estado del arte}
+\label{tab:estado-arte}
+\scriptsize
+\begin{tabularx}{\textwidth}{p{2.5cm} X X X}
+\toprule
+\textbf{Referencia} & \textbf{Problema} & \textbf{Enfoque} & \textbf{Aporte al proyecto}\\
+\midrule
+\textcite{rademacher2021}
+&
+Predicción de cobertura en redes LoRa urbanas mediante modelos de pérdida de trayectoria.
+&
+Campaña de medición a gran escala (230 días, > 112.000 muestras) y comparación de 11 modelos empíricos.
+&
+Sustenta el uso de modelos log-distancia como línea base para estimar la cobertura dentro del campus.
+\\
+\midrule
+\textcite{callebaut2020}
+&
+Caracterización de enlaces LoRa punto a punto en distintos entornos.
+&
+Campañas de medición en urbano, forestal y costero; modelamiento de path loss con datos censurados.
+&
+Aporta evidencia de que la baja altura de antena incrementa la pérdida de trayectoria. Sustenta la incompatibilidad energética de Wi-Fi para telemetría de bajo consumo.
+\\
+\midrule
+\textcite{bianco2021}
+&
+Comunicación LoRa en condiciones de obstrucción severa.
+&
+Mediciones de path loss bajo condiciones adversas de propagación.
+&
+Antecedente sobre el comportamiento de LoRa ante obstáculos, aplicable a la obstrucción parcial por edificios dentro del campus.
+\\
+\midrule
+\textcite{ahmed2024vegetacion}
+&
+Efecto de obstáculos naturales sobre la comunicación LoRa.
+&
+Mediciones de PDR y SNR en función de la distancia y la obstrucción, para distintos factores de dispersión (SF).
+&
+Justifica considerar efectos adicionales al modelo de espacio libre. Aporta referencia empírica de PDR bajo obstrucción.
+\\
+\midrule
+\textcite{kaur2024campus}
+&
+Rendimiento de red IoT LoRa de bajo ciclo de trabajo en campus universitario.
+&
+Análisis experimental indoor/outdoor en Amity University bajo distintas configuraciones de SF y CR.
+&
+Antecedente directo en entorno de campus construido: PDR $\geq$ 90\% en LOS y degradación bajo obstrucción. Refuerza la necesidad de pruebas site-specific.
+\\
+\midrule
+\textcite{barrachina2023campus}
+&
+Despliegue y análisis de red LoRaWAN multi-gateway en recinto universitario.
+&
+Simulación HTZ Communications + campañas de medición real en la UAB para identificar brechas de cobertura.
+&
+Demuestra la viabilidad de LoRaWAN intra-campus. Referente directo para el diseño del protocolo experimental.
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Objetivos}
+
+\subsection{Objetivo general}
+
+Diseñar, implementar y evaluar el rendimiento de un prototipo de red LoRaWAN para la
+sensorización del Campus Dr. Luis Rivas del Canto de la UCT, determinando su viabilidad
+técnica mediante pruebas controladas de funcionamiento y rendimiento.
+
+\subsection{Objetivos específicos}
+
+\begin{enumerate}
+  \item \textbf{O1.} Desplegar la infraestructura física del prototipo, compuesta por un
+  Gateway LoRaWAN ubicado en la Facultad de Ingeniería y al menos dos nodos sensores Heltec
+  LoRa 32 en distintos puntos del Campus Dr. Luis Rivas del Canto, verificando su instalación
+  y funcionamiento básico durante la Etapa 2 (Septiembre--Octubre 2026).
+
+  \item \textbf{O2.} Integrar el Gateway LoRaWAN con el entorno de red IP definido para el
+  prototipo, verificando que las tramas correctamente recibidas puedan ser publicadas
+  hacia Internet y entregadas al destino de prueba durante la Etapa 2
+  (Septiembre--Octubre 2026).
+
+  \item \textbf{O3.} Implementar un dashboard de visualización simple --dadas las
+  restricciones de tiempo del proyecto-- que consuma los datos publicados hacia Internet
+  (p.~ej. vía MQTT) y muestre, como mínimo, el identificador del nodo sensor, la marca
+  temporal y el valor medido, sin incorporar analítica avanzada, durante la Etapa 2
+  (Septiembre--Octubre 2026).
+
+  \item \textbf{O4.} Evaluar el rendimiento de la red desplegada dentro del campus
+  mediante 3 sesiones de tráfico controlado de 100 tramas por nodo (Sesiones Tipo A,
+  tramas no confirmadas, $NbTrans = 1$), ejecutadas en franjas horarias distintas (mañana,
+  mediodía y tarde) para capturar variabilidad temporal mínima, complementadas con
+  sesiones de tramas confirmadas para la medición de retardo (Sesiones Tipo B, al menos
+  30 tramas confirmadas por sesión). La red se considerará \textbf{técnicamente viable}
+  si cumple simultáneamente los siguientes umbrales, justificados según el tipo de
+  telemetría de baja tasa:
+  \begin{itemize}
+    \item \textbf{Pérdida de paquetes:} $PL \leq 10\%$ (equivalente a PDR $\geq$ 90\%),
+    umbral ampliamente utilizado en literatura de telemetría LoRaWAN en campus
+    \parencite{kaur2024campus,ahmed2024vegetacion};
+    \item \textbf{Retardo de confirmación:} $T_{\mathrm{conf}} \leq 6\,\text{s}$,
+    determinado por las ventanas de recepción RX1 (1~s) y RX2 (2~s) más un margen
+    operativo, consistente con el estándar LoRaWAN Clase A \parencite{lorawan1_0_4};
+    \item \textbf{Disponibilidad:} $A \geq 90\%$, umbral mínimo para telemetría de baja
+    frecuencia en entornos universitarios construidos \parencite{barrachina2023campus}.
+  \end{itemize}
+  Medición durante la Etapa 3 (Octubre 2026) y la Etapa 4 (Noviembre--Diciembre 2026).
+  El protocolo experimental detallado se presenta en la Sección~\ref{sec:protocolo-experimental}.
+\end{enumerate}
+
+\subsection{Criterios SMART}
+
+\begin{table}[H]
+\centering
+\caption{Objetivos específicos y criterios SMART}
+\label{tab:smart}
+\tiny
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+  >{\bfseries\centering\arraybackslash}p{0.5cm}
+  >{\raggedright\arraybackslash}p{2.0cm}
+  >{\raggedright\arraybackslash\hsize=1.05\hsize}X
+  >{\raggedright\arraybackslash\hsize=1.05\hsize}X
+  >{\raggedright\arraybackslash\hsize=0.95\hsize}X
+  >{\raggedright\arraybackslash\hsize=0.95\hsize}X
+  >{\raggedright\arraybackslash\hsize=1.00\hsize}X}
+\toprule
+\textbf{ID} &
+\textbf{Objetivo} &
+\textbf{S: específico} &
+\textbf{M: medible} &
+\textbf{A: alcanzable} &
+\textbf{R: relevante} &
+\textbf{T: temporizado}\\
+\midrule
+O1 &
+Desplegar la infraestructura física del prototipo. &
+1 Gateway LoRaWAN y al menos 2 nodos sensores en el campus. &
+Instalación de 1 Gateway LoRaWAN y al menos 2 nodos, con prueba funcional básica. &
+Los antecedentes del proyecto identifican el hardware disponible provisto por la facultad. &
+Construye el escenario requerido para la evaluación. &
+Septiembre--Octubre 2026 (Etapa~2).\\
+\midrule
+O2 &
+Integrar el Gateway con el entorno IP de prueba. &
+Recibir y publicar a la red IP las tramas recibidas correctamente. &
+Verificar la publicación de las tramas que llegan al Gateway LoRaWAN. &
+Se limita al alcance de integración definido para el prototipo. &
+Permite utilizar los datos fuera del enlace radio. &
+Septiembre--Octubre 2026 (Etapa~2).\\
+\midrule
+O3 &
+Implementar un dashboard de visualización simple. &
+Mostrar ID de nodo, marca temporal y valor medido, sin analítica avanzada. &
+Verificar que las tramas consumidas queden identificadas por origen en pantalla. &
+Se dispone de un servidor o dashboard local considerado en el proyecto. &
+Facilita la observación directa de los datos de los sensores. &
+Septiembre--Octubre 2026 (Etapa~2).\\
+\midrule
+O4 &
+Evaluar el rendimiento de la red dentro del campus. &
+Sesiones Tipo A (100 tramas, $NbTrans=1$) y Tipo B (confirmadas) en distintos puntos y franjas horarias. &
+$PL \leq 10\%$, $T_{\mathrm{conf}} \leq 6\,\text{s}$ y $A \geq 90\%$ en las sesiones. Franjas horarias distintas para variabilidad temporal mínima. &
+Prueba experimental puntual con protocolo preliminar formalizado (Sec.~\ref{sec:protocolo-experimental}). &
+Permite determinar viabilidad técnica con umbrales justificados por el tipo de telemetría. &
+Octubre 2026 (Etapa~3) y Noviembre--Diciembre 2026 (Etapa~4).\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Contribución de la Etapa 1}
+
+Esta etapa establece una definición operacional del problema, una primera identificación
+de stakeholders, objetivos SMART trazables con umbrales de viabilidad técnica cuantificados,
+requisitos funcionales y no funcionales, una justificación preliminar de la alternativa
+tecnológica y un backlog estructurado mediante PPDIOO. La evidencia empírica de rendimiento
+se reserva para las etapas posteriores.
+
+% ============================================================
+% CAPÍTULO 2: ANTECEDENTES Y DEFINICIÓN DEL PROBLEMA
+% ============================================================
+\chapter{Antecedentes y Definición del Problema}
+
+\section{Contexto del proyecto}
+
+La red propuesta se despliega dentro del Campus Dr. Luis Rivas del Canto (Facultad de
+Ingeniería). El Gateway LoRaWAN central se ubicará en la Facultad de Ingeniería,
+concentrando la recepción de las tramas de radiofrecuencia y su publicación hacia
+Internet/red IP institucional, mientras que al menos dos nodos sensores se distribuyen
+en distintos lugares de interés dentro del campus --por ejemplo, distintos edificios o
+sectores-- para transmitir datos de sensores IoT hacia el Gateway LoRaWAN, considerando
+la presencia de obstáculos estructurales (edificios, muros) entre cada nodo y el Gateway
+LoRaWAN.
+
+La selección de las ubicaciones definitivas de los nodos sensores, la confirmación y
+asignación formal del modelo de Gateway LoRaWAN institucional y las variables físicas
+a monitorear se consolidarán formalmente durante la fase de despliegue de la Etapa 2,
+en función de los implementos provistos por la Escuela de Ingeniería Informática.
+
+\section{Inventario tecnológico}
+
+Los antecedentes disponibles contemplan un Gateway LoRaWAN (modelo institucional actualmente
+en proceso de evaluación y provisión técnica) y módulos Heltec LoRa 32 como nodos sensores
+(al menos dos). También se considera el desarrollo del firmware mediante C/C++ y Arduino IDE,
+además de un servidor o dashboard local para visualización.
+
+\textbf{Advertencia de operación del hardware:} los módulos Heltec deben utilizar su
+antena física correspondiente antes de ser energizados o utilizados en las pruebas, de
+acuerdo con las instrucciones de operación proporcionadas para el proyecto.
+
+\subsection{Arquitectura de comunicaciones: LoRaWAN}
+\label{sec:arquitectura-lorawan}
+
+El prototipo adopta \textbf{LoRaWAN} como protocolo de comunicaciones, en lugar de una
+implementación LoRa punto a punto (P2P), siguiendo la especificación oficial del protocolo
+\parencite{lorawan1_0_4}. Esta decisión responde directamente a las capacidades del
+hardware a utilizar: el Gateway LoRaWAN es, por diseño, un dispositivo concentrador LoRaWAN
+cuya etapa de recepción demodula y procesa tramas que siguen la estructura estándar MAC
+definida en dicha especificación (encabezado MAC, DevAddr, MIC, FPort), descartando paquetes
+crudos fuera de norma.
+
+En la Figura~\ref{fig:arquitectura-lorawan} se detalla la arquitectura de integración
+extremo a extremo propuesta para el prototipo, estructurada formalmente en tres dominios
+tecnológicos: (1) el dominio de radiofrecuencia y sensórica con nodos Heltec WiFi LoRa 32 V3,
+(2) el dominio de concentración y red IP con el Gateway LoRaWAN y ChirpStack v4, y (3) el
+dominio de aplicación y visualización con Broker MQTT y Dashboard en tiempo real.
+
+% ============================================================
+% FIGURA 2.1: ARQUITECTURA (AMPLIADA CON ADJUSTWIDTH)
+% ============================================================
+\begin{figure}[H]
+\centering
+\begin{adjustwidth}{-1.4cm}{-1.4cm}
+  \centering
+  \includegraphics[width=\linewidth]{01_arquitectura_red}
+\end{adjustwidth}
+\caption{Diagrama de arquitectura del prototipo de conectividad LoRaWAN intra-campus}
+\label{fig:arquitectura-lorawan}
+\end{figure}
+
+En consecuencia, los componentes del sistema quedan definidos de la siguiente forma:
+
+\begin{itemize}
+  \item \textbf{Nodos sensores Heltec LoRa~32 (al menos dos):} se configurarán mediante una
+  librería LoRaWAN estándar para Arduino (RadioLib o MCCI LMIC), autenticándose mediante
+  \emph{Over-The-Air Activation} (OTAA) \parencite{lorawan1_0_4}. Cada nodo transmitirá
+  periódicamente tramas de telemetría bajo el plan regional AU915 (915--928~MHz), banda
+  habilitada en Chile por la SUBTEL \parencite{subtel2017}.
+  \item \textbf{Gateway LoRaWAN:} se ubicará en la Facultad de Ingeniería. Operará enlazado
+  hacia un Network Server (ya sea integrado en el propio equipo o desplegado como servicio local
+  ChirpStack sobre la red provista), publicando las tramas procesadas hacia la red IP
+  mediante el protocolo MQTT.
+  \item \textbf{Dashboard de visualización simple:} interfaz mínima que se suscribe al broker
+  MQTT y presenta en pantalla el identificador del nodo sensor, la marca temporal
+  (\emph{timestamp}) y el valor medido, satisfaciendo el requerimiento RF4.
+\end{itemize}
+
+Respecto a la evaluación experimental (RQS1--RQS2), las sesiones de prueba se clasifican
+formalmente en dos tipos con configuraciones MAC mutuamente excluyentes:
+
+\begin{itemize}
+  \item \textbf{Sesiones Tipo A -- Pérdida de paquetes ($PL$):} Se emplearán
+  \emph{tramas no confirmadas} (\textit{unconfirmed uplinks}) con reintentos desactivados
+  ($NbTrans = 1$). Esta configuración asegura que la métrica refleje directamente la
+  atenuación física del canal sin que las retransmisiones de la pila enmascaren los paquetes
+  perdidos. Cada sesión Tipo A comprende 100 tramas por nodo.
+
+  \item \textbf{Sesiones Tipo B -- Retardo de confirmación ($T_{\mathrm{conf}}$):} Se
+  realizarán sesiones controladas específicas mediante \emph{tramas confirmadas}
+  (\textit{confirmed uplinks}), registrando el intervalo hasta la recepción del ACK en las
+  ventanas temporizadas RX1/RX2 \parencite{lorawan1_0_4}. Dado que las tramas confirmadas
+  consumen mayor capacidad de downlink, estas sesiones se mantienen separadas de las
+  Sesiones Tipo A y comprenden al menos 30 tramas confirmadas por nodo.
+\end{itemize}
+
+La dinámica temporal y el intercambio formal de tramas entre los actores del sistema para
+ambos tipos de sesión y para el proceso de adhesión a la red se detallan en la
+Figura~\ref{fig:secuencia-comunicacion}.
+
+% ============================================================
+% FIGURA 2.2: SECUENCIA DE COMUNICACIONES (AMPLIADA)
+% ============================================================
+\begin{figure}[H]
+\centering
+\begin{adjustwidth}{-1.2cm}{-1.2cm}
+  \centering
+  \includegraphics[width=\linewidth]{02_secuencia_otaa_uplink}
+\end{adjustwidth}
+\caption{Diagrama de secuencia de comunicaciones: procedimiento OTAA, Sesiones Tipo A y Sesiones Tipo B}
+\label{fig:secuencia-comunicacion}
+\end{figure}
+
+La separación formal de ambos tipos de sesión responde a que las configuraciones MAC son
+incompatibles entre sí: el uso simultáneo de tramas confirmadas y no confirmadas introduce
+ambigüedad en los resultados al mezclar el comportamiento del canal físico con la lógica
+de retransmisión de la pila LoRaWAN.
+
+\section{Partes interesadas}
+
+La identificación de stakeholders distingue claramente entre la justificación de la
+necesidad institucional y la viabilidad operativa del despliegue. La necesidad del proyecto
+está liderada por la Facultad de Ingeniería a través de la Dirección de la Carrera de
+Ingeniería Civil Informática, encabezada por el Prof. Mario Villanueva en calidad de
+patrocinador académico y propietario del proyecto, quien valida la pertinencia y aprueba
+los requerimientos.
+
+Por su parte, el Área de Redes/TI y la Dirección de Informática intervienen principalmente
+en calidad de prestadores y facilitadores de equipamiento e infraestructura técnica
+(servidores, segmento IP institucional y provisión del Gateway LoRaWAN), simplificando la
+articulación operativa del despliegue.
+
+\begin{table}[H]
+\centering
+\caption{Partes interesadas y necesidades preliminares}
+\label{tab:stakeholders}
+\small
+\begin{tabularx}{\textwidth}{p{3.4cm} X X}
+\toprule
+\textbf{Stakeholder} & \textbf{Necesidad preliminar} & \textbf{Implicancia}\\
+\midrule
+Área de Redes/TI / Informática
+&
+Proveer la infraestructura de conectividad IP, direccionamiento y equipamiento de prueba (Gateway y hosting básico).
+&
+Facilitador de equipamiento e integración del Gateway en la red del campus. Responsable del levantamiento de cobertura Wi-Fi planificado para Etapa 2.
+\\
+\midrule
+Facultad de Ingeniería / Investigadores
+&
+Disponer de una red de sensórica IoT propia, abierta y de bajo costo para experimentación académica.
+&
+Justifica la selección de tecnología LPWAN de bajo consumo y administración local.
+\\
+\midrule
+Dirección de Carrera / Propietario del proyecto (Prof. Mario Villanueva)
+&
+Fomentar la innovación en IoT dentro de la facultad, validar empíricamente la viabilidad de LoRaWAN intra-campus y disponer de una plataforma replicable.
+&
+Valida formalmente la relevancia del problema y aprueba los requerimientos prioritarios.
+\\
+\midrule
+Estudiantes y futuros tesistas
+&
+Contar con una arquitectura documentada, modular y reproducible para futuros desarrollos de telemetría.
+&
+Exige rigor en la especificación técnica, manuales de configuración y reproducibilidad.
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Validación de stakeholders}
+
+La pertinencia y necesidad del proyecto han sido validadas directamente con el propietario
+del proyecto, el Prof. Mario Villanueva (Jefe de Carrera de Ingeniería Civil Informática).
+Respecto a los implementos y accesos de red, su provisión se coordina de manera directa
+como soporte técnico de infraestructura para el inicio de la Etapa 2.
+
+\begin{table}[H]
+\centering
+\caption{Plan de validación y soporte de stakeholders}
+\label{tab:validacion-stakeholders}
+\small
+\begin{tabularx}{\textwidth}{p{3.4cm} X X}
+\toprule
+\textbf{Actor} & \textbf{Qué se debe validar / coordinar} & \textbf{Evidencia}\\
+\midrule
+Dirección de Carrera (Prof. Mario Villanueva, Propietario)
+&
+Relevancia institucional del problema, pertinencia de la sensorización en el campus y aprobación de requerimientos funcionales.
+&
+Validación formal de necesidad realizada (Agosto 2026); respaldo institucional del proyecto.
+\\
+\midrule
+Área de Redes / Informática (Soporte)
+&
+Entrega y asignación del Gateway institucional, segmento de red IP, soporte de conectividad para el broker MQTT y coordinación del levantamiento de cobertura Wi-Fi (Etapa 2).
+&
+Coordinación de entrega de equipamiento programada para el inicio de la Etapa 2.
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Análisis preliminar del escenario de despliegue}
+
+El escenario de despliegue corresponde al Campus Dr. Luis Rivas del Canto, recinto que
+concentra los edificios de la Facultad de Ingeniería. A nivel preliminar, se propone
+ubicar el Gateway LoRaWAN en un punto central de la Facultad que favorezca la cobertura
+hacia el resto del campus, mientras que los nodos sensores se distribuirán en distintos
+lugares de interés dentro del campus, seleccionados de manera que representen escenarios
+de propagación diversos --tanto de línea de vista directa (LOS) como con algún grado de
+obstrucción por edificios o muros (NLOS parcial)--, sin comprometer aún ubicaciones
+exactas ni distancias específicas.
+
+Esta primera aproximación busca únicamente delimitar el tipo de escenario que enfrentará
+el prototipo --un entorno intra-campus con obstáculos estructurales típicos de un recinto
+universitario-- y no reemplaza la caracterización espacial detallada que corresponde
+realizar en la Etapa 2, una vez que se cuente con acceso a los planos oficiales del
+campus, se releven las distancias reales entre los puntos candidatos y se confirmen las
+ubicaciones definitivas del Gateway LoRaWAN y de cada nodo sensor junto con el personal de
+soporte y la Dirección de Carrera.
+
+% ============================================================
+% CAPÍTULO 3: OBJETIVOS Y TRAZABILIDAD
+% ============================================================
+\chapter{Objetivos y Trazabilidad}
+
+\section{Matriz de trazabilidad}
+
+La matriz vincula los objetivos y requerimientos con el problema, las necesidades
+identificadas y la evidencia que permitirá verificar su cumplimiento.
+
+\begin{table}[H]
+\centering
+\caption{Matriz de trazabilidad entre problema, stakeholders, objetivos y requerimientos}
+\label{tab:trazabilidad}
+\tiny
+\begin{tabularx}{\textwidth}{
+  >{\bfseries\raggedright\arraybackslash}p{0.8cm}
+  >{\raggedright\arraybackslash}p{1.5cm}
+  >{\raggedright\arraybackslash}p{2.3cm}
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Req.} &
+\textbf{Obj.} &
+\textbf{Stakeholder} &
+\textbf{Necesidad / problema} &
+\textbf{Justificación y verificación}\\
+\midrule
+RF1 & O1, O4 &
+Dirección de Carrera (Prof. Mario Villanueva)
+&
+Transmitir datos desde los nodos sensores.
+&
+Sin transmisión radio no existe un prototipo evaluable. Se verificará mediante pruebas de envío y recepción.
+\\
+\midrule
+RF2 & O1, O2 &
+Soporte TI / Informática
+&
+Concentrar y procesar la información recibida en el Gateway.
+&
+El Gateway LoRaWAN constituye el punto central de recepción. Se verificará mediante registros y logs de tramas.
+\\
+\midrule
+RF3 & O2, O3 &
+Soporte TI / Informática
+&
+Entregar datos al entorno IP de prueba.
+&
+Permite verificar la integración con la red institucional y broker. Se contrastarán tramas radio versus publicaciones MQTT.
+\\
+\midrule
+RF4 & O3, O4 &
+Dirección de Carrera (Prof. Mario Villanueva)
+&
+Distinguir el origen de cada sensor en el dashboard.
+&
+La identificación del origen permite atribuir correctamente cada dato al sensor correspondiente.
+\\
+\midrule
+RF5 & O4 &
+Dirección de Carrera (Prof. Mario Villanueva)
+&
+Obtener evidencia empírica del rendimiento.
+&
+Las sesiones Tipo A y B permiten calcular las métricas definidas. Umbrales: $PL \leq 10\%$, $T_{\mathrm{conf}} \leq 6\,\text{s}$, $A \geq 90\%$.
+\\
+\midrule
+RT1 & O1--O4 &
+Marco Regulatorio (SUBTEL)
+&
+Operación en banda y potencia legalmente permitida en Chile.
+&
+Garantiza cumplimiento normativo mediante configuración del plan AU915.
+\\
+\midrule
+RT2--RT3 & O1--O4 &
+Equipo de Desarrollo / Tesista
+&
+Restricciones de integridad de hardware y entorno de programación.
+&
+Uso obligatorio de antenas antes de energizar y desarrollo en C/C++ sobre Arduino IDE.
+\\
+\midrule
+RQS1 & O4 &
+Equipo de Desarrollo / Tesista
+&
+Necesidad de cuantificar confiabilidad del canal radio.
+&
+Se calculará la tasa de pérdida de paquetes a partir de Sesiones Tipo A ($NbTrans=1$). Umbral: $PL \leq 10\%$.
+\\
+\midrule
+RQS2 & O4 &
+Equipo de Desarrollo / Tesista
+&
+Necesidad de cuantificar retardo de confirmación.
+&
+Se medirá mediante Sesiones Tipo B (\emph{confirmed uplinks}). Umbral: $T_{\mathrm{conf}} \leq 6\,\text{s}$.
+\\
+\midrule
+RQS3 & O4 &
+Equipo de Desarrollo / Tesista
+&
+Necesidad de caracterizar la disponibilidad de la red.
+&
+Se registrará el cumplimiento de la ventana de recepción. Umbral: $A \geq 90\%$.
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% CAPÍTULO 4: ESPECIFICACIÓN DE REQUERIMIENTOS
+% ============================================================
+\chapter{Especificación de Requerimientos}
+
+\section{Requerimientos funcionales}
+
+\begin{table}[H]
+\centering
+\caption{Requerimientos funcionales del prototipo}
+\label{tab:rf}
+\scriptsize
+\begin{tabularx}{\textwidth}{
+  >{\bfseries\raggedright\arraybackslash}p{0.8cm}
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}p{2.5cm}
+  >{\raggedright\arraybackslash}p{1.4cm}
+  >{\raggedright\arraybackslash}p{2.4cm}
+}
+\toprule
+\textbf{ID} &
+\textbf{Requerimiento} &
+\textbf{Justificación} &
+\textbf{Obj.} &
+\textbf{Verificación}\\
+\midrule
+RF1 &
+Los nodos sensores (al menos dos) deben capturar datos de prueba y transmitir tramas
+mediante el protocolo LoRaWAN AU915.
+&
+Es la función básica que permite evaluar la red.
+&
+O1, O4
+&
+Prueba de transmisión y registro de recepción.
+\\
+\midrule
+RF2 &
+El Gateway LoRaWAN debe recibir y procesar las tramas provenientes de los nodos sensores
+según la arquitectura que se defina para el prototipo.
+&
+Constituye el punto central de la topología.
+&
+O1, O2
+&
+Logs y trazabilidad de mensajes.
+\\
+\midrule
+RF3 &
+El sistema debe publicar hacia Internet/entorno IP de prueba las tramas correctamente
+recibidas por el Gateway LoRaWAN.
+&
+Permite integrar la información de radio con el entorno IP.
+&
+O2, O3
+&
+Comparación entre recepción y publicación.
+\\
+\midrule
+RF4 &
+El dashboard de visualización simple debe identificar el nodo sensor de origen y mostrar,
+como mínimo, identificador, marca temporal y valor medido, sin incorporar analítica
+avanzada.
+&
+Es necesario distinguir el origen de cada dato para su correcta interpretación.
+&
+O3, O4
+&
+Dashboard o registro estructurado.
+\\
+\midrule
+RF5 &
+El sistema debe permitir ejecutar sesiones de tráfico controlado (Tipo A y Tipo B,
+con configuraciones separadas) y registrar los resultados de cada sesión de forma
+independiente.
+&
+La evaluación requiere evidencia reproducible con configuraciones diferenciadas entre métricas.
+&
+O4
+&
+Archivo de resultados por sesión y tipo.
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Requerimientos no funcionales y restricciones}
+
+En el Cuadro~\ref{tab:rnf} se detallan los requerimientos no funcionales, las restricciones
+normativas y los criterios de verificación técnica que condicionan el diseño y la
+operación del prototipo de red LoRaWAN.
+
+\begin{table}[H]
+\centering
+\caption{Requerimientos no funcionales, restricciones y criterios de verificación}
+\label{tab:rnf}
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabularx}{\textwidth}{
+  >{\bfseries\raggedright\arraybackslash}p{0.85cm}
+  >{\raggedright\arraybackslash}p{1.6cm}
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}p{2.5cm}
+  >{\raggedright\arraybackslash}p{2.1cm}
+}
+\toprule
+\textbf{ID} &
+\textbf{Categoría} &
+\textbf{Requisito} &
+\textbf{Justificación} &
+\textbf{Verificación}\\
+\midrule
+RT1 &
+Tecnología / normativa &
+El hardware de radiofrecuencia debe operar bajo el plan regional AU915 (915--928~MHz),
+banda y potencia permitida por la normativa chilena aplicable a equipos de alcance reducido
+\parencite{subtel2017}.
+&
+Delimita la operación radioeléctrica del prototipo a la banda autorizada en Chile.
+&
+Configuración documentada y respaldo normativo.
+\\
+\midrule
+RT2 &
+Hardware &
+Los módulos Heltec deben utilizar su antena física correspondiente durante las pruebas.
+&
+Es una condición de operación segura del hardware utilizado.
+&
+Checklist previo a energización.
+\\
+\midrule
+RT3 &
+Desarrollo &
+El firmware de los nodos debe desarrollarse en C/C++ mediante Arduino IDE.
+&
+Mantiene la solución dentro del entorno tecnológico disponible.
+&
+Repositorio y proyecto de firmware.
+\\
+\midrule
+RQS1 &
+Calidad de servicio &
+El sistema debe permitir calcular la tasa de Packet Loss en radiofrecuencia mediante
+Sesiones Tipo A ($NbTrans = 1$). Umbral de viabilidad: $PL \leq 10\%$
+\parencite{kaur2024campus,ahmed2024vegetacion}.
+&
+La confiabilidad física del enlace requiere aislar las pérdidas del medio de la lógica de reintentos.
+&
+Cálculo a partir de tramas enviadas/recibidas en logs de Sesiones Tipo A.
+\\
+\midrule
+RQS2 &
+Calidad de servicio &
+El sistema debe permitir medir el retardo de confirmación mediante Sesiones Tipo B
+(\emph{confirmed uplinks}). Umbral de viabilidad: $T_{\mathrm{conf}} \leq 6\,\text{s}$
+\parencite{lorawan1_0_4}.
+&
+El retardo de enlace LoRaWAN integra Time-on-Air y ventanas RX1/RX2.
+&
+Registro diferencial de marcas temporales en Sesiones Tipo B.
+\\
+\midrule
+RQS3 &
+Calidad de servicio &
+El sistema debe registrar la disponibilidad del enlace, definiendo caída si el intervalo
+entre tramas supera tres periodos nominales. Umbral de viabilidad: $A \geq 90\%$
+\parencite{barrachina2023campus}.
+&
+Formaliza la continuidad operativa del prototipo.
+&
+Análisis de marcas de tiempo en el registro de recepción.
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Criterios de evaluación}
+
+Las principales métricas de rendimiento consideradas son:
+
+\subsection{Pérdida de paquetes}
+
+\begin{equation}
+PL(\%) =
+100\left(
+1-\frac{N_{\mathrm{rec}}}{N_{\mathrm{env}}}
+\right)
+\label{eq:packetloss}
+\end{equation}
+
+donde $N_{\mathrm{env}}$ es el número de tramas físicas transmitidas por el nodo y
+$N_{\mathrm{rec}}$ el número de tramas recibidas y demoduladas correctamente por el Gateway.
+Para el Objetivo 4, cada \textbf{Sesión Tipo A} considerará el envío de 100 tramas por
+nodo, en 3 sesiones independientes ejecutadas en franjas horarias distintas (mañana,
+mediodía y tarde) para capturar variabilidad temporal mínima dentro de las restricciones
+del semestre. La red se considerará viable si $PL \leq 10\%$ (PDR $\geq$ 90\%), umbral
+respaldado en \textcite{kaur2024campus} y \textcite{ahmed2024vegetacion}. Durante estas
+mediciones, el stack de comunicaciones fijará $NbTrans = 1$.
+
+\subsection{Tiempo de confirmación del uplink (Retardo)}
+
+El retardo de transmisión se evaluará mediante \textbf{Sesiones Tipo B}
+(\textit{confirmed uplinks}), en sesiones controladas separadas de las Sesiones Tipo A:
+
+\begin{equation}
+T_{\mathrm{conf}} = T_{\mathrm{ACK}} - T_{\mathrm{env}}
+\label{eq:tconf}
+\end{equation}
+
+donde $T_{\mathrm{env}}$ corresponde a la marca temporal en que el nodo sensor Heltec
+finaliza la transmisión de la trama hacia el Gateway y $T_{\mathrm{ACK}}$ representa el
+instante exacto en que el nodo demodula con éxito el acuse de recibo (ACK) emitido en las
+ventanas RX1 o RX2. Esta métrica integra el tiempo en el aire (\emph{Time-on-Air}), el
+procesamiento en el Network Server y los retardos fijos de sincronización de ventana
+propios del estándar de capa MAC. El umbral de viabilidad es $T_{\mathrm{conf}} \leq 6\,\text{s}$,
+determinado por la arquitectura de ventanas RX1/RX2 del estándar LoRaWAN Clase A
+\parencite{lorawan1_0_4}.
+
+\subsection{Disponibilidad}
+
+La disponibilidad de la conectividad se evaluará cuantitativamente:
+
+\begin{equation}
+A(\%) =
+100\left(1 - \frac{\sum T_{\text{ca\'{\i}da}}}{T_{\text{prueba}}}\right)
+\label{eq:availability}
+\end{equation}
+
+donde $T_{\text{prueba}}$ es la duración total de la sesión y $\sum T_{\text{caída}}$
+representa el tiempo acumulado en estado de interrupción. Se define un estado de caída si:
+
+\begin{equation}
+\Delta t_{\text{rec}} > 3 \cdot T_{\text{periodo}}
+\label{eq:timeout}
+\end{equation}
+
+donde $T_{\text{periodo}}$ es el tiempo nominal de muestreo. El umbral de viabilidad es
+$A \geq 90\%$, referenciado en \textcite{barrachina2023campus} para telemetría de baja
+frecuencia en entornos universitarios construidos.
+
+\section{Protocolo experimental preliminar}
+\label{sec:protocolo-experimental}
+
+El protocolo experimental se formaliza a nivel preliminar en esta etapa. Las ubicaciones
+definitivas, distancias exactas y condiciones de obstrucción se confirmarán en la
+Etapa~2 al acceder a los planos oficiales del campus y al coordinar con el Área de Redes/TI.
+El Cuadro~\ref{tab:protocolo} resume los parámetros planificados.
+
+\begin{table}[H]
+\centering
+\caption{Parámetros del protocolo experimental preliminar para las sesiones de evaluación}
+\label{tab:protocolo}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{
+  >{\raggedright\arraybackslash}p{4.8cm}
+  >{\raggedright\arraybackslash}X
+}
+\toprule
+\textbf{Parámetro} & \textbf{Valor planificado / condición}\\
+\midrule
+\textbf{Ubicación Gateway} &
+Facultad de Ingeniería, planta alta o techo estimado entre 3--5~m sobre nivel del piso.\\
+\midrule
+\textbf{Nodo 1 (condición LOS)} &
+Zona exterior con línea de vista directa al Gateway. Distancia tentativa: 50--200~m.\\
+\midrule
+\textbf{Nodo 2 (condición NLOS parcial)} &
+Zona con obstrucción parcial por edificio o muro. Distancia tentativa: 100--350~m.\\
+\midrule
+\textbf{Potencia de transmisión} &
+14~dBm (máximo permitido bajo el plan AU915 según \parencite{subtel2017}).\\
+\midrule
+\textbf{Spreading Factor (SF)} &
+SF7 en sesión inicial; SF9 o SF12 si la cobertura en NLOS lo requiere.\\
+\midrule
+\textbf{Ancho de banda} &
+125~kHz (configuración estándar AU915).\\
+\midrule
+\textbf{Payload} &
+10~bytes binario estructurado (Node ID, secuencia Big-Endian, temperatura $\times 100$, humedad $\times 100$, nivel de batería).\\
+\midrule
+\textbf{Frecuencia de transmisión} &
+1 trama cada 60~s (cumple duty cycle AU915; permite 100 tramas en $\approx$100~min).\\
+\midrule
+\textbf{Altura antenas nodos} &
+$\approx$1--1,5~m (trípode o sujeción manual).\\
+\midrule
+\textbf{Tipo A: tramas no confirmadas} &
+100 tramas por nodo, $NbTrans = 1$. Métrica: $PL$.\\
+\midrule
+\textbf{Tipo B: tramas confirmadas} &
+$\geq$30 tramas confirmadas por nodo. Métrica: $T_{\mathrm{conf}}$.\\
+\midrule
+\textbf{Número de sesiones Tipo A} &
+3 sesiones por condición (LOS y NLOS), en franjas horarias distintas: mañana, mediodía y tarde.\\
+\midrule
+\textbf{Repeticiones por condición} &
+Mínimo 3 repeticiones independientes por punto de medición.\\
+\midrule
+\textbf{Métricas registradas por trama} &
+Marca temporal de envío/recepción, RSSI, SNR, SF, número de secuencia, tipo de trama, resultado (recibida/perdida).\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Estructura del payload binario y pipeline de datos}
+
+Para maximizar la eficiencia espectral en el canal de radiofrecuencia y minimizar el tiempo en el aire
+(\textit{Time-on-Air}, $\text{ToA} \approx 46.3\,\text{ms}$ a SF7/BW 125~kHz), se descarta el envío de formatos
+textuales o JSON en el enlace radio. En su lugar, el firmware implementa una serialización binaria compacta
+de longitud fija de 10~bytes en formato \textit{Big-Endian}. La descomposición detallada de los bytes y la
+cadena de transformación hasta la visualización en el dashboard se ilustran en la Figura~\ref{fig:flujo-payload}.
+
+% ============================================================
+% FIGURA 4.1: ESTRUCTURA Y FLUJO DE PAYLOAD (AMPLIADA)
+% ============================================================
+\begin{figure}[H]
+\centering
+\begin{adjustwidth}{-1.4cm}{-1.4cm}
+  \centering
+  \includegraphics[width=\linewidth]{03_flujo_payload}
+\end{adjustwidth}
+\caption{Estructura del payload binario de telemetría y pipeline de procesamiento extremo a extremo}
+\label{fig:flujo-payload}
+\end{figure}
+
+\textbf{Nota sobre el diseño experimental:} El número de sesiones (3 por condición) y el
+volumen de tramas (100 por Sesión Tipo A) constituyen un diseño exploratorio apropiado para
+la escala de un Trabajo de Título semestral. Las sesiones se ejecutan en franjas horarias
+distintas (mañana, mediodía y tarde) para capturar variabilidad temporal mínima. Este diseño
+no tiene pretensiones de representar la totalidad de la variabilidad del canal, sino de
+obtener una primera caracterización del comportamiento de la red en el escenario intra-campus,
+tal como es práctica habitual en estudios de campo comparables
+\parencite{kaur2024campus,barrachina2023campus}. Las ubicaciones definitivas y distancias
+exactas se confirmarán en la Etapa~2.
+
+\section{Fundamento teórico de propagación}
+
+Para evaluar cuantitativamente el canal de radiofrecuencia intra-campus se parte del
+balance de enlace general:
+
+\begin{equation}
+P_r = P_t + G_t + G_r - L_p - L_s
+\label{eq:linkbudget}
+\end{equation}
+
+donde $P_t$ es la potencia de transmisión, $G_t$ y $G_r$ corresponden a las ganancias de
+las antenas, $L_p$ representa la pérdida total de propagación en la trayectoria y $L_s$
+agrupa pérdidas adicionales del sistema (cables, conectores).
+
+Como referencia teórica de propagación sin obstáculos se utiliza la formulación de pérdida
+en espacio libre (\textit{Free Space Path Loss}, FSPL) \parencite{seybold2005}:
+
+\begin{equation}
+L_{\mathrm{FSPL}} = 20\log_{10}(d) + 20\log_{10}(f) + 32.44
+\label{eq:fspl}
+\end{equation}
+
+donde $d$ se expresa en kilómetros y $f$ en MHz. Sin embargo, en el Campus Dr. Luis Rivas
+del Canto la propagación de las ondas electromagnéticas está condicionada por edificios,
+muros de hormigón armado e interferencias estructurales. En tales condiciones de obstrucción
+parcial (NLOS), la pérdida en espacio libre subestima drásticamente la atenuación real.
+
+Por ello, se adopta como base analítica el \textbf{modelo log-distancia con desvanecimiento
+por sombra} (\textit{Log-Distance Path Loss Model}), respaldado en la literatura empírica
+sobre redes LoRa/LoRaWAN \parencite{rademacher2021,ahmed2024vegetacion}:
+
+\begin{equation}
+PL(d) = PL(d_0) + 10\,n\,\log_{10}\left(\frac{d}{d_0}\right) + X_\sigma
+\label{eq:logdistance}
+\end{equation}
+
+donde:
+\begin{itemize}
+  \item $d_0$ es la distancia de referencia en campo cercano (típicamente $1\text{ m}$ o $10\text{ m}$).
+  \item $PL(d_0)$ es la pérdida en la distancia de referencia calculada mediante la
+  ecuación~(\ref{eq:fspl}), asegurando la coherencia dimensional al expresar $d_0$ en
+  kilómetros (por ejemplo, $d_0 = 1\text{ m} = 10^{-3}\text{ km}$).
+  \item $n$ representa el \emph{exponente de pérdida de trayectoria}, parámetro que
+  cuantifica el grado de obstrucción del medio. Mientras que en espacio libre $n = 2$, en
+  recintos urbanos construidos y campus universitarios con obstáculos estructurales toma
+  valores empíricos típicos entre $2.7$ y $4.5$ \parencite{rademacher2021}.
+  \item $X_\sigma \sim \mathcal{N}(0, \sigma^2)$ es una variable aleatoria gaussiana de
+  media cero con desviación estándar $\sigma$ (en dB), que modela el desvanecimiento lento
+  por sombra (\emph{shadowing}) inducido por muros y estructuras opacas entre el nodo
+  sensor y el Gateway LoRaWAN.
+\end{itemize}
+
+Esta formulación proporciona el sustento teórico formal para contrastar las mediciones de
+terreno (Packet Loss, tiempo de confirmación y disponibilidad) planificadas en los
+requerimientos RQS1--RQS3 durante las etapas experimentales.
+
+\section{Evaluación crítica de alternativas}
+
+La selección de LoRaWAN se considera preliminar y se fundamenta en la adecuación del
+escenario a comunicaciones de baja tasa de datos, bajo consumo y posibilidad de utilizar
+infraestructura propia. La validez final de la selección dependerá de los resultados
+experimentales.
+
+\begin{table}[H]
+\centering
+\caption{Comparación crítica de alternativas para el caso de estudio}
+\label{tab:alternativas}
+\tiny
+\begin{tabularx}{\textwidth}{
+  >{\raggedright\arraybackslash}p{2.5cm}
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Criterio} &
+\textbf{Wi-Fi} &
+\textbf{LTE/5G} &
+\textbf{Satelital} &
+\textbf{LoRaWAN}\\
+\midrule
+Dependencia de terceros &
+Depende de la infraestructura Wi-Fi institucional existente.
+&
+Depende de un operador y de su cobertura.
+&
+Depende de un proveedor satelital.
+&
+Puede operar sobre infraestructura propia, independiente de la red Wi-Fi institucional.
+\\
+\midrule
+Consumo en nodo &
+No está orientado a telemetría de muy baja potencia; consume centenares de mA en transmisión \parencite{callebaut2020}.
+&
+Puede presentar mayores requerimientos energéticos que soluciones LPWAN.
+&
+Puede incorporar restricciones energéticas relevantes.
+&
+Adecuada para telemetría de baja tasa y bajo consumo (pocos mA en transmisión).
+\\
+\midrule
+Adecuación a sensórica IoT intra-campus &
+Requiere evaluar cobertura y capacidad de la red institucional para muchos nodos de bajo consumo.
+&
+Características de capacidad y costos que no se ajustan a telemetría intra-campus.
+&
+Costos operativos que exceden los requerimientos de un escenario intra-campus.
+&
+Alternativa seleccionada preliminarmente para la conectividad de sensores IoT dentro del campus.
+\\
+\midrule
+Costo operativo &
+Depende de la infraestructura requerida.
+&
+Presenta costos recurrentes por servicio.
+&
+Presenta costos recurrentes de servicio.
+&
+Puede reducir costos recurrentes al utilizar infraestructura propia.
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% CAPÍTULO 5: PLANIFICACIÓN DEL PROYECTO
+% ============================================================
+% ============================================================
+% CAPÍTULO 5: DISEÑO DE LA SOLUCIÓN
+% ============================================================
+\chapter{Diseño de la Solución}\label{cap:diseno-solucion}
+
+\section{Introducción al Diseño y Consideraciones Metodológicas}
+
+El presente capítulo aborda la fase de \textit{Diseño} (Fase 3 de la metodología PPDIOO),
+transformando los requerimientos funcionales, no funcionales y los criterios SMART definidos
+en la Etapa~1 en una especificación técnica de ingeniería rigurosa, modular y reproducible.
+En estricta concordancia con la rúbrica de evaluación y la retroalimentación docente, se
+formaliza el dimensionamiento de hardware y el emplazamiento del Gateway institucional, la
+definición preliminar de escenarios de propagación en el campus, el marco regulatorio
+radioeléctrico nacional, la parametrización de canales bajo el estándar LoRaWAN AU915, la
+jerarquía de interfaces de software mediante MQTT y el diseño conceptual del sistema de
+visualización y telemetría.
+
+\section{Diseño del Despliegue Espacial e Infraestructura de Hardware}\label{sec:despliegue-hardware}
+
+\subsection{Ubicación y Ficha Técnica del Gateway LoRaWAN}
+
+El punto central de recepción y coordinación radioeléctrica de la red se emplazará en
+dependencias interiores del \textbf{Departamento de Informática} (Facultad de Ingeniería,
+Campus Dr. Luis Rivas del Canto). Este recinto fue seleccionado por contar con acceso directo a
+la infraestructura de red cableada institucional, respaldo de energía ininterrumpida y una
+posición geométrica estratégica respecto a las aulas, pasillos y patios exteriores del campus.
+
+Dado que el equipo operará en un ambiente de oficinas y pasillos docentes cerrados, se
+especifica un dispositivo de categoría \textit{indoor} con concentrador multicanal de alto
+rendimiento \parencite{milesight_ug63}:
+\begin{itemize}
+    \item \textbf{Equipo y Modelo:} Milesight UG63 Mini LoRaWAN Gateway (\texttt{UG63-L08GL-915M}).
+    \item \textbf{Chipset Baseband Concentrador:} Semtech SX1302 \parencite{semtech_sx1302}, con capacidad
+    de demodulación concurrente en 8 canales de subida (\textit{uplink}) y compatibilidad con
+    múltiples factores de dispersión (\textit{Spreading Factor}, SF7 a SF12).
+    \item \textbf{Antena:} Antena omnidireccional interna integrada con ganancia de $+2\,\text{dBi}$.
+    \item \textbf{Identificador Único (Gateway EUI):} \texttt{C0BA1FFFFE0377FA} (fijado de fábrica
+    sobre la dirección MAC Ethernet IEEE 802.3).
+    \item \textbf{Conectividad IP y Alimentación:} Puerto Ethernet RJ45 10/100 Mbps con soporte
+    PoE (\textit{Power-over-Ethernet}, estándar IEEE 802.3af Clase 1) o alimentación alternativa
+    USB Type-C ($5\,\text{V} / 1\,\text{A}$).
+    \item \textbf{Protocolo de Transporte IP:} Semtech UDP Packet Forwarder, operando mediante
+    sockets UDP bidireccionales en el puerto estándar 1700 hacia el servidor de red ChirpStack.
+\end{itemize}
+
+\subsection{Caracterización de Escenarios Experimentales: LOS y NLOS}
+
+Las ubicaciones finales georreferenciadas de los nodos sensores se encuentran en proceso de
+validación técnica sobre el plano del campus. Sin embargo, para aislar las variables de entorno
+y caracterizar la propagación sin sesgos, el diseño formaliza dos escenarios experimentales
+representativos:
+\begin{enumerate}
+    \item \textbf{Escenario LOS (Line-of-Sight -- Línea de Vista Directa):} Emplazado en el
+    patio central o pasillo exterior abierto del Departamento de Informática, a una distancia de
+    prueba entre $50\,\text{m}$ y $150\,\text{m}$. Este escenario garantiza el despeje total de la
+    primera Zona de Fresnel, cuyo radio máximo $r_1$ a $d = 100\,\text{m}$ en $f = 916.8\,\text{MHz}$
+    se calcula según la Ecuación~\eqref{eq:fresnel-calc}:
+    \begin{equation}\label{eq:fresnel-calc}
+        r_1 = \frac{1}{2} \sqrt{\frac{c \cdot d}{f}} \approx \frac{1}{2} \sqrt{\frac{3 \times 10^8\,\text{m/s} \cdot 100\,\text{m}}{916.8 \times 10^6\,\text{Hz}}} \approx 2.86\,\text{m}
+    \end{equation}
+    Este escenario modela el comportamiento del canal radioeléctrico cercano al espacio libre
+    ($n \approx 2.0$), sirviendo como línea base (\textit{baseline}) experimental.
+
+    \item \textbf{Escenario NLOS (Non-Line-of-Sight -- Obstruido):} Emplazado en aulas interiores
+    y laboratorios separados del gateway por múltiples tabiques estructurales de hormigón armado,
+    carpintería de aluminio y vidrio templado. Este escenario inducirá pérdidas de penetración de
+    muros estimadas entre $10\,\text{dB}$ y $25\,\text{dB}$, permitiendo evaluar el límite de
+    sensibilidad del transceptor SX1262 en el nodo sensor y la capacidad de penetración en
+    interiores (\textit{deep indoor coverage}).
+\end{enumerate}
+
+\section{Marco Regulatorio y Planificación Radioeléctrica}\label{sec:marco-regulatorio}
+
+\subsection{Normativa Nacional SUBTEL (Chile)}
+
+El funcionamiento del prototipo se fundamenta y valida en el marco normativo de la Subsecretaría
+de Telecomunicaciones de Chile (SUBTEL):
+\begin{itemize}
+    \item \textbf{Resolución Exenta N.º 1.985 de 2017 de la SUBTEL} \parencite{subtel2017}: Fija la
+    norma técnica para equipos de alcance reducido en Chile. En su Artículo~1, letra~j), autoriza la
+    operación en la banda ISM de \textbf{$915\,\text{MHz}$ a $928\,\text{MHz}$}, fijando un límite
+    general de potencia radiada de hasta $500\,\text{mW}$ p.i.r.e. ($+27\,\text{dBm}$), y de hasta
+    $1\,\text{W}$ ($+30\,\text{dBm}$) para sistemas que utilicen técnicas de modulación digital o
+    espectro ensanchado por salto de frecuencia (FHSS).
+    \item \textbf{Resolución Exenta N.º 737 de 2025 de la SUBTEL} \parencite{subtel737_2025}:
+    Actualiza el régimen de acreditación técnica de dispositivos de alcance reducido mediante código
+    QR y declaración de conformidad de fábrica, asegurando la trazabilidad de los transceptores
+    utilizados.
+\end{itemize}
+
+Para garantizar un estricto margen de seguridad y evitar interferencias perjudiciales con otros
+servicios, el diseño configura la potencia de transmisión del Gateway UG63 y de los nodos
+Heltec~V3 en \textbf{$14\,\text{dBm}$ ($25\,\text{mW}$)}, operando $13\,\text{dB}$ por debajo del
+techo legal chileno, garantizando una operación técnica y legalmente exenta de concesiones.
+
+\subsection{Parametrización Regional LoRaWAN: Plan AU915 Sub-banda 2}
+
+Siguiendo la especificación de parámetros regionales de la LoRa Alliance (RP002-1.0.4)
+\parencite{lorawan_rp002}, la banda AU915 se divide en sub-bandas de 8 canales de subida. Se
+adopta formalmente la \textbf{Sub-banda 2 (SB2)}, cuyos canales y frecuencias operativas se
+detallan en el Cuadro~\ref{tab:frecuencias-au915-diseno}.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Plan de frecuencias y canales configurados en AU915 Sub-banda 2 (SB2).}\label{tab:frecuencias-au915-diseno}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.4cm} >{\centering\arraybackslash}p{2.2cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Canal / Enlace} & \textbf{Frecuencia} & \textbf{Ancho Banda} & \textbf{Data Rate} & \textbf{Función Operativa} \\
+\midrule
+Canal 08 (Up) & $916.80\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría periódica (Tipo~A) \\
+Canal 09 (Up) & $917.00\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría periódica (Tipo~A) \\
+Canal 10 (Up) & $917.20\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría periódica (Tipo~A) \\
+Canal 11 (Up) & $917.40\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría periódica (Tipo~A) \\
+Canal 12 (Up) & $917.60\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría periódica (Tipo~A) \\
+Canal 13 (Up) & $917.80\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría periódica (Tipo~A) \\
+Canal 14 (Up) & $918.00\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría periódica (Tipo~A) \\
+Canal 15 (Up) & $918.20\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría periódica (Tipo~A) \\
+\midrule
+Canal 65 (Up) & $917.50\,\text{MHz}$ & $500\,\text{kHz}$ & DR6 (SF8) & Ráfagas rápidas y control \\
+\midrule
+Bajada RX1    & $923.30\,\text{MHz}$ & $500\,\text{kHz}$ & DR8 (SF12) & Recepción ACKs (Tipo~B) \\
+Bajada RX2    & $923.30\,\text{MHz}$ & $500\,\text{kHz}$ & DR8 (SF12) & Frecuencia fija contingencia \\
+\bottomrule
+\end{tabularx}
+\vspace{0.15cm}
+\footnotesize
+\textit{Nota:} DR0 a DR5 corresponden a factores de dispersión SF12 a SF7 en canales de $125\,\text{kHz}$. Las ventanas de bajada operan en $500\,\text{kHz}$ con SF12 por defecto.
+\end{table}
+
+\subsection{Estrategia de Seguridad y Activación OTAA}
+
+Para mitigar riesgos de vulnerabilidades por reutilización de claves en memoria, se implementa
+activación \textit{Over-The-Air Activation} (OTAA) \parencite{lorawan1_0_4}:
+\begin{itemize}
+    \item \textbf{Device EUI (\texttt{DevEUI}):} Identificador global IEEE EUI-64 (8 bytes), generado
+    de forma única a partir de la dirección MAC de fábrica del chip ESP32-S3.
+    \item \textbf{Join EUI (\texttt{JoinEUI}):} Identificador de la aplicación en ChirpStack.
+    \item \textbf{Application Key (\texttt{AppKey}):} Clave simétrica AES-128 (16 bytes),
+    aprovisionada confidencialmente en el microcontrolador.
+\end{itemize}
+Durante el procedimiento de asociación (\textit{Join-Request} y \textit{Join-Accept}), el Network
+Server valida el código MIC (\textit{Message Integrity Code}) y deriva dinámicamente las claves de
+sesión de red (\texttt{NwkSKey}) y de aplicación (\texttt{AppSKey}), reinicializando los contadores
+de tramas (\texttt{FCntUp} y \texttt{FCntDown}) para impedir ataques de retransmisión.
+
+\section{Diseño de Interfaces de Software, Middleware y Flujo de Datos}\label{sec:interfaces-software}
+
+\subsection{Arquitectura del Pipeline de Datos e Integración MQTT}
+
+El flujo integral de telemetría desde la captura física hasta la visualización de usuario se
+articula en cuatro capas tecnológicas:
+\begin{enumerate}
+    \item \textbf{Capa Sensórica y RF:} El nodo Heltec WiFi LoRa 32 V3 (ESP32-S3 + Semtech SX1262
+    \parencite{semtech_sx1262}) empaqueta la telemetría en un payload binario compacto de 6 bytes y
+    lo modula en radiofrecuencia bajo el plan AU915 SB2.
+    \item \textbf{Capa de Reenvío (Forwarding):} El gateway Milesight UG63 demodula la trama en su
+    chipset SX1302, añade metadatos radioeléctricos (timestamp UTC, RSSI, SNR, canal) y la transmite
+    vía IP hacia el puerto UDP 1700 de \texttt{chirpstack-gateway-bridge}.
+    \item \textbf{Capa de Servidor de Red (Network \& Application Server):} ChirpStack v4
+    \parencite{chirpstack_v4} procesa el frame, valida la sesión con \texttt{NwkSKey}, ejecuta el códec
+    JavaScript institucional de decodificación y publica el mensaje estructurado hacia el broker
+    Eclipse Mosquitto \parencite{oasis_mqtt} en el puerto TCP 1883.
+    \item \textbf{Capa de Aplicación y Dashboard:} El cliente MQTT del dashboard de monitoreo consume
+    el tópico, almacena la serie temporal y actualiza la visualización interactiva.
+\end{enumerate}
+
+\subsection{Estructura Jerárquica del Árbol de Tópicos MQTT}
+
+ChirpStack v4 organiza la distribución de telemetría bajo un estándar RESTful/MQTT, publicando
+los eventos de subida en la siguiente ruta parametrizada:
+\begin{equation}
+    \text{\ttfamily application/\{application\_id\}/device/\{dev\_eui\}/event/up}
+\end{equation}
+
+Donde \texttt{\{application\_id\}} corresponde al identificador UUID de la aplicación en
+ChirpStack y \texttt{\{dev\_eui\}} al identificador hexadecimal del nodo sensor.
+
+\subsection{Especificación del Payload Binario y Esquema JSON Decodificado}
+
+A fin de minimizar el tiempo en el aire (\textit{Time-on-Air}, $ToA$) y reducir la probabilidad de
+colisiones en el canal compartido, la información física se codifica en 6 bytes en formato
+big-endian:
+\begin{equation}
+    \text{Payload} = \underbrace{[B_0, B_1]}_{T_{\text{raw}} = T \cdot 100} \; \underbrace{[B_2, B_3]}_{H_{\text{raw}} = H \cdot 100} \; \underbrace{[B_4, B_5]}_{V_{\text{bat}} = \text{mV}}
+\end{equation}
+
+El códec de decodificación en ChirpStack v4 traduce este vector de bytes en el siguiente esquema
+JSON estructurado:
+\begin{example}
+{
+  "device_eui": "70B3D57ED006ABCD",
+  "timestamp": "2026-10-04T12:00:00Z",
+  "f_cnt": 142,
+  "temperature": 18.45,
+  "humidity": 62.10,
+  "battery_v": 3.28,
+  "rssi": -85,
+  "snr": 8.5
+}
+\end{example}
+
+\begin{quote}
+\small \textbf{Nota de ingeniería y reproducibilidad:} El código fuente completo del códec
+JavaScript (\texttt{chirpstack-codec.js}), el firmware en C++ para el nodo Heltec~V3 y los
+manifiestos de orquestación de ChirpStack v4 se encuentran alojados y versionados en el
+repositorio oficial del proyecto en GitHub: \url{https://github.com/EduardoMariqueo/lorawan-sensor-network-uct}.
+\end{quote}
+
+\section{Diseño Conceptual del Dashboard de Monitoreo}\label{sec:diseno-dashboard}
+
+El sistema de visualización se concibe como un panel de telemetría ligero para experimentación,
+orientado a presentar simultáneamente variables ambientales y diagnósticos de radiofrecuencia en
+tiempo real (Cuadro~\ref{tab:dashboard-kpis-diseno}).
+
+\begin{table}[H]
+\centering
+\small
+\caption{Matriz de variables y comportamiento operativo del dashboard.}\label{tab:dashboard-kpis-diseno}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.8cm} >{\centering\arraybackslash}p{2.6cm} >{\centering\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Variable / Métrica} & \textbf{Rango Operativo} & \textbf{Frecuencia} & \textbf{Comportamiento y Criterio de Alerta} \\
+\midrule
+Temperatura Ambiente & $-10^\circ\text{C}$ a $50^\circ\text{C}$ & $60\,\text{s}$ & Indicador digital numérico y curva histórica. \\
+Humedad Relativa & $10\%$ a $95\%$ HR & $60\,\text{s}$ & Indicador porcentual de monitoreo ambiental. \\
+Tensión de Batería ($V_{\text{bat}}$) & $2.5\,\text{V}$ a $4.2\,\text{V}$ & $60\,\text{s}$ & Alerta visual en color rojo si $V_{\text{bat}} < 2.70\,\text{V}$. \\
+Intensidad RSSI & $-130$ a $-50\,\text{dBm}$ & Cada uplink & Diagnóstico del canal RF; alerta si $\text{RSSI} < -115\,\text{dBm}$. \\
+Relación SNR & $-20$ a $+10\,\text{dB}$ & Cada uplink & Verificación de demodulación sobre el piso de ruido. \\
+Salud de Enlace ($\Delta t$) & $\Delta t \le 60\,\text{s}$ & Continuo & Alarma de pérdida de conexión si $\Delta t > 180\,\text{s}$. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Los prototipos interactivos de la interfaz y las pruebas unitarias del cliente MQTT quedan
+registrados de forma exhaustiva en la \textbf{Bitácora de Desarrollo del Proyecto}, asegurando
+la máxima concisión del presente informe técnico.
+
+% ============================================================
+% CAPÍTULO 6: PLANIFICACIÓN DEL PROYECTO Y AVANCE PPDIOO
+% ============================================================
+\chapter{Planificación del Proyecto y Control de Avance}\label{cap:planificacion}
+
+\section{Metodología de Trabajo}
+
+El desarrollo del proyecto se estructura bajo el ciclo de vida \textbf{PPDIOO} \parencite{teare_ppdioo} (\textit{Prepare,
+Plan, Design, Implement, Operate, Optimize}), articulando las decisiones de ingeniería en
+fases incrementales y trazables hacia los objetivos específicos del Trabajo de Título. En el
+presente informe de Etapa~2, se completa de manera exhaustiva la fase de \textit{Diseño} (Design),
+dejando el sistema preparado para la fase de \textit{Implementación} (Implement) planificada para
+la Etapa~3.
+
+\section{Estado de Ejecución del Backlog por Épicas}
+
+El esfuerzo técnico total del proyecto se estima en 164 horas efectivas de trabajo, distribuidas
+en cinco épicas priorizadas mediante la técnica MoSCoW. Al cierre de la Etapa~2, se registra un
+cumplimiento del \textbf{100\% de las 66 horas planificadas para las épicas de diseño}
+(Cuadro~\ref{tab:resumen-backlog-avance}).
+
+\begin{table}[H]
+\centering
+\caption{Estado de ejecución del backlog por épicas y fases PPDIOO (Hito Etapa 2)}
+\label{tab:resumen-backlog-avance}
+\small
+\begin{tabularx}{\textwidth}{
+  >{\raggedright\arraybackslash}X
+  >{\centering\arraybackslash}p{2.4cm}
+  >{\centering\arraybackslash}p{1.6cm}
+  >{\centering\arraybackslash}p{1.6cm}
+  >{\centering\arraybackslash}p{1.6cm}
+  >{\centering\arraybackslash}p{1.5cm}
+}
+\toprule
+\textbf{Épica} & \textbf{Fase PPDIOO} & \textbf{Objetivos} & \textbf{Planificadas} & \textbf{Ejecutadas} & \textbf{Estado} \\
+\midrule
+Épica 1: Topología del despliegue & Prepare / Plan & O1, O4 & 20 horas & 20 horas & \textbf{100\%} \\
+Épica 2: Marco regulatorio & Prepare / Plan & O1 & 10 horas & 10 horas & \textbf{100\%} \\
+Épica 3: Arquitectura y prototipo & Design & O1, O2, O3 & 36 horas & 36 horas & \textbf{100\%} \\
+\midrule
+\multicolumn{3}{l}{\textbf{Subtotal Fase de Diseño (Etapas 1 y 2)}} & \textbf{66 horas} & \textbf{66 horas} & \textbf{100\%} \\
+\midrule
+Épica 4: Despliegue físico en campus & Implement & O1, O2 & 52 horas & 0 horas & Pendiente (Etapa 3) \\
+Épica 5: Pruebas de rendimiento & Operate & O4 & 46 horas & 0 horas & Pendiente (Etapa 4) \\
+\midrule
+\multicolumn{3}{l}{\textbf{Total esfuerzo estimado de trabajo técnico}} & \textbf{164 horas} & \textbf{66 horas} & \textbf{40.2\%} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Cronograma del Proyecto}
+
+El cronograma general de trabajo se estructura en dieciséis semanas efectivas de desarrollo,
+distribuidas en cuatro periodos de cuatro semanas (\textit{sprints}) conforme a los hitos
+académicos de la UCT. En el Cuadro~\ref{tab:gantt-etapa2} se ilustra el avance real acumulado al
+término de la Semana 8 (cierre de la Etapa~2).
+
+\begin{table}[H]
+\centering
+\caption{Cronograma de trabajo y estado de avance acumulado (Diagrama de Gantt)}
+\label{tab:gantt-etapa2}
+\tiny
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X *{4}{c} | *{4}{c} | *{4}{c} | *{4}{c}}
+\toprule
+& \multicolumn{4}{c|}{\textbf{Etapa 1 (Ago--Sep)}}
+& \multicolumn{4}{c|}{\textbf{Etapa 2 (Sep--Oct)}}
+& \multicolumn{4}{c|}{\textbf{Etapa 3 (Oct)}}
+& \multicolumn{4}{c}{\textbf{Etapa 4 (Nov--Dic)}} \\
+\textbf{Épica / Hito}
+& \textbf{S1} & \textbf{S2} & \textbf{S3} & \textbf{S4}
+& \textbf{S5} & \textbf{S6} & \textbf{S7} & \textbf{S8}
+& \textbf{S9} & \textbf{S10} & \textbf{S11} & \textbf{S12}
+& \textbf{S13} & \textbf{S14} & \textbf{S15} & \textbf{S16} \\
+\midrule
+Levantamiento y requerimientos &
+\cellcolor{ganttblue} & \cellcolor{ganttblue} & \cellcolor{ganttblue} & \cellcolor{ganttblue} &
+& & & & & & & & & & & \\
+Épica 1: Topología del despliegue &
+& & & &
+\cellcolor{ganttblue} & \cellcolor{ganttblue} & & &
+& & & & & & & \\
+Épica 2: Marco regulatorio &
+& & & &
+\cellcolor{ganttblue} & & & &
+& & & & & & & \\
+Épica 3: Arquitectura y dashboard &
+& & & &
+& \cellcolor{ganttblue} & \cellcolor{ganttblue} & &
+& & & & & & & \\
+Épica 4: Despliegue físico en campus &
+& & & &
+& & \cellcolor{ganttblue} & \cellcolor{ganttblue} &
+\cellcolor{ganttlight} & \cellcolor{ganttlight} & \cellcolor{ganttlight} & & & & & \\
+Épica 5: Pruebas de rendimiento &
+& & & &
+& & & \cellcolor{ganttblue} &
+\cellcolor{ganttlight} & \cellcolor{ganttlight} & \cellcolor{ganttlight} & &
+\cellcolor{ganttlight} & \cellcolor{ganttlight} & & \\
+Cierre, análisis y memoria final &
+& & & &
+& & & &
+& & & &
+& & \cellcolor{ganttlight} & \cellcolor{ganttlight} \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.2cm}
+\scriptsize
+\textit{Nota:} Las celdas en color azul oscuro representan tareas ejecutadas y completadas al hito de la Etapa~2; las celdas en celeste claro representan tareas planificadas para las Etapas~3 y 4.
+\end{table}
+
+% ============================================================
+% CAPÍTULO 7: CONCLUSIONES DE LA ETAPA 2 Y PRÓXIMOS PASOS
+% ============================================================
+\chapter{Conclusiones de la Etapa 2 y Próximos Pasos}\label{cap:conclusiones-etapa2}
+
+La culminación de la Etapa~2 consolida la arquitectura de diseño de la red LoRaWAN para el
+Campus Dr. Luis Rivas del Canto, cumpliendo de manera estricta y cuantificable con los criterios
+de la rúbrica de evaluación:
+\begin{enumerate}
+    \item \textbf{Incorporación de la retroalimentación docente (20\%):} Se incorporaron
+    íntegramente las observaciones del profesor guía (Prof. Mario Villanueva), fundamentando
+    la separación formal de sesiones de medición Tipo~A (\textit{unconfirmed uplinks} para $PL$)
+    y Tipo~B (\textit{confirmed uplinks} para $T_{\text{conf}}$), la justificación técnica
+    frente a la red Wi-Fi institucional y la modelación analítica del despeje de Fresnel.
+    \item \textbf{Avance en el diseño (10\%):} Se ejecutó el 100\% de las 66 horas planificadas
+    para las tres épicas de diseño del backlog (Topología, Regulación y Arquitectura de Software).
+    \item \textbf{Calidad del diseño según estándares (55\%):} Se especificó el hardware exacto
+    (Gateway indoor Milesight UG63 SX1302 y nodos sensores Heltec WiFi LoRa 32 V3 SX1262), se
+    demostró la conformidad con la normativa chilena de la SUBTEL (Res. Exenta 1.985/2017 y
+    737/2025) operando a $14\,\text{dBm}$, se desglosó el plan de canales AU915 SB2 y se
+    formalizó la interfaz de software mediante tópicos MQTT y decodificación de payload binario de 6 bytes.
+    \item \textbf{Documentación del proyecto (15\%):} La totalidad del código fuente (firmware C++,
+    códec de decodificación y orquestación Docker de ChirpStack) se encuentra versionada bajo
+    estándares profesionales en el repositorio Git del proyecto, remitiendo los detalles de
+    implementación y pruebas hacia la Bitácora de Desarrollo para optimizar la extensión del informe.
+\end{enumerate}
+
+Como trabajo inmediato para la **Etapa 3 (Implementación y Evaluación)**, se contempla la
+instalación y energización definitiva del Gateway UG63 en el Departamento de Informática, el
+aprovisionamiento de credenciales OTAA en el servidor ChirpStack v4 institucional, la ejecución
+del replanteo de coordenadas en el plano del campus para los puntos LOS y NLOS, y el inicio de
+las campañas sistemáticas de medición para validar los umbrales SMART comprometidos ($PL \leq 10\%$,
+$T_{\mathrm{conf}} \leq 6\,\text{s}$ y $A \geq 90\%$).
+
+\appendix
+
+% ------------------------------------------------------------
+% APÉNDICE A: DETALLE DEL BACKLOG POR ÉPICA
+% ------------------------------------------------------------
+\chapter{Detalle del Backlog por Épica}
+
+Este anexo presenta el desglose completo de cada épica del backlog resumido en la
+Sección~5.3: historia de usuario, tareas técnicas priorizadas mediante MoSCoW (M = Must,
+S = Should), etapa de ejecución planificada, horas estimadas y criterios de
+aceptación/evidencia.
+
+% ------------------------------------------------------------
+% ÉPICA 1
+% ------------------------------------------------------------
+\section{Épica 1: Topología del despliegue}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{>{\columncolor{uctlight}\color{uctblue}\bfseries\raggedright\arraybackslash}p{3.3cm} X}
+\toprule
+\textcolor{uctblue}{\textbf{Épica}} &
+\textcolor{uctblue}{\textbf{Prepare / Plan -- Topología del despliegue}}\\
+\midrule
+\textbf{Objetivo(s)} & O1, O4\\
+\textbf{Prioridad} & Alta\\
+\textbf{Esfuerzo} & 20 horas\\
+\bottomrule
+\end{tabularx}
+\caption{Backlog -- Épica 1: Topología del despliegue}
+\label{tab:backlog-e1}
+\end{table}
+
+\textbf{Historia de usuario:} Como investigador, quiero definir la ubicación del Gateway
+LoRaWAN y de los nodos sensores dentro del campus para establecer y documentar el escenario
+de despliegue.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{X >{\centering\arraybackslash}p{1.2cm} >{\centering\arraybackslash}p{1.4cm} >{\centering\arraybackslash}p{1.4cm}}
+\toprule
+\textbf{Tarea técnica} & \textbf{Pr.} & \textbf{Etapa} & \textbf{Horas}\\
+\midrule
+Relevar y proponer ubicaciones dentro del campus & M & 2 & 8\\
+Documentar distancias y obstáculos aproximados en plano & M & 2 & 6\\
+Identificar puntos críticos de cobertura (LOS / NLOS) & S & 2 & 4\\
+Consolidar ficha técnica del escenario de despliegue & M & 2 & 2\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Criterios de aceptación/evidencia:} escenario de despliegue documentado, con
+ubicaciones propuestas y plano de referencia del campus.
+
+% ------------------------------------------------------------
+% ÉPICA 2
+% ------------------------------------------------------------
+\section{Épica 2: Marco regulatorio}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{>{\columncolor{uctlight}\color{uctblue}\bfseries\raggedright\arraybackslash}p{3.3cm} X}
+\toprule
+\textcolor{uctblue}{\textbf{Épica}} &
+\textcolor{uctblue}{\textbf{Prepare / Plan -- Marco regulatorio}}\\
+\midrule
+\textbf{Objetivo(s)} & O1\\
+\textbf{Prioridad} & Alta\\
+\textbf{Esfuerzo} & 10 horas\\
+\bottomrule
+\end{tabularx}
+\caption{Backlog -- Épica 2: Marco regulatorio}
+\label{tab:backlog-e2}
+\end{table}
+
+\textbf{Historia de usuario:} Como investigador, quiero formalizar las restricciones
+regulatorias para asegurar una implementación compatible con la normativa aplicable en Chile.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{X >{\centering\arraybackslash}p{1.2cm} >{\centering\arraybackslash}p{1.4cm} >{\centering\arraybackslash}p{1.4cm}}
+\toprule
+\textbf{Tarea técnica} & \textbf{Pr.} & \textbf{Etapa} & \textbf{Horas}\\
+\midrule
+Revisar especificación técnica SUBTEL (Res. Ex. 1.985) & M & 2 & 4\\
+Verificar canales y máscaras de frecuencia en plan AU915 & M & 2 & 3\\
+Consolidar checklist de potencia y duty-cycle permitido & S & 2 & 3\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Criterios de aceptación/evidencia:} matriz de cumplimiento normativo completada y documentada.
+
+% ------------------------------------------------------------
+% ÉPICA 3
+% ------------------------------------------------------------
+\section{Épica 3: Arquitectura del prototipo}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{>{\columncolor{uctlight}\color{uctblue}\bfseries\raggedright\arraybackslash}p{3.3cm} X}
+\toprule
+\textcolor{uctblue}{\textbf{Épica}} &
+\textcolor{uctblue}{\textbf{Design -- Arquitectura del prototipo}}\\
+\midrule
+\textbf{Objetivo(s)} & O1, O2, O3\\
+\textbf{Prioridad} & Alta\\
+\textbf{Esfuerzo} & 36 horas\\
+\bottomrule
+\end{tabularx}
+\caption{Backlog -- Épica 3: Arquitectura del prototipo}
+\label{tab:backlog-e3}
+\end{table}
+
+\textbf{Historia de usuario:} Como investigador, quiero estructurar la arquitectura del
+prototipo para conectar los nodos sensores, el Gateway LoRaWAN y el dashboard de visualización.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{X >{\centering\arraybackslash}p{1.2cm} >{\centering\arraybackslash}p{1.4cm} >{\centering\arraybackslash}p{1.4cm}}
+\toprule
+\textbf{Tarea técnica} & \textbf{Pr.} & \textbf{Etapa} & \textbf{Horas}\\
+\midrule
+Especificar flujo de datos extremo a extremo LoRa/IP & M & 2 & 6\\
+Definir interfaz de red y direccionamiento del Gateway & M & 2 & 6\\
+Configurar parámetros de red LoRaWAN y credenciales OTAA & M & 2 & 8\\
+Estructurar esquema de tópicos y payloads MQTT & S & 2 & 6\\
+Implementar interfaz del dashboard simple y cliente MQTT & M & 2 & 10\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Criterios de aceptación/evidencia:} arquitectura validada, tópicos MQTT operativos y dashboard funcional desplegado.
+
+% ------------------------------------------------------------
+% ÉPICA 4
+% ------------------------------------------------------------
+\section{Épica 4: Despliegue físico}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{>{\columncolor{uctlight}\color{uctblue}\bfseries\raggedright\arraybackslash}p{3.3cm} X}
+\toprule
+\textcolor{uctblue}{\textbf{Épica}} &
+\textcolor{uctblue}{\textbf{Implement -- Despliegue físico}}\\
+\midrule
+\textbf{Objetivo(s)} & O1, O2\\
+\textbf{Prioridad} & Alta\\
+\textbf{Esfuerzo} & 52 horas\\
+\bottomrule
+\end{tabularx}
+\caption{Backlog -- Épica 4: Despliegue físico}
+\label{tab:backlog-e4}
+\end{table}
+
+\textbf{Historia de usuario:} Como estudiante ejecutor, quiero desplegar el Gateway LoRaWAN y los
+nodos sensores para disponer del prototipo físico operativo dentro del campus.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{X >{\centering\arraybackslash}p{1.2cm} >{\centering\arraybackslash}p{1.4cm} >{\centering\arraybackslash}p{1.4cm}}
+\toprule
+\textbf{Tarea técnica} & \textbf{Pr.} & \textbf{Etapa} & \textbf{Horas}\\
+\midrule
+Instalación física y energización del Gateway institucional & M & 2 & 12\\
+Programación de firmware base en nodos Heltec LoRa 32 & M & 2 & 16\\
+Verificación de antenas, mediciones de potencia y enlace & M & 2 & 14\\
+Prueba funcional básica de recepción y registro de logs & S & 2 & 10\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Criterios de aceptación/evidencia:} infraestructura física instalada, primer enlace funcional verificado y checklist de seguridad de hardware.
+
+% ------------------------------------------------------------
+% ÉPICA 5
+% ------------------------------------------------------------
+\section{Épica 5: Pruebas de rendimiento}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{>{\columncolor{uctlight}\color{uctblue}\bfseries\raggedright\arraybackslash}p{3.3cm} X}
+\toprule
+\textcolor{uctblue}{\textbf{Épica}} &
+\textcolor{uctblue}{\textbf{Operate -- Pruebas de rendimiento}}\\
+\midrule
+\textbf{Objetivo(s)} & O4\\
+\textbf{Prioridad} & Alta\\
+\textbf{Esfuerzo} & 46 horas\\
+\bottomrule
+\end{tabularx}
+\caption{Backlog -- Épica 5: Pruebas de rendimiento}
+\label{tab:backlog-e5}
+\end{table}
+
+\textbf{Historia de usuario:} Como investigador, quiero ejecutar sesiones controladas de
+tráfico para medir el rendimiento de la red en distintos puntos del campus.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{X >{\centering\arraybackslash}p{1.2cm} >{\centering\arraybackslash}p{1.4cm} >{\centering\arraybackslash}p{1.4cm}}
+\toprule
+\textbf{Tarea técnica} & \textbf{Pr.} & \textbf{Etapa} & \textbf{Horas}\\
+\midrule
+Formalizar protocolo experimental (Sec.~\ref{sec:protocolo-experimental}) & M & 2 & 8\\
+Sesiones Tipo A -- condición LOS (3 sesiones $\times$ 100 tramas) & M & 3 & 10\\
+Sesiones Tipo A -- condición NLOS (3 sesiones $\times$ 100 tramas) & M & 3 & 10\\
+Sesiones Tipo B -- tramas confirmadas ($\geq$30 tramas/sesión) & M & 3/4 & 10\\
+Consolidación de dataset, cálculo de métricas y análisis & S & 4 & 8\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Criterios de aceptación/evidencia:} dataset reproducible (3 sesiones Tipo A por
+condición LOS/NLOS en franjas horarias distintas, sesiones Tipo B para $T_{\mathrm{conf}}$),
+protocolo documentado y cálculo de métricas con verificación de umbrales
+($PL \leq 10\%$, $T_{\mathrm{conf}} \leq 6\,\text{s}$, $A \geq 90\%$).
+
+% ============================================================
+% REFERENCIAS
+% ============================================================
+\clearpage
+\printbibliography[heading=bibintoc,title={Referencias}]
+
+\end{document}

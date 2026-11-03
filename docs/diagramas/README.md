@@ -33,3 +33,8 @@ Cada diagrama se encuentra disponible en 3 formatos de alta fidelidad:
 * **Descripción:** Documenta la serialización y trazabilidad del dato:
   1. *Sección A:* Estructura en memoria del payload binario de 10 bytes en formato Big-Endian (Byte 0: Node ID, Bytes 1–4: Secuencia, Bytes 5–6: Temperatura $\times 100$, Bytes 7–8: Humedad $\times 100$, Byte 9: Voltaje LiPo escalado).
   2. *Sección B:* Pipeline secuencial por capas desde el firmware C++, trama MAC física (23 bytes con Time-on-Air de 46.3 ms), decodificación en ChirpStack v4, publicación MQTT en formato JSON y visualización en el dashboard web.
+
+
+### 4. Zonificación y Plano de Cobertura Espacial
+* **Archivo:** `CampusDoctorluisrivasdelcanto.png`
+* **Descripción:** Imagen satelital y plano aéreo de la distribución de edificios y áreas verdes del Campus Dr. Luis Rivas del Canto (UCT), utilizado para la planificación de los puntos de medición LOS (Nodo 1), NLOS (Nodo 2) y expansión (Nodo 3), y las ubicaciones de los gateways Milesight UG65 y UG63.
