@@ -19,9 +19,9 @@
 % BIBLIOGRAFÍA
 % ============================================================
 \usepackage[
-  backend=biber,
-  style=apa,
-  sorting=nyt
+    backend=biber,
+    style=apa,
+    sorting=nyt
 ]{biblatex}
 \addbibresource{referencias.bib}
 \DeclareLanguageMapping{spanish}{spanish-apa}
@@ -45,8 +45,8 @@
 \usepackage{algpseudocode}
 
 \algdef{SE}[VARIABLES]{VARIABLES}{EndVariables}
-  {\algorithmicvariables}
-  {\algorithmicend\ \algorithmicvariables}
+    {\algorithmicvariables}
+    {\algorithmicend\ \algorithmicvariables}
 \algnewcommand{\algorithmicvariables}{\textbf{variables globales}}
 
 \newcommand{\Tau}{\mathrm{T}}
@@ -72,12 +72,18 @@
 \usepackage{float}
 \usepackage{placeins}
 \usepackage[table]{xcolor}
+
+% Parámetros de distribución de flotantes para evitar páginas semivacías
+\renewcommand{\topfraction}{0.90}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.10}
+\renewcommand{\floatpagefraction}{0.75}
 \usepackage{caption}
 
 \captionsetup{
-  font=small,
-  labelfont=bf,
-  labelsep=colon
+    font=small,
+    labelfont=bf,
+    labelsep=colon
 }
 
 \renewcommand{\arraystretch}{1.15}
@@ -110,28 +116,28 @@
 % HIPERVÍNCULOS
 % ============================================================
 \usepackage[
-  colorlinks=true,
-  linkcolor=uctblue,
-  citecolor=uctblue,
-  urlcolor=uctblue
+    colorlinks=true,
+    linkcolor=uctblue,
+    citecolor=uctblue,
+    urlcolor=uctblue
 ]{hyperref}
 
 % ============================================================
 % FORMATO DE CAPÍTULOS Y SECCIONES (COMPACTO Y EN UNA SOLA LÍNEA)
 % ============================================================
 \makechapterstyle{compacto}{%
-  \setlength{\beforechapskip}{0pt}
-  \setlength{\midchapskip}{0pt}
-  \setlength{\afterchapskip}{14pt}
-  \renewcommand*{\chapterheadstart}{\vspace*{0pt}}
-  \renewcommand*{\printchaptername}{}
-  \renewcommand*{\chapternamenum}{}
-  \renewcommand*{\chapnumfont}{\normalfont\LARGE\bfseries}
-  \renewcommand*{\chaptitlefont}{\normalfont\LARGE\bfseries}
-  \renewcommand*{\printchapternum}{\chapnumfont\thechapter.\space}
-  \renewcommand*{\afterchapternum}{}
-  \renewcommand*{\printchaptertitle}[1]{\chaptitlefont ##1}
-  \renewcommand*{\afterchaptertitle}{\par\nobreak\vskip \afterchapskip}
+    \setlength{\beforechapskip}{0pt}
+    \setlength{\midchapskip}{0pt}
+    \setlength{\afterchapskip}{14pt}
+    \renewcommand*{\chapterheadstart}{\vspace*{0pt}}
+    \renewcommand*{\printchaptername}{}
+    \renewcommand*{\chapternamenum}{}
+    \renewcommand*{\chapnumfont}{\normalfont\LARGE\bfseries}
+    \renewcommand*{\chaptitlefont}{\normalfont\LARGE\bfseries}
+    \renewcommand*{\printchapternum}{\chapnumfont\thechapter.\space}
+    \renewcommand*{\afterchapternum}{}
+    \renewcommand*{\printchaptertitle}[1]{\chaptitlefont ##1}
+    \renewcommand*{\afterchaptertitle}{\par\nobreak\vskip \afterchapskip}
 }
 \chapterstyle{compacto}
 
@@ -144,28 +150,28 @@
 % COMANDO SEGURO PARA LOGO INSTITUCIONAL (OVERLEAF / REPO)
 % ============================================================
 \newcommand{\insertLogoHeader}{%
-  \IfFileExists{logo.png}{%
-    \includegraphics[height=27pt]{logo.png}%
-  }{%
-    \IfFileExists{Logo_depto_ing_informatica.png}{%
-      \includegraphics[height=27pt]{Logo_depto_ing_informatica.png}%
+    \IfFileExists{logo.png}{%
+      \includegraphics[height=27pt]{logo.png}%
     }{%
-      \scriptsize Logo UCT%
+      \IfFileExists{Logo_depto_ing_informatica.png}{%
+        \includegraphics[height=27pt]{Logo_depto_ing_informatica.png}%
+      }{%
+        \scriptsize Logo UCT%
+      }%
     }%
-  }%
 }
 
 \newcommand{\insertLogoCover}[1]{%
-  \IfFileExists{logo.png}{%
-    \includegraphics[width=#1]{logo.png}%
-  }{%
-    \IfFileExists{Logo_depto_ing_informatica.png}{%
-      \includegraphics[width=#1]{Logo_depto_ing_informatica.png}%
+    \IfFileExists{logo.png}{%
+      \includegraphics[width=#1]{logo.png}%
     }{%
-      \fbox{\parbox[c][2.0cm][c]{0.90\textwidth}{\centering
-      \textbf{LOGO INSTITUCIONAL -- incorporar logo.png}}}%
+      \IfFileExists{Logo_depto_ing_informatica.png}{%
+        \includegraphics[width=#1]{Logo_depto_ing_informatica.png}%
+      }{%
+        \fbox{\parbox[c][2.0cm][c]{0.90\textwidth}{\centering
+        \textbf{LOGO INSTITUCIONAL -- incorporar logo.png}}}%
+      }%
     }%
-  }%
 }
 
 % ============================================================
@@ -177,37 +183,37 @@
 \setlength{\headsep}{12pt}
 
 \fancypagestyle{mainstyle}{%
-  \fancyhf{}
-  \renewcommand{\headrulewidth}{0.3pt}
-  \renewcommand{\footrulewidth}{0pt}
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.3pt}
+    \renewcommand{\footrulewidth}{0pt}
 
-  \fancyhead[L]{\insertLogoHeader}
+    \fancyhead[L]{\insertLogoHeader}
 
-  \fancyhead[R]{%
-    \small
-    \color{uctblue}
-    Trabajo de Título INFO-1197\\
-    \textit{Red LoRaWAN UCT -- Etapa 3}
-  }
+    \fancyhead[R]{%
+      \small
+      \color{uctblue}
+      Trabajo de Título INFO-1197\\
+      \textit{Red LoRaWAN UCT -- Etapa 3}
+    }
 
-  \fancyfoot[C]{\small\thepage}
+    \fancyfoot[C]{\small\thepage}
 }
 
 \fancypagestyle{plain}{%
-  \fancyhf{}
-  \renewcommand{\headrulewidth}{0.3pt}
-  \renewcommand{\footrulewidth}{0pt}
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.3pt}
+    \renewcommand{\footrulewidth}{0pt}
 
-  \fancyhead[L]{\insertLogoHeader}
+    \fancyhead[L]{\insertLogoHeader}
 
-  \fancyhead[R]{%
-    \small
-    \color{uctblue}
-    Trabajo de Título INFO-1197\\
-    \textit{Red LoRaWAN UCT -- Etapa 3}
-  }
+    \fancyhead[R]{%
+      \small
+      \color{uctblue}
+      Trabajo de Título INFO-1197\\
+      \textit{Red LoRaWAN UCT -- Etapa 3}
+    }
 
-  \fancyfoot[C]{\small\thepage}
+    \fancyfoot[C]{\small\thepage}
 }
 
 \pagestyle{mainstyle}
@@ -223,8 +229,8 @@
 % COMANDOS AUXILIARES
 % ============================================================
 \newcommand{\tituloTesis}{%
-  Diseño, implementación y evaluación del rendimiento de una red LoRaWAN
-  para la sensorización del Campus Dr. Luis Rivas del Canto%
+    Diseño, implementación y evaluación del rendimiento de una red LoRaWAN
+    para la sensorización del Campus Dr. Luis Rivas del Canto%
 }
 
 \begin{document}
@@ -239,39 +245,39 @@
 \vspace*{-6\baselineskip}
 
 \begin{center}
-  \insertLogoCover{\textwidth}
+    \insertLogoCover{\textwidth}
 \end{center}
 
 \vspace{3.0cm}
 
 \begin{center}
-  \textbf{\tituloTesis}
+    \textbf{\tituloTesis}
 \end{center}
 
 \vspace{3.5cm}
 
 \begin{center}
-  por
+    por
 \end{center}
 
 \vspace{0.4cm}
 
 \begin{center}
-  Eduardo Remigio Mariqueo Porma
+    Eduardo Remigio Mariqueo Porma
 \end{center}
 
 \vspace{3.0cm}
 
 \begin{center}
-  Trabajo de Título presentado a la\\
-  Facultad de Ingeniería de la Universidad Católica de Temuco\\
-  Para Optar al Título de Ingeniero Civil Informático.
+    Trabajo de Título presentado a la\\
+    Facultad de Ingeniería de la Universidad Católica de Temuco\\
+    Para Optar al Título de Ingeniero Civil Informático.
 \end{center}
 
 \vfill
 
 \begin{center}
-  -- Temuco, Noviembre 2026 --
+    -- Temuco, Noviembre 2026 --
 \end{center}
 
 % ============================================================
@@ -281,10 +287,10 @@
 \thispagestyle{empty}
 
 \begin{center}
-  \vspace*{-9\baselineskip}
-  \insertLogoCover{0.8\textwidth}
-  \par
-  \textbf{COMISIÓN EXAMEN DE TÍTULO}
+    \vspace*{-9\baselineskip}
+    \insertLogoCover{0.8\textwidth}
+    \par
+    \textbf{COMISIÓN EXAMEN DE TÍTULO}
 \end{center}
 
 Este Examen de Título ha sido realizado en la Escuela de Ingeniería Informática:
@@ -326,10 +332,10 @@ Temuco, Noviembre 2026.
 \thispagestyle{empty}
 
 \begin{center}
-  \vspace*{-9\baselineskip}
-  \insertLogoCover{0.8\textwidth}
-  \par
-  \textbf{INFORME TRABAJO DE TÍTULO}
+    \vspace*{-9\baselineskip}
+    \insertLogoCover{0.8\textwidth}
+    \par
+    \textbf{INFORME TRABAJO DE TÍTULO}
 \end{center}
 
 \vspace{1cm}
@@ -346,9 +352,9 @@ En mi calidad de Profesor Guía, mis apreciaciones del presente informe de Traba
 son las siguientes:
 
 \begin{itemize}
-  \item Apreciación 1.
-  \item Apreciación 2.
-  \item Apreciación 3.
+    \item Apreciación 1.
+    \item Apreciación 2.
+    \item Apreciación 3.
 \end{itemize}
 
 De acuerdo con estas consideraciones califico el desarrollo de este Trabajo de Título con
@@ -373,10 +379,10 @@ Temuco, Noviembre 2026.
 \thispagestyle{empty}
 
 \begin{center}
-  \vspace*{-9\baselineskip}
-  \insertLogoCover{0.8\textwidth}
-  \par
-  \textbf{INFORME TRABAJO DE TÍTULO}
+    \vspace*{-9\baselineskip}
+    \insertLogoCover{0.8\textwidth}
+    \par
+    \textbf{INFORME TRABAJO DE TÍTULO}
 \end{center}
 
 \vspace{0.8cm}
@@ -393,9 +399,9 @@ En mi calidad de Profesor Informante, mis apreciaciones del presente informe de 
 Título son las siguientes:
 
 \begin{itemize}
-  \item Apreciación 1.
-  \item Apreciación 2.
-  \item Apreciación 3.
+    \item Apreciación 1.
+    \item Apreciación 2.
+    \item Apreciación 3.
 \end{itemize}
 
 De acuerdo con estas consideraciones califico el desarrollo de este Trabajo de Título con
@@ -420,7 +426,7 @@ Temuco, Noviembre 2026.
 \thispagestyle{empty}
 
 \begin{center}
-  \textbf{AGRADECIMIENTOS}
+    \textbf{AGRADECIMIENTOS}
 \end{center}
 
 \vspace{1cm}
@@ -459,14 +465,16 @@ constante a lo largo de este proceso.
 
 \begin{abstract}
 \addcontentsline{toc}{chapter}{Resumen}
+\setlength{\parskip}{3pt}
 
-Este documento consolida las Etapas~1 y 2, y presenta integralmente el desarrollo de la Etapa~3 (Implementación Física, Optimización y Pruebas Preliminares) del Trabajo de Título orientado a diseñar, implementar y evaluar el rendimiento de una red LoRaWAN para la sensorización del Campus Dr. Luis Rivas del Canto de la Universidad Católica de Temuco (UCT). En el ámbito radioeléctrico, la solución opera en estricto cumplimiento de las Resoluciones Exentas N.º 1.985 de 2017 y N.º 737 de 2025 de la SUBTEL bajo el plan regional LoRaWAN AU915 Sub-banda 2 (916,8--918,2~MHz) a una potencia máxima de 14~dBm (25~mW) con activación criptográfica OTAA (AES-128).
+Este documento consolida las Etapas~1 y 2, y presenta integralmente el desarrollo de la Etapa~3 (Implementación Física, Optimización y Pruebas Preliminares) del Trabajo de Título orientado a diseñar, implementar y evaluar el rendimiento de una red LoRaWAN para la sensorización del Campus Dr. Luis Rivas del Canto de la Universidad Católica de Temuco (UCT). La solución opera en estricto cumplimiento de las Resoluciones Exentas N.º 1.985/2017 y 737/2025 de la SUBTEL bajo el plan regional LoRaWAN AU915 Sub-banda 2 (916,8--918,2~MHz) a una potencia máxima de 14~dBm (25~mW) con activación criptográfica OTAA (AES-128).
 
-Durante la Etapa~3 se optimizó la arquitectura de red incorporando un Gateway semi-industrial Milesight UG65 como concentrador controlador con servidor de red embebido (\textit{Embedded Network Server}), articulado en topología de flota (\textit{Gateway Fleet}) junto al Gateway Milesight UG63 como agente secundario mediante MQTT interno (puerto 18883). Esta decisión elimina dependencias de servidores externos durante la fase de prototipo, resguardando la arquitectura ChirpStack v4 documentada como alternativa de respaldo y escalamiento para futuros proyectos del Departamento de Informática. Asimismo, se estandarizó un payload binario compacto de 10~bytes en formato \textit{Big-Endian} ($\text{ToA} \approx 46,3\,\text{ms}$ en SF7/125~kHz), cuatro programas modulares en C++/Arduino IDE (Sesiones Tipo~A y Tipo~B) para nodos Heltec WiFi LoRa 32 V3 con sensórica DHT11 real, y un banco de pruebas local (\textit{testbed}) en Python/SQLite que opera como respaldo autónomo y se complementa con el Trabajo de Título paralelo orientado al sistema integrado de gestión y monitoreo IoT.
+En la Etapa~3 se optimizó la arquitectura incorporando un Gateway semi-industrial Milesight UG65 con servidor de red embebido (\textit{Embedded Network Server}) como controlador principal, articulado en flota (\textit{Gateway Fleet}) con un Milesight UG63 como agente secundario vía MQTT interno (puerto 18883), eliminando dependencias de servidores externos para el prototipo y resguardando ChirpStack v4 como respaldo departamental. Asimismo, se estandarizó un payload binario compacto de 10~bytes en formato \textit{Big-Endian} ($\text{ToA} \approx 46,3\,\text{ms}$ en SF7/125~kHz), cuatro firmwares modulares en C++/Arduino IDE (Sesiones Tipo~A y Tipo~B) para nodos Heltec WiFi LoRa 32 V3 con sensórica DHT11 en GPIO~4, y un banco de pruebas local en Python/SQLite que actúa como respaldo y se complementa con la plataforma IoT institucional desarrollada paralelamente por Vicente Ramírez.
 
-El despliegue espacial intra-campus ubica la concentración en el Edificio~10 (Facultad de Ingeniería), estableciendo distancias aproximadas homologadas hacia el Edificio~16 en línea de vista directa ($\text{LOS} \approx 80\,\text{m}$) y hacia el Edificio~08 en condición obstruida ($\text{NLOS} \approx 85\,\text{m}$, bloqueado por el Edificio~09). Las pruebas preliminares acumulan 4.824 tramas reales almacenadas ($\approx 96\,\text{bytes/trama}$), evidenciando pérdidas de paquetes entre $0,00\%$ y $2,22\%$ ($PL \le 10\%$), disponibilidad estacionaria del $100,0\%$ ($A \ge 90\%$), retardos medios de confirmación $\overline{T_{\mathrm{conf}}} \approx 1,1\text{--}1,2\,\text{s}$ ($T_{\mathrm{conf}} \le 6,0\,\text{s}$) y demodulación efectiva hasta $-105\,\text{dBm}$ ($\text{SNR} = -9,8\,\text{dB}$) en pruebas de recorrido, alcanzando un $82,9\%$ de ejecución global del backlog PPDIOO (136 de 164 horas).
+El despliegue ubica la concentración en el Edificio~10 (Facultad de Ingeniería), evaluando el Edificio~16 (Ingeniería en Construcción) en línea de vista directa ($\text{LOS} \approx 80\,\text{m}$) y el Edificio~08 (Dirección de Informática) bajo obstrucción estructural ($\text{NLOS} \approx 85\,\text{m}$, interposición del Edificio~09). Las pruebas preliminares totalizan 4.824 tramas reales registradas ($\approx 96\,\text{bytes/trama}$), evidenciando pérdidas entre $0,00\%$ y $2,22\%$ ($PL \le 10\%$), disponibilidad estacionaria del $100,0\%$ ($A \ge 90\%$), retardo medio de confirmación $\overline{T_{\mathrm{conf}}} \approx 1,1\text{--}1,2\,\text{s}$ ($T_{\mathrm{conf}} \le 6,0\,\text{s}$) y demodulación sub-ruido hasta $-105\,\text{dBm}$ ($\text{SNR} = -9,8\,\text{dB}$) en pruebas de recorrido, alcanzando un $82,9\%$ de avance global del backlog PPDIOO (136 de 164 horas).
 
-\textbf{Palabras clave:} LoRaWAN, IoT, sensórica intra-campus, Milesight UG65, LPWAN, PPDIOO, propagación LOS/NLOS.
+\vspace{0.3cm}
+\noindent\textbf{Palabras clave:} LoRaWAN, IoT, sensórica intra-campus, Milesight UG65, LPWAN, PPDIOO, propagación LOS/NLOS.
 \end{abstract}
 
 % ============================================================
@@ -479,14 +487,16 @@ El despliegue espacial intra-campus ubica la concentración en el Edificio~10 (F
 
 \begin{abstract}
 \addcontentsline{toc}{chapter}{Abstract}
+\setlength{\parskip}{3pt}
 
-This document consolidates Stages~1 and 2, and comprehensively presents Stage~3 (Physical Implementation, Design Optimization, and Preliminary Testing) of the Degree Project aimed at designing, implementing, and evaluating the performance of a LoRaWAN network prototype for sensorizing the Dr. Luis Rivas del Canto Campus at Universidad Católica de Temuco (UCT). Regarding spectrum regulation, the prototype strictly complies with Chilean SUBTEL Exempt Resolutions No. 1,985 (2017) and No. 737 (2025) under the LoRaWAN AU915 Sub-band 2 channel plan (916.8--918.2~MHz) at 14~dBm (25~mW) transmit power using AES-128 Over-The-Air Activation (OTAA).
+This document consolidates Stages~1 and 2, and comprehensively presents Stage~3 (Physical Implementation, Design Optimization, and Preliminary Testing) of the Degree Project aimed at designing, implementing, and evaluating the performance of a LoRaWAN network prototype for sensorizing the Dr. Luis Rivas del Canto Campus at Universidad Católica de Temuco (UCT). The solution strictly complies with Chilean SUBTEL Exempt Resolutions No. 1,985/2017 and 737/2025 under the LoRaWAN AU915 Sub-band 2 channel plan (916.8--918.2~MHz) at 14~dBm (25~mW) transmit power using AES-128 OTAA activation.
 
-During Stage~3, the network architecture was optimized by integrating a semi-industrial Milesight UG65 LoRaWAN Gateway operating its native Embedded Network Server as the primary controller for the prototype, paired in a multi-gateway fleet topology with a Milesight UG63 agent gateway via internal MQTT (port 18883). While eliminating external server single points of failure for prototype validation, the ChirpStack v4 stack remains documented as an operational backup and scalable alternative for future departmental projects. Furthermore, a deterministic 10-byte Big-Endian binary payload ($\text{ToA} \approx 46.3\,\text{ms}$ at SF7/125~kHz), four modular C++/Arduino IDE firmware sketches (Type~A unconfirmed and Type~B confirmed sessions) for Heltec WiFi LoRa 32 V3 nodes with DHT11 sensors, and a lightweight Python/SQLite local laboratory testbed were implemented, explicitly delineating its scope as a validation bench complementary to a parallel thesis focused on an enterprise IoT device management and monitoring platform.
+In Stage~3, the network architecture was optimized by deploying a semi-industrial Milesight UG65 Gateway operating its native Embedded Network Server as the primary controller, paired in a multi-gateway fleet with a Milesight UG63 agent gateway via internal MQTT (port 18883). This setup eliminates external server single points of failure during prototype benchmarking while preserving ChirpStack v4 as a documented departmental backup. Furthermore, a deterministic 10-byte Big-Endian binary payload ($\text{ToA} \approx 46.3\,\text{ms}$ at SF7/125~kHz), four modular C++/Arduino IDE firmware sketches (Type~A and Type~B sessions) for Heltec WiFi LoRa 32 V3 nodes with DHT11 sensors on GPIO~4, and a local Python/SQLite testbed were deployed, establishing clear complementarity with the enterprise IoT management platform developed in parallel by Vicente Ramírez.
 
-The spatial campus deployment places the gateway infrastructure in Building~10 (Faculty of Engineering), establishing equalized approximate link distances toward Building~16 under direct Line-of-Sight ($\text{LOS} \approx 80\,\text{m}$) and Building~08 under Non-Line-of-Sight ($\text{NLOS} \approx 85\,\text{m}$, obstructed by Building~09). Preliminary empirical campaigns collected 4,824 real frames ($\approx 96\,\text{bytes/record}$), demonstrating packet loss rates between $0.00\%$ and $2.22\%$ ($PL \le 10\%$), $100.0\%$ stationary link availability ($A \ge 90\%$), mean confirmation delays of $\overline{T_{\mathrm{conf}}} \approx 1.1\text{--}1.2\,\text{s}$ ($T_{\mathrm{conf}} \le 6.0\,\text{s}$), and sub-noise CSS demodulation down to $-105\,\text{dBm}$ ($\text{SNR} = -9.8\,\text{dB}$) during walk-tests, achieving $82.9\%$ overall completion of the PPDIOO project backlog (136 of 164 hours).
+The campus deployment places the gateway infrastructure in Building~10 (Faculty of Engineering), testing Building~16 (Civil Engineering in Construction) under direct Line-of-Sight ($\text{LOS} \approx 80\,\text{m}$) and Building~08 (IT Directorate / Dirección de Informática) under Non-Line-of-Sight ($\text{NLOS} \approx 85\,\text{m}$, obstructed by Building~09). Preliminary empirical campaigns collected 4,824 real frames ($\approx 96\,\text{bytes/record}$), demonstrating packet loss rates between $0.00\%$ and $2.22\%$ ($PL \le 10\%$), $100.0\%$ stationary availability ($A \ge 90\%$), mean confirmation delay $\overline{T_{\mathrm{conf}}} \approx 1.1\text{--}1.2\,\text{s}$ ($T_{\mathrm{conf}} \le 6.0\,\text{s}$), and sub-noise CSS demodulation down to $-105\,\text{dBm}$ ($\text{SNR} = -9.8\,\text{dB}$) during walk-tests, achieving $82.9\%$ overall completion of the PPDIOO backlog (136 of 164 hours).
 
-\textbf{Keywords:} LoRaWAN, IoT, campus sensing, Milesight UG65, LPWAN, PPDIOO, LOS/NLOS propagation.
+\vspace{0.3cm}
+\noindent\textbf{Keywords:} LoRaWAN, IoT, campus sensing, Milesight UG65, LPWAN, PPDIOO, LOS/NLOS propagation.
 \end{abstract}
 
 % ============================================================
@@ -572,24 +582,24 @@ La insuficiencia de la infraestructura Wi-Fi existente para telemetría IoT de b
 fundamenta en las siguientes restricciones estructurales y tecnológicas:
 
 \begin{enumerate}
-  \item \textbf{Incompatibilidad energética:} Los nodos IoT de telemetría de baja tasa
-  están diseñados para operar con baterías durante meses o años. El estándar Wi-Fi
-  (IEEE 802.11) presenta consumos energéticos del orden de centenares de miliamperios
-  durante la transmisión y asociación, incompatibles con baterías compactas típicas en
-  sensores autónomos \parencite{callebaut2020}. LoRaWAN, en contraste, opera en el rango
-  de microamperios en reposo y decenas de miliamperios durante breves ventanas de transmisión
-  ($\text{ToA} < 50\,\text{ms}$ en SF7), adecuándose a ciclos de trabajo reducidos.
+    \item \textbf{Incompatibilidad energética:} Los nodos IoT de telemetría de baja tasa
+    están diseñados para operar con baterías durante meses o años. El estándar Wi-Fi
+    (IEEE 802.11) presenta consumos energéticos del orden de centenares de miliamperios
+    durante la transmisión y asociación, incompatibles con baterías compactas típicas en
+    sensores autónomos \parencite{callebaut2020}. LoRaWAN, en contraste, opera en el rango
+    de microamperios en reposo y decenas de miliamperios durante breves ventanas de transmisión
+    ($\text{ToA} < 50\,\text{ms}$ en SF7), adecuándose a ciclos de trabajo reducidos.
 
-  \item \textbf{Dependencia de infraestructura densa de puntos de acceso:} La red Wi-Fi
-  institucional está optimizada para zonas de alta concurrencia estudiantil en interiores.
-  En un campus universitario con múltiples bloques edificados, los sensores ubicados en
-  entretechos, fachadas exteriores, patios o áreas verdes quedan frecuentemente fuera del
-  radio útil de los puntos de acceso (AP) existentes.
+    \item \textbf{Dependencia de infraestructura densa de puntos de acceso:} La red Wi-Fi
+    institucional está optimizada para zonas de alta concurrencia estudiantil en interiores.
+    En un campus universitario con múltiples bloques edificados, los sensores ubicados en
+    entretechos, fachadas exteriores, patios o áreas verdes quedan frecuentemente fuera del
+    radio útil de los puntos de acceso (AP) existentes.
 
-  \item \textbf{Ausencia de infraestructura LPWAN departamental previa:} La Escuela de
-  Ingeniería Informática no disponía de una red LPWAN (\textit{Low Power Wide Area Network})
-  operativa y documentada que sirviera como plataforma base para proyectos de pregrado,
-  investigación aplicada y pruebas de protocolos IoT.
+    \item \textbf{Ausencia de infraestructura LPWAN departamental previa:} La Escuela de
+    Ingeniería Informática no disponía de una red LPWAN (\textit{Low Power Wide Area Network})
+    operativa y documentada que sirviera como plataforma base para proyectos de pregrado,
+    investigación aplicada y pruebas de protocolos IoT.
 \end{enumerate}
 
 \section{Alcance y delimitaciones}
@@ -602,18 +612,18 @@ viabilidad técnica de la red (Etapa~4).
 
 Dentro de las delimitaciones metodológicas del proyecto, se establece explícitamente que:
 \begin{itemize}
-  \item La arquitectura de comunicaciones emplea exclusivamente \textbf{LoRaWAN estándar}
-  \parencite{lorawan1_0_4} sobre el plan regional AU915 Sub-banda~2, descartándose enlaces LoRa
-  propietarios punto a punto (P2P) a fin de garantizar compatibilidad nativa con concentradores
-  multicanal basados en Semtech SX1302.
-  \item El foco científico y de ingeniería del presente trabajo reside en la \textbf{capa física
-  de radiofrecuencia, capa MAC LoRaWAN, propagación LOS/NLOS y métricas de calidad de servicio
-  (QoS)}. En consecuencia, el dashboard web implementado en este repositorio cumple estrictamente
-  el rol de \textbf{banco de pruebas de laboratorio (\textit{testbed}) y respaldo operativo local},
-  articulándose de forma complementaria con el Trabajo de Título desarrollado paralelamente por el
-  estudiante Vicente Ramírez (\textit{``Sistema integrado para el registro, gestión y monitoreo de
-  dispositivos IoT''}), encargado de la capa de aplicación empresarial, gestión avanzada de
-  dispositivos y seguridad en producción.
+    \item La arquitectura de comunicaciones emplea exclusivamente \textbf{LoRaWAN estándar}
+    \parencite{lorawan1_0_4} sobre el plan regional AU915 Sub-banda~2, descartándose enlaces LoRa
+    propietarios punto a punto (P2P) a fin de garantizar compatibilidad nativa con concentradores
+    multicanal basados en Semtech SX1302.
+    \item El foco científico y de ingeniería del presente trabajo reside en la \textbf{capa física
+    de radiofrecuencia, capa MAC LoRaWAN, propagación LOS/NLOS y métricas de calidad de servicio
+    (QoS)}. En consecuencia, el dashboard web implementado en este repositorio cumple estrictamente
+    el rol de \textbf{banco de pruebas de laboratorio (\textit{testbed}) y respaldo operativo local},
+    articulándose de forma complementaria con el Trabajo de Título desarrollado paralelamente por el
+    estudiante Vicente Ramírez (\textit{``Sistema integrado para el registro, gestión y monitoreo de
+    dispositivos IoT''}), encargado de la capa de aplicación empresarial, gestión avanzada de
+    dispositivos y seguridad en producción.
 \end{itemize}
 
 \section{Estado del arte}
@@ -646,7 +656,7 @@ universitarios de hormigón.
 En el Cuadro~\ref{tab:estado-arte} se sintetizan las investigaciones de referencia que sustentan
 el diseño experimental del proyecto.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{Síntesis del estado del arte}
 \label{tab:estado-arte}
@@ -723,52 +733,52 @@ técnica mediante pruebas controladas de funcionamiento y rendimiento.
 \subsection{Objetivos específicos}
 
 \begin{enumerate}
-  \item \textbf{O1.} Desplegar la infraestructura física del prototipo, compuesta por
-  concentración LoRaWAN ubicada en la Facultad de Ingeniería y al menos dos nodos sensores Heltec
-  WiFi LoRa 32 V3 en distintos puntos del Campus Dr. Luis Rivas del Canto, verificando su
-  instalación y funcionamiento operativo.
+    \item \textbf{O1.} Desplegar la infraestructura física del prototipo, compuesta por
+    concentración LoRaWAN ubicada en la Facultad de Ingeniería y al menos dos nodos sensores Heltec
+    WiFi LoRa 32 V3 en distintos puntos del Campus Dr. Luis Rivas del Canto, verificando su
+    instalación y funcionamiento operativo.
 
-  \item \textbf{O2.} Integrar la infraestructura Gateway LoRaWAN con el entorno de red IP definido
-  para el prototipo, verificando que las tramas correctamente demoduladas y decodificadas sean
-  publicadas vía MQTT y entregadas íntegras al destino de registro.
+    \item \textbf{O2.} Integrar la infraestructura Gateway LoRaWAN con el entorno de red IP definido
+    para el prototipo, verificando que las tramas correctamente demoduladas y decodificadas sean
+    publicadas vía MQTT y entregadas íntegras al destino de registro.
 
-  \item \textbf{O3.} Implementar un dashboard de visualización y captura de laboratorio que
-  consuma las tramas publicadas vía MQTT y presente el identificador del nodo sensor, la marca
-  temporal, las variables ambientales medidas y las métricas de radiofrecuencia (RSSI y SNR).
+    \item \textbf{O3.} Implementar un dashboard de visualización y captura de laboratorio que
+    consuma las tramas publicadas vía MQTT y presente el identificador del nodo sensor, la marca
+    temporal, las variables ambientales medidas y las métricas de radiofrecuencia (RSSI y SNR).
 
-  \item \textbf{O4.} Evaluar el rendimiento de la red desplegada dentro del campus mediante
-  sesiones de tráfico controlado de 100 tramas por nodo (Sesiones Tipo~A, tramas no confirmadas,
-  $NbTrans = 1$) en condiciones LOS y NLOS, complementadas con sesiones de tramas confirmadas para
-  la medición de retardo (Sesiones Tipo~B, $\geq 30$ tramas confirmadas por sesión). La red se
-  considerará \textbf{técnicamente viable} si cumple simultáneamente los siguientes umbrales SMART:
-  \begin{itemize}
-    \item \textbf{Pérdida de paquetes:} $PL \leq 10\%$ ($\text{PDR} \geq 90\%$)
-    \parencite{kaur2024campus,ahmed2024vegetacion};
-    \item \textbf{Retardo de confirmación:} $T_{\mathrm{conf}} \leq 6,0\,\text{s}$, consistente
-    con las ventanas RX1 ($1\,\text{s}$) y RX2 ($2\,\text{s}$) de LoRaWAN Clase~A
-    \parencite{lorawan1_0_4};
-    \item \textbf{Disponibilidad:} $A \geq 90\%$ en operación estacionaria
-    \parencite{barrachina2023campus}.
-  \end{itemize}
+    \item \textbf{O4.} Evaluar el rendimiento de la red desplegada dentro del campus mediante
+    sesiones de tráfico controlado de 100 tramas por nodo (Sesiones Tipo~A, tramas no confirmadas,
+    $NbTrans = 1$) en condiciones LOS y NLOS, complementadas con sesiones de tramas confirmadas para
+    la medición de retardo (Sesiones Tipo~B, $\geq 30$ tramas confirmadas por sesión). La red se
+    considerará \textbf{técnicamente viable} si cumple simultáneamente los siguientes umbrales SMART:
+    \begin{itemize}
+      \item \textbf{Pérdida de paquetes:} $PL \leq 10\%$ ($\text{PDR} \geq 90\%$)
+      \parencite{kaur2024campus,ahmed2024vegetacion};
+      \item \textbf{Retardo de confirmación:} $T_{\mathrm{conf}} \leq 6,0\,\text{s}$, consistente
+      con las ventanas RX1 ($1\,\text{s}$) y RX2 ($2\,\text{s}$) de LoRaWAN Clase~A
+      \parencite{lorawan1_0_4};
+      \item \textbf{Disponibilidad:} $A \geq 90\%$ en operación estacionaria
+      \parencite{barrachina2023campus}.
+    \end{itemize}
 \end{enumerate}
 
 \subsection{Criterios SMART}
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{Objetivos específicos y criterios SMART}
 \label{tab:smart}
 \tiny
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{\textwidth}{
-  >{\bfseries\centering\arraybackslash}p{0.5cm}
-  >{\raggedright\arraybackslash}p{2.0cm}
-  >{\raggedright\arraybackslash\hsize=1.05\hsize}X
-  >{\raggedright\arraybackslash\hsize=1.05\hsize}X
-  >{\raggedright\arraybackslash\hsize=0.95\hsize}X
-  >{\raggedright\arraybackslash\hsize=0.95\hsize}X
-  >{\raggedright\arraybackslash\hsize=1.00\hsize}X}
+    >{\bfseries\centering\arraybackslash}p{0.45cm}
+    >{\raggedright\arraybackslash}p{1.7cm}
+    >{\raggedright\arraybackslash\hsize=1.05\hsize}X
+    >{\raggedright\arraybackslash\hsize=1.05\hsize}X
+    >{\raggedright\arraybackslash\hsize=0.95\hsize}X
+    >{\raggedright\arraybackslash\hsize=0.95\hsize}X
+    >{\raggedright\arraybackslash\hsize=1.00\hsize}X}
 \toprule
 \textbf{ID} &
 \textbf{Objetivo} &
@@ -850,14 +860,18 @@ El prototipo adopta el estándar \textbf{LoRaWAN L2 1.0.4} \parencite{lorawan1_0
 modulación física LoRa CSS (\textit{Chirp Spread Spectrum}). En la Figura~\ref{fig:arquitectura-lorawan}
 se ilustra la arquitectura general extremo a extremo concebida para el sistema, organizada en tres
 dominios tecnológicos: (1) el dominio de radiofrecuencia y sensórica con nodos Clase~A, (2) el
-dominio de concentración y servidor de red LoRaWAN, y (3) el dominio de integración MQTT,
-persistencia y visualización.
+dominio de concentración y servidor de red LoRaWAN, constituido operativamente por la flota de
+gateways Milesight (UG65 como controlador principal con su \textit{Embedded Network Server} y UG63 como
+agente de extensión en flota mediante MQTT en el puerto 18883), preservando la plataforma de código
+abierto ChirpStack v4 como entorno documentado de servidor externo de respaldo y contingencia para
+futuros proyectos departamentales y tesistas, y (3) el dominio de integración MQTT, persistencia
+y visualización.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \begin{adjustwidth}{-1.4cm}{-1.4cm}
-  \centering
-  \includegraphics[width=\linewidth]{01_arquitectura_red}
+    \centering
+    \includegraphics[width=\linewidth]{01_arquitectura_red}
 \end{adjustwidth}
 \caption{Diagrama de arquitectura general del prototipo de conectividad LoRaWAN intra-campus}
 \label{fig:arquitectura-lorawan}
@@ -868,23 +882,23 @@ campañas experimentales se dividen en dos regímenes de capa MAC mutuamente exc
 (Figura~\ref{fig:secuencia-comunicacion}):
 
 \begin{itemize}
-  \item \textbf{Sesiones Tipo A -- Pérdida de paquetes ($PL$):} Emplean \emph{tramas no
-  confirmadas} (\textit{unconfirmed data up}) con número de transmisiones fijado en $NbTrans = 1$.
-  Esto impide reintentos automáticos en capa MAC y permite medir de manera directa la pérdida real
-  inducida por la atenuación y el desvanecimiento del canal físico sobre lotes de 100 tramas.
+    \item \textbf{Sesiones Tipo A -- Pérdida de paquetes ($PL$):} Emplean \emph{tramas no
+    confirmadas} (\textit{unconfirmed data up}) con número de transmisiones fijado en $NbTrans = 1$.
+    Esto impide reintentos automáticos en capa MAC y permite medir de manera directa la pérdida real
+    inducida por la atenuación y el desvanecimiento del canal físico sobre lotes de 100 tramas.
 
-  \item \textbf{Sesiones Tipo B -- Retardo de confirmación ($T_{\mathrm{conf}}$):} Emplean
-  \emph{tramas confirmadas} (\textit{confirmed data up}), cronometrando en el propio
-  microcontrolador el tiempo transcurrido desde el inicio del envío hasta la demodulación exitosa
-  del acuse de recibo (\texttt{ACK}) transmitido por el servidor de red en las ventanas de
-  recepción RX1 o RX2, sobre lotes mínimos de 30 tramas confirmadas.
+    \item \textbf{Sesiones Tipo B -- Retardo de confirmación ($T_{\mathrm{conf}}$):} Emplean
+    \emph{tramas confirmadas} (\textit{confirmed data up}), cronometrando en el propio
+    microcontrolador el tiempo transcurrido desde el inicio del envío hasta la demodulación exitosa
+    del acuse de recibo (\texttt{ACK}) transmitido por el servidor de red en las ventanas de
+    recepción RX1 o RX2, sobre lotes mínimos de 30 tramas confirmadas.
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \begin{adjustwidth}{-1.2cm}{-1.2cm}
-  \centering
-  \includegraphics[width=\linewidth]{02_secuencia_otaa_uplink}
+    \centering
+    \includegraphics[width=\linewidth]{02_secuencia_otaa_uplink}
 \end{adjustwidth}
 \caption{Diagrama de secuencia de comunicaciones: activación OTAA, Sesiones Tipo A y Sesiones Tipo B}
 \label{fig:secuencia-comunicacion}
@@ -892,74 +906,45 @@ campañas experimentales se dividen en dos regímenes de capa MAC mutuamente exc
 
 \section{Partes interesadas}
 
-La gobernanza académica y operativa del proyecto distingue entre el patrocinador institucional y
-los facilitadores técnicos (Cuadros~\ref{tab:stakeholders} y \ref{tab:validacion-stakeholders}). La
-necesidad institucional es encabezada por la Dirección de la Carrera de Ingeniería Civil
-Informática a través del Prof. Mario Villanueva, mientras que la provisión de equipamiento
-LoRaWAN y espacio físico en laboratorio se articula directamente en el Departamento de Informática,
-sumando además la sinergia directa con tesistas de proyectos IoT complementarios.
+La gobernanza académica y operativa del proyecto distingue entre el patrocinador institucional, los facilitadores técnicos y la articulación con proyectos paralelos de la carrera (Cuadro~\ref{tab:stakeholders}). La conducción metodológica es encabezada por la Dirección de la Carrera de Ingeniería Civil Informática a través del profesor guía, Prof. Mario Villanueva, mientras que la provisión de equipamiento LoRaWAN y espacio físico en laboratorio se articula directamente en el Departamento de Informática. Asimismo, se formaliza la delimitación técnica con la tesis complementaria de Vicente Ramírez y el compromiso de transferibilidad técnica para futuros tesistas de la universidad.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
-\caption{Partes interesadas y necesidades del proyecto}
-\label{tab:stakeholders}
-\small
-\begin{tabularx}{\textwidth}{p{3.4cm} X X}
+\caption{Matriz consolidada de partes interesadas, necesidades y validación operativa}
+\label{tab:stakeholders}\label{tab:validacion-stakeholders}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.96}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
 \toprule
-\textbf{Stakeholder} & \textbf{Necesidad identificada} & \textbf{Implicancia en el proyecto}\\
+\textbf{Parte Interesada / Actor} & \textbf{Necesidad identificada} & \textbf{Coordinación y validación en Etapa 3}\\
 \midrule
 Dirección de Carrera / Profesor Guía (Prof. Mario Villanueva)
 &
 Validar empíricamente la viabilidad de una red LoRaWAN intra-campus y establecer una base tecnológica replicable en la Facultad de Ingeniería.
 &
-Aprueba el alcance, supervisa la implementación en laboratorio y valida los criterios SMART de aceptación.
+Aprobación del alcance, acompañamiento presencial durante la puesta en marcha de gateways/nodos y supervisión directa de las campañas experimentales (Agosto--Octubre 2026).
 \\
 \midrule
-Soporte Técnico / Laboratorio Departamento de Informática
+Soporte Técnico / Laboratorio Depto. de Informática
 &
 Facilitar el equipamiento de concentración (Gateways Milesight), nodos Heltec y conectividad eléctrica/red local en el Edificio~10.
 &
-Permite la operación controlada del servidor embebido y la flota de gateways sin afectar servicios críticos del campus.
+Provisión efectiva de Gateways Milesight UG65 y UG63, placas Heltec WiFi LoRa 32 V3, sensores DHT11 y habilitación de red local para el servidor embebido (Octubre 2026).
 \\
 \midrule
-Proyectos de Título Complementarios (Vicente Ramírez)
+Proyectos Complementarios (Vicente Ramírez)
 &
 Disponer de una capa física/MAC LoRaWAN estandarizada y un contrato de payload decodificado vía MQTT para alimentar plataformas superiores de gestión IoT.
 &
-Delimita claramente la frontera entre el transporte radioeléctrico (presente tesis) y la plataforma empresarial de monitoreo.
+Delimitación formal de responsabilidades: la presente tesis resuelve el transporte radioeléctrico, mientras que la plataforma empresarial de visualización y monitoreo corresponde al proyecto paralelo.
 \\
 \midrule
-Estudiantes y futuros tesistas UCT
+Comunidad Académica y Futuros Tesistas UCT
 &
-Contar con código fuente modular, códecs documentados y arquitecturas de respaldo (Embedded NS y ChirpStack v4) listas para reutilización.
+Contar con código fuente modular, códecs documentados y arquitecturas operativas (Embedded NS en UG65 como servidor principal y ChirpStack v4 como servidor externo de respaldo) listas para reutilización en futuras investigaciones.
 &
-Exige documentación rigurosa y versionamiento estructurado en GitHub.
-\\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\begin{table}[H]
-\centering
-\caption{Consolidación de validación y soporte con partes interesadas}
-\label{tab:validacion-stakeholders}
-\small
-\begin{tabularx}{\textwidth}{p{3.4cm} X X}
-\toprule
-\textbf{Actor} & \textbf{Coordinación ejecutada} & \textbf{Estado en Etapa 3}\\
-\midrule
-Dirección de Carrera (Prof. Mario Villanueva)
-&
-Validación del problema, acompañamiento presencial durante la puesta en marcha de gateways y nodos, y definición del escenario experimental en el campus.
-&
-Completado y validado en terreno (Agosto--Octubre 2026).
-\\
-\midrule
-Laboratorio Depto. de Informática
-&
-Provisión efectiva de Gateways Milesight UG65 y UG63, placas Heltec WiFi LoRa 32 V3, sensores DHT11 y emplazamiento físico en Edificio~10.
-&
-Equipamiento operativo e integrado en red local de pruebas (Octubre 2026).
+Documentación rigurosa, repositorio Git estructurado y preservación de guías de integración para investigación futura.
 \\
 \bottomrule
 \end{tabularx}
@@ -968,25 +953,27 @@ Equipamiento operativo e integrado en red local de pruebas (Octubre 2026).
 % ============================================================
 % CAPÍTULO 3: OBJETIVOS Y TRAZABILIDAD
 % ============================================================
-\chapter{Objetivos y Trazabilidad}
+% CAPÍTULO 3: ESPECIFICACIÓN DE REQUERIMIENTOS, TRAZABILIDAD Y MODELO EXPERIMENTAL
+% ============================================================
+\chapter{Especificación de Requerimientos, Trazabilidad y Modelo Experimental}\label{cap:requerimientos}
 
-\section{Matriz de trazabilidad}
+\section{Matriz de trazabilidad metodológica}\label{sec:trazabilidad}
 
-El Cuadro~\ref{tab:trazabilidad} vincula formalmente cada requerimiento funcional, técnico y de
-calidad de servicio con los objetivos específicos, las partes interesadas y los mecanismos de
-verificación empírica aplicados en la Etapa~3.
+La definición metodológica del sistema responde al ciclo de vida PPDIOO, vinculando directamente las necesidades de cobertura, robustez y telemetría intra-campus con especificaciones cuantitativas y verificables. El Cuadro~\ref{tab:trazabilidad} consolida la correspondencia formal entre el problema operativo de la Facultad de Ingeniería, las partes interesadas (Dirección de Carrera, Departamento de Informática y proyectos complementarios), los objetivos específicos (O1 a O4) y los mecanismos de verificación técnica aplicados en la Etapa~3.
 
 \begin{table}[H]
 \centering
 \caption{Matriz de trazabilidad entre problema, stakeholders, objetivos y requerimientos}
 \label{tab:trazabilidad}
 \tiny
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{0.93}
 \begin{tabularx}{\textwidth}{
-  >{\bfseries\raggedright\arraybackslash}p{0.8cm}
-  >{\raggedright\arraybackslash}p{1.5cm}
-  >{\raggedright\arraybackslash}p{2.3cm}
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}X}
+    >{\bfseries\raggedright\arraybackslash}p{0.7cm}
+    >{\raggedright\arraybackslash}p{1.3cm}
+    >{\raggedright\arraybackslash}p{2.1cm}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X}
 \toprule
 \textbf{Req.} &
 \textbf{Obj.} &
@@ -1077,24 +1064,23 @@ Evaluación de intervalos entre recepciones ($\Delta t_{\mathrm{rec}} \leq 3\,T_
 \end{tabularx}
 \end{table}
 
-% ============================================================
-% CAPÍTULO 4: ESPECIFICACIÓN DE REQUERIMIENTOS Y MODELO EXPERIMENTAL
-% ============================================================
-\chapter{Especificación de Requerimientos}
+\section{Requerimientos funcionales}\label{sec:req-funcionales}
 
-\section{Requerimientos funcionales}
+Los requerimientos funcionales definen las capacidades operativas esenciales del prototipo LoRaWAN, abarcando desde la adquisición sensórica hasta la supervisión en el banco de pruebas local (Cuadro~\ref{tab:rf}).
 
 \begin{table}[H]
 \centering
 \caption{Requerimientos funcionales del prototipo}
 \label{tab:rf}
 \scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
 \begin{tabularx}{\textwidth}{
-  >{\bfseries\raggedright\arraybackslash}p{0.8cm}
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}p{2.5cm}
-  >{\raggedright\arraybackslash}p{1.4cm}
-  >{\raggedright\arraybackslash}p{2.4cm}
+    >{\bfseries\raggedright\arraybackslash}p{0.8cm}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}p{2.5cm}
+    >{\raggedright\arraybackslash}p{1.4cm}
+    >{\raggedright\arraybackslash}p{2.4cm}
 }
 \toprule
 \textbf{ID} &
@@ -1161,21 +1147,23 @@ Sketches separados y exportación CSV por sesión.
 \end{tabularx}
 \end{table}
 
-\section{Requerimientos no funcionales y restricciones}
+\section{Requerimientos no funcionales y restricciones}\label{sec:req-no-funcionales}
+
+Los requerimientos no funcionales y restricciones técnicas establecen las condiciones normativas, electromecánicas y de calidad de servicio (QoS) del prototipo (Cuadro~\ref{tab:rnf}).
 
 \begin{table}[H]
 \centering
 \caption{Requerimientos no funcionales, restricciones y criterios de verificación}
 \label{tab:rnf}
 \scriptsize
-\setlength{\tabcolsep}{3.5pt}
-\renewcommand{\arraystretch}{1.05}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
 \begin{tabularx}{\textwidth}{
-  >{\bfseries\raggedright\arraybackslash}p{0.85cm}
-  >{\raggedright\arraybackslash}p{1.6cm}
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}p{2.5cm}
-  >{\raggedright\arraybackslash}p{2.1cm}
+    >{\bfseries\raggedright\arraybackslash}p{0.85cm}
+    >{\raggedright\arraybackslash}p{1.6cm}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}p{2.5cm}
+    >{\raggedright\arraybackslash}p{2.1cm}
 }
 \toprule
 \textbf{ID} &
@@ -1287,16 +1275,16 @@ El Cuadro~\ref{tab:protocolo} sintetiza los parámetros del protocolo experiment
 las campañas de evaluación, mientras que la Figura~\ref{fig:flujo-payload} detalla la estructura
 binaria de 10~bytes y su pipeline de decodificación extremo a extremo.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{Parámetros del protocolo experimental consolidado para las sesiones de evaluación}
 \label{tab:protocolo}
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.2}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.02}
 \begin{tabularx}{\textwidth}{
-  >{\raggedright\arraybackslash}p{4.8cm}
-  >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}p{4.8cm}
+    >{\raggedright\arraybackslash}X
 }
 \toprule
 \textbf{Parámetro} & \textbf{Valor consolidado / condición operativa}\\
@@ -1305,10 +1293,10 @@ binaria de 10~bytes y su pipeline de decodificación extremo a extremo.
 Edificio~10 (Facultad de Ingeniería -- Departamento de Informática), instalación interior en planta docente.\\
 \midrule
 \textbf{Nodo 1 (condición LOS)} &
-Edificio~16, con línea de vista directa hacia el Edificio~10. Distancia aproximada de referencia: $\approx 80\,\text{m}$.\\
+Edificio~16 (Ingeniería en Construcción), con línea de vista directa hacia el Edificio~10. Distancia aproximada de referencia: $\approx 80\,\text{m}$.\\
 \midrule
 \textbf{Nodo 2 (condición NLOS)} &
-Edificio~08, con obstrucción estructural interpuesta por el Edificio~09. Distancia aproximada homologada: $\approx 85\,\text{m}$.\\
+Edificio~08 (Dirección de Informática), con obstrucción estructural interpuesta por el Edificio~09. Distancia aproximada homologada: $\approx 85\,\text{m}$.\\
 \midrule
 \textbf{Potencia de transmisión} &
 $14\,\text{dBm}$ ($25\,\text{mW}$, norma SUBTEL Res. Exenta N.º 1.985/2017 \parencite{subtel2017}).\\
@@ -1331,11 +1319,11 @@ $\geq 30$ tramas confirmadas (\textit{confirmed uplinks}) por sesión con medici
 \end{tabularx}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \begin{adjustwidth}{-1.4cm}{-1.4cm}
-  \centering
-  \includegraphics[width=\linewidth]{03_flujo_payload}
+    \centering
+    \includegraphics[width=\linewidth]{03_flujo_payload}
 \end{adjustwidth}
 \caption{Estructura del payload binario de 10~bytes y pipeline de procesamiento extremo a extremo}
 \label{fig:flujo-payload}
@@ -1370,17 +1358,17 @@ construidos) y $X_\sigma \sim \mathcal{N}(0, \sigma^2)$ modela en decibelios la 
 obstáculos estructurales. Finalmente, el Cuadro~\ref{tab:alternativas} resume la comparación
 crítica frente a otras alternativas tecnológicas evaluadas en la fase de preparación.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{Comparación crítica de alternativas de conectividad para el caso de estudio}
 \label{tab:alternativas}
 \tiny
 \begin{tabularx}{\textwidth}{
-  >{\raggedright\arraybackslash}p{2.5cm}
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}X}
+    >{\raggedright\arraybackslash}p{2.5cm}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X}
 \toprule
 \textbf{Criterio} &
 \textbf{Wi-Fi (IEEE 802.11)} &
@@ -1418,78 +1406,109 @@ Costo operativo marginal nulo en banda libre ISM ($915\text{--}928\,\text{MHz}$)
 % ============================================================
 % CAPÍTULO 5: DISEÑO DE LA SOLUCIÓN
 % ============================================================
-\chapter{Diseño de la Solución}\label{cap:diseno-solucion}
+% CAPÍTULO 4: DISEÑO, EVOLUCIÓN ARQUITECTÓNICA E IMPLEMENTACIÓN DEL PROTOTIPO LORAWAN
+% ============================================================
+\chapter{Diseño, Evolución Arquitectónica e Implementación del Prototipo LoRaWAN}\label{cap:diseno-solucion}\label{cap:implementacion-etapa3}\label{cap:diseno-implementacion}
 
-\section{Introducción al diseño y consideraciones metodológicas}
+El presente capítulo aborda la transición integral desde los requerimientos de ingeniería hacia la
+arquitectura física definitiva, la planificación radioeléctrica y la optimización de los componentes
+del prototipo en el Campus Dr. Luis Rivas del Canto (Fases~3 \textit{Design} y 4 \textit{Implement}
+del ciclo PPDIOO), respondiendo de manera trazable a los criterios de evaluación de la Etapa~3.
 
-El presente capítulo documenta la línea base de la fase de \textit{Diseño} (Fase~3 de la
-metodología PPDIOO), transformando los requerimientos funcionales, no funcionales y criterios SMART
-en una especificación de ingeniería modular y reproducible. Se formalizan aquí los parámetros
-radioeléctricos bajo normativa chilena, el plan de frecuencias LoRaWAN AU915 Sub-banda~2, el
-modelo criptográfico OTAA, la estructura del payload binario de 10~bytes y la arquitectura lógica de
-integración de software sobre la cual se ejecutaron posteriormente las optimizaciones físicas de la
-Etapa~3 (detalladas en el Capítulo~\ref{cap:implementacion-etapa3}).
+\section{Acompañamiento en laboratorio y ajustes específicos del proyecto}\label{sec:acompanamiento-ajustes}
 
-\section{Diseño inicial de infraestructura y escenarios de propagación}\label{sec:despliegue-hardware}
-
-\subsection{Emplazamiento central y especificación base de concentración}
-
-El punto central de concentración radioeléctrica se proyectó en dependencias interiores del
-\textbf{Departamento de Informática} (Edificio~10, Facultad de Ingeniería, Campus Dr. Luis Rivas del
-Canto), recinto que provee alimentación eléctrica continua, resguardo físico y conectividad directa
-hacia la red local de laboratorio. En la formulación original de la Etapa~2 se dimensionó como
-unidad base un concentrador compacto \textit{indoor} Milesight UG63 (\texttt{UG63-L08GL-915M})
-\parencite{milesight_ug63}, equipado con el procesador en banda base Semtech SX1302 de 8 canales
-simultáneos \parencite{semtech_sx1302}, antena interna omnidireccional de $+2\,\text{dBi}$,
-identificador único \texttt{C0BA1FFFFE0377FA} y soporte de transporte IP tanto por UDP Packet
-Forwarder (puerto 1700 hacia ChirpStack v4) como por enlace MQTT de flota Milesight.
-
-\subsection{Modelamiento analítico de escenarios LOS y NLOS}
-
-Para aislar el efecto de la obstrucción estructural sobre el enlace radioeléctrico, el diseño
-estableció dos condiciones contrastantes:
+Durante la Etapa~3, el trabajo presencial en dependencias del Departamento de Informática junto al profesor guía, Prof. Mario Villanueva, permitió consolidar cuatro ajustes de ingeniería:
 \begin{enumerate}
-    \item \textbf{Condición LOS (\textit{Line-of-Sight} -- Línea de Vista Directa):} Trayectoria
-    exterior despejada entre el edificio de concentración y el punto de medición, asegurando el
-    despeje de al menos el $60\%$ de la primera Zona de Fresnel. Para una distancia representativa
-    $d = 80\,\text{m}$ operando en $f = 916,8\,\text{MHz}$, el radio máximo en el punto medio del
-    elipsoide de Fresnel viene dado por la Ecuación~\eqref{eq:fresnel-calc}:
-    \begin{equation}\label{eq:fresnel-calc}
-        r_1 = \frac{1}{2} \sqrt{\frac{c \cdot d}{f}}
-        \approx \frac{1}{2} \sqrt{\frac{3 \times 10^8\,\text{m/s} \cdot 80\,\text{m}}{916,8 \times 10^6\,\text{Hz}}}
-        \approx 2,56\,\text{m}
-    \end{equation}
-    Esta condición actúa como grupo de control experimental ($n \approx 2,0$).
-
-    \item \textbf{Condición NLOS (\textit{Non-Line-of-Sight} -- Sin Línea de Vista):} Trayectoria a
-    distancia geométrica equivalente, pero bloqueada por al menos un edificio completo de hormigón
-    armado, tabiquería metálica y ventanales termopanel interpuestos en el eje directo hacia el
-    concentrador, induciendo mecanismos combinados de atenuación por penetración, difracción en
-    aristas y desvanecimiento por sombra (\textit{shadowing}).
+    \item \textbf{Gateway Milesight UG65 con Embedded NS:} Controlador principal activo con servidor embebido, resguardando ChirpStack v4 como servidor externo de respaldo documentado para futuros tesistas.
+    \item \textbf{Despliegue espacial representativo:} Concentración en Edificio~10 (Facultad de Ingeniería) y enlaces en Edificio~16 (Ing. en Construcción, LOS $\approx 80\,\text{m}$) y Edificio~08 (Dirección de Informática, NLOS $\approx 85\,\text{m}$).
+    \item \textbf{Delimitación del dashboard local:} Banco de pruebas técnico en Python/SQLite para validación de paquetes y contingencia, articulado con la plataforma IoT institucional de Vicente Ramírez.
+    \item \textbf{Estandarización de payload (10~B):} Vector binario Big-Endian compacto ($\text{ToA} \approx 46,3\,\text{ms}$ en SF7), optimizando el ciclo de trabajo.
 \end{enumerate}
+
+\section{Evolución arquitectónica: Incorporación del Milesight UG65 y Flota de Gateways}\label{sec:justificacion-ug65}
+
+La arquitectura de concentración evolucionó desde un modelo monoconcentrador hacia una
+topología de \textbf{flota articulada de dos gateways} con redundancia espacial y funcional:
+
+\begin{itemize}
+    \item \textbf{Gateway Principal / Controlador -- Milesight UG65 (\texttt{UG65-L08GL-915M}):}
+    Concentrador industrial de exteriores e interiores con certificación IP65, procesador NXP
+    quad-core Cortex-A53 a $1,2\,\text{GHz}$, procesador en banda base Semtech SX1302 de 8 canales
+    simultáneos \parencite{semtech_sx1302,milesight_ug65}, antena externa omnidireccional de
+    $+2\,\text{dBi}$ en conector tipo N y módulo GNSS integrado. Este gateway aloja el
+    \textbf{Embedded Network Server} (servidor de red LoRaWAN integrado) y el broker MQTT local,
+    actuando como el cerebro operativo de la red para autenticación OTAA, deduplicación de tramas y
+    gestión de bajadas (\textit{downlinks}).
+
+    \item \textbf{Gateway Secundario / Agente -- Milesight UG63 (\texttt{UG63-L08GL-915M}):}
+    Concentrador compacto \textit{indoor} con SX1302 y antena interna de $+2\,\text{dBi}$
+    \parencite{milesight_ug63}. Opera en modalidad \textit{Gateway Fleet} como agente de extensión,
+    retransmitiendo todo paquete LoRa capturado directamente hacia el servidor embebido del UG65 a
+    través del enlace Ethernet local.
+\end{itemize}
+
+\textbf{Estrategia de servidor de red y respaldo para futuros proyectos:} Tratándose de un
+prototipo experimental orientado a la evaluación rigurosa de cobertura, propagación y métricas de
+calidad de servicio (QoS) intra-campus, la red opera con una arquitectura estructurada en dos niveles:
+
+\begin{itemize}
+    \item \textbf{Servidor Principal Activo (Milesight UG65 con \textit{Embedded Network Server}):}
+    El gateway industrial Milesight UG65 ejecuta de manera autónoma su servidor de red embebido,
+    asumiendo dentro del propio concentrador las funciones de Network Server, Join Server y
+    Application Server. Este motor gestiona la autenticación de dispositivos mediante OTAA
+    (claves simétricas AES-128), la deduplicación de tramas recibidas tanto por su concentrador
+    SX1302 como por el gateway agente UG63 (enlazado en modalidad \textit{Gateway Fleet} por
+    MQTT en el puerto TCP~18883), la administración estricta de las ventanas descendentes RX1 y RX2
+    para el envío de acuses de recibo (\texttt{ACK}) y la ejecución del códec integrado
+    \texttt{decodeUplink()} que publica los datos estructurados en formato JSON al broker MQTT local
+    (puerto TCP~1883). Esta topología confiere total independencia de la conectividad hacia servidores
+    externos en la nube o enlaces WAN universitarios, garantizando latencias mínimas y deterministas
+    en las confirmaciones de Clase~A ($T_{\mathrm{conf}}$ en RX1) y máxima resiliencia durante las
+    campañas de medición en terreno.
+
+    \item \textbf{Servidor Externo de Respaldo (ChirpStack v4 para Futuros Proyectos y Tesistas):}
+    Como estrategia formal de transferencia tecnológica hacia el Departamento de Informática y
+    futuros estudiantes o tesistas que requieran escalar la red hacia un despliegue multi-concentrador
+    distribuido en el campus o integrar servicios cloud multi-inquilino (\textit{multi-tenant}), la
+    arquitectura mantiene completamente especificada y probada la integración con ChirpStack v4. En
+    esta modalidad alternativa de contingencia, los gateways UG65 y UG63 conmutan su modo de reenvío
+    a \textit{Packet Forwarder} estándar (Semtech UDP en puerto 1700 o Semtech Basic Station)
+    apuntando a una instancia centralizada de ChirpStack (\texttt{chirpstack.uct.cl:1700} o un servidor
+    Linux/Docker departamental). El repositorio oficial del proyecto resguarda las herramientas de
+    aprovisionamiento automatizado (\texttt{scripts/crear\_configs\_chirpstack.py}), perfiles de
+    dispositivo y esquemas de códec compatibles, permitiendo a futuras investigaciones activar este
+    servidor externo de respaldo sin necesidad de reprogramar el firmware de los nodos sensores.
+\end{itemize}
+
+En la Figura~\ref{fig:flujo-extremo-extremo} se ilustra el flujo de datos extremo a extremo del
+prototipo validado en la Etapa~3, detallando la articulación de las cinco capas tecnológicas:
+desde la sensórica y modulación LoRa en los nodos Heltec V3, pasando por la concentración y
+deduplicación en la flota Milesight (UG65 controlador y UG63 agente), hasta la ingesta en el
+broker MQTT Mosquitto, la persistencia en SQLite y la visualización en el dashboard local.
+
+\begin{figure}[H]
+\centering
+\begin{adjustwidth}{-1.0cm}{-1.0cm}
+    \centering
+    \IfFileExists{flujo_extremo_extremo_lorawan.jpg}{%
+      \includegraphics[width=0.92\linewidth]{flujo_extremo_extremo_lorawan.jpg}%
+    }{%
+      \IfFileExists{flujoloraWantesis.jpg}{%
+        \includegraphics[width=0.92\linewidth]{flujoloraWantesis.jpg}%
+      }{%
+        \fbox{\parbox[c][5.0cm][c]{0.90\linewidth}{\centering \textbf{Flujo Extremo a Extremo de Tramas LoRaWAN -- flujo\_extremo\_extremo\_lorawan.jpg}}}%
+      }%
+    }%
+\end{adjustwidth}
+\caption{Diagrama de flujo extremo a extremo de tramas LoRaWAN en el Campus Dr. Luis Rivas del Canto}
+\label{fig:flujo-extremo-extremo}
+\end{figure}
 
 \section{Marco regulatorio y planificación radioeléctrica}\label{sec:marco-regulatorio}
 
 \subsection{Normativa nacional SUBTEL (Chile)}
 
-La operación radioeléctrica del prototipo se enmarca rigurosamente en la regulación vigente de la
-Subsecretaría de Telecomunicaciones de Chile (SUBTEL):
-\begin{itemize}
-    \item \textbf{Resolución Exenta N.º 1.985 de 2017 de la SUBTEL} \parencite{subtel2017}: Fija la
-    norma técnica de equipos de alcance reducido. En su Artículo~1, literal~j), habilita el uso sin
-    concesión de la banda ISM de \textbf{$915\,\text{MHz}$ a $928\,\text{MHz}$} con límites de
-    potencia radiada aparente de hasta $500\,\text{mW}$ p.i.r.e. ($+27\,\text{dBm}$), o hasta
-    $1\,\text{W}$ ($+30\,\text{dBm}$) empleando técnicas de modulación digital de espectro
-    ensanchado.
-    \item \textbf{Resolución Exenta N.º 737 de 2025 de la SUBTEL} \parencite{subtel737_2025}:
-    Actualiza los mecanismos de trazabilidad y certificación de equipos de alcance reducido en el
-    país.
-\end{itemize}
-
-Tanto los gateways como los nodos Heltec WiFi LoRa 32 V3 se fijan por software en una potencia de
-salida conducida de \textbf{$14\,\text{dBm}$ ($25\,\text{mW}$)} con antenas de $+2\,\text{dBi}$
-($\text{p.i.r.e.} \approx 16\,\text{dBm}$), manteniendo un margen de resguardo superior a
-$11\,\text{dB}$ por debajo del techo normativo chileno.
+La operación del prototipo cumple rigurosamente la regulación de la Subsecretaría de Telecomunicaciones de Chile (SUBTEL) para equipos de alcance reducido (Resoluciones Exentas N.º 1.985/2017 y 737/2025 \parencite{subtel2017,subtel737_2025}), operando en la banda ISM de \textbf{$915\,\text{MHz}$ a $928\,\text{MHz}$}. La potencia conducida de gateways y nodos se fija por software en \textbf{$14\,\text{dBm}$ ($25\,\text{mW}$)} con antenas de $+2\,\text{dBi}$ ($\text{p.i.r.e.} \approx 16\,\text{dBm}$), garantizando un margen de resguardo superior a $11\,\text{dB}$ bajo el techo normativo nacional ($+27\,\text{dBm}$).
 
 \subsection{Parametrización regional LoRaWAN: Plan AU915 Sub-banda 2}
 
@@ -1501,30 +1520,29 @@ Cuadro~\ref{tab:frecuencias-au915-diseno}.
 
 \begin{table}[H]
 \centering
-\small
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.05}
 \caption{Plan de frecuencias y canales configurados en AU915 Sub-banda 2 (SB2)}\label{tab:frecuencias-au915-diseno}
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.4cm} >{\centering\arraybackslash}p{2.3cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}X}
+\begin{tabularx}{\textwidth}{
+  >{\raggedright\arraybackslash}p{2.3cm}
+  >{\centering\arraybackslash}p{3.2cm}
+  >{\centering\arraybackslash}p{1.4cm}
+  >{\centering\arraybackslash}p{1.5cm}
+  >{\raggedright\arraybackslash}X
+}
 \toprule
 \textbf{Canal / Enlace} & \textbf{Frecuencia} & \textbf{Ancho Banda} & \textbf{Data Rate} & \textbf{Función Operativa} \\
 \midrule
-Canal 08 (Up) & $916,80\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría LoRaWAN (Tipo~A / B) \\
-Canal 09 (Up) & $917,00\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría LoRaWAN (Tipo~A / B) \\
-Canal 10 (Up) & $917,20\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría LoRaWAN (Tipo~A / B) \\
-Canal 11 (Up) & $917,40\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría LoRaWAN (Tipo~A / B) \\
-Canal 12 (Up) & $917,60\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría LoRaWAN (Tipo~A / B) \\
-Canal 13 (Up) & $917,80\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría LoRaWAN (Tipo~A / B) \\
-Canal 14 (Up) & $918,00\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría LoRaWAN (Tipo~A / B) \\
-Canal 15 (Up) & $918,20\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría LoRaWAN (Tipo~A / B) \\
-\midrule
-Canal 65 (Up) & $917,50\,\text{MHz}$ & $500\,\text{kHz}$ & DR6 (SF8) & Canal rápido de banda ancha \\
-\midrule
-Bajada RX1    & $923,30\text{--}927,50\,\text{MHz}$ & $500\,\text{kHz}$ & DR8--DR13 & Recepción Join-Accept y ACK ($1\,\text{s}$) \\
-Bajada RX2    & $923,30\,\text{MHz}$ & $500\,\text{kHz}$ & DR8 (SF12) & Ventana secundaria de respaldo ($2\,\text{s}$) \\
+Canales 08--15 (Up) & $916,80\text{--}918,20\,\text{MHz}$ & $125\,\text{kHz}$ & DR0--DR5 & Telemetría LoRaWAN (Tipo~A / B, $14\,\text{dBm}$) \\
+Canal 65 (Up)       & $917,50\,\text{MHz}$               & $500\,\text{kHz}$ & DR6 (SF8) & Canal rápido de subida de banda ancha \\
+Bajada RX1          & $923,30\text{--}927,50\,\text{MHz}$ & $500\,\text{kHz}$ & DR8--DR13 & Recepción Join-Accept y ACK descendente ($1\,\text{s}$) \\
+Bajada RX2          & $923,30\,\text{MHz}$               & $500\,\text{kHz}$ & DR8 (SF12) & Ventana secundaria fija de respaldo ($2\,\text{s}$) \\
 \bottomrule
 \end{tabularx}
-\vspace{0.15cm}
-\footnotesize
-\textit{Nota:} En AU915, DR5 corresponde a SF7/$125\,\text{kHz}$ y DR0 a SF12/$125\,\text{kHz}$. La ventana RX1 se mapea módulo 8 sobre los canales descendentes de $500\,\text{kHz}$ ($923,30\,\text{MHz}$ para el Canal~08), mientras que RX2 permanece fija en $923,30\,\text{MHz}$ con SF12.
+\vspace{0.08cm}
+\scriptsize
+\textit{Nota:} En AU915, DR5 equivale a SF7/$125\,\text{kHz}$ y DR0 a SF12/$125\,\text{kHz}$. La ventana RX1 se mapea módulo 8 sobre canales descendentes de $500\,\text{kHz}$ ($923,30\,\text{MHz}$ para Canal~08); RX2 permanece fija en $923,30\,\text{MHz}$ con DR8 (SF12).
 \end{table}
 
 \subsection{Seguridad criptográfica y activación OTAA}
@@ -1538,10 +1556,59 @@ independientes para integridad MAC (\texttt{NwkSKey}) y cifrado extremo a extrem
 (\texttt{AppSKey}), reiniciando los contadores \texttt{FCntUp} y \texttt{FCntDown} contra ataques de
 repetición (\textit{replay attacks}).
 
-\section{Especificación del payload binario e interfaces de datos}\label{sec:interfaces-software}
+\section{Optimizaciones de diseño e ingeniería (Comparativa Antes vs. Después)}\label{sec:optimizaciones-diseno}
+
+En cumplimiento de los requerimientos de la Etapa~3, el Cuadro~\ref{tab:antes-despues} sistematiza
+las optimizaciones de ingeniería introducidas entre el diseño conceptual previo (Etapa~2) y la
+implementación física real validada en terreno.
+
+\begin{table}[!htbp]
+\centering
+\caption{Matriz comparativa de optimizaciones de diseño e ingeniería (Antes vs. Después)}\label{tab:antes-despues}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.98}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.5cm}}
+\toprule
+\textbf{Dimensión} & \textbf{Diseño Preliminar (Etapa 2)} & \textbf{Implementación Optimizada (Etapa 3)} & \textbf{Beneficio Técnico Cuantificado} \\
+\midrule
+Topología de Concentración &
+Mono-gateway indoor Milesight UG63 ($+2\,\text{dBi}$ interna) dependiente de servidor externo. &
+Flota articulada: Gateway principal Milesight UG65 (IP65, externa $+2\,\text{dBi}$) con servidor embebido + UG63 indoor secundario. &
+Elimina puntos únicos de falla; amplía cobertura perimetral y asegura operación autónoma de laboratorio. \\
+\midrule
+Capa de Red LoRaWAN &
+Servidor centralizado ChirpStack v4 como único mecanismo operativo en diseño conceptual. &
+\textit{Embedded Network Server} en UG65 como motor principal activo de pruebas; ChirpStack v4 configurado y documentado como servidor externo de respaldo para futuros proyectos. &
+Independencia de enlaces WAN institucionales, latencia interna mínima para confirmaciones Clase~A ($T_{\mathrm{conf}}$) y trazabilidad completa de migración. \\
+\midrule
+Formato de Payload y ToA &
+Vector extendido o tramas preliminares con riesgo de sobrecarga ToA ($>150\,\text{ms}$). &
+Vector binario empaquetado de exactamente \textbf{10~bytes} (\texttt{FPort 1}) con códec nativo en JavaScript. &
+$\text{ToA} \approx 46,33\,\text{ms}$ en SF7/125~kHz; reducción superior al $74\%$ en consumo RF y ocupación del canal. \\
+\midrule
+Firmware de Nodos &
+Bucle monolítico básico con riesgo de dispersión de variables. &
+Cuatro proyectos C++/RadioLib estructurados con separación estricta para Tipo~A y Tipo~B con visualización OLED de métricas. &
+Eliminación de reintentos cruzados; evaluación empírica no sesgada de $PL$ y cronometraje preciso de $T_{\mathrm{conf}}$. \\
+\midrule
+Despliegue y Validación Espacial &
+Estimación de distancias sin verificación física de obstáculos. &
+Tres edificaciones reales (Edificio~10 Fac. Ingeniería, Edificio~16 Ing. en Construcción y Edificio~08 Dirección de Informática) contrastando $80\,\text{m}$ (LOS) vs. $85\,\text{m}$ (NLOS severo) y walk-test. &
+Aislamiento exacto del desvanecimiento por penetración estructural ($\Delta \text{RSSI} \approx 20,4\,\text{dB}$). \\
+\midrule
+Monitoreo y Persistencia &
+Visualizador genérico preliminar. &
+Servidor local en Python con ingesta MQTT (puerto 1883), base de datos SQLite (\texttt{telemetry.db}) y delimitación con plataforma IoT. &
+Persistencia de 4.824 tramas con marcas temporales y metadatos RF completos para auditoría. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Eficiencia espectral del payload de 10 bytes y especificación de interfaces}\label{sec:interfaces-software}
 
 Para minimizar el tiempo de ocupación del canal (\textit{Time-on-Air}) y evitar la sobrecarga de
-transmitir cadenas ASCII o JSON por radiofrecuencia, se especifica un formato binario determinista
+transmitir cadenas de texto por radiofrecuencia, se especificó un formato binario determinista
 de 10~bytes en ordenamiento \textit{Big-Endian} sobre \texttt{FPort = 1}:
 \begin{equation}
 \text{Payload}_{10\text{B}} =
@@ -1553,17 +1620,30 @@ de 10~bytes en ordenamiento \textit{Big-Endian} sobre \texttt{FPort = 1}:
 \label{eq:payload-10b}
 \end{equation}
 
-Una vez demodulada la trama y decodificado el vector binario en el servidor de red, el mensaje se
-publica vía MQTT \parencite{oasis_mqtt} hacia el puerto TCP~1883 entregando tanto las variables de
-aplicación como los metadatos físicos de radioenlace (RSSI, SNR, \texttt{fCnt} y \texttt{devEUI}).
-El Cuadro~\ref{tab:dashboard-kpis-diseno} sintetiza las variables supervisadas en el entorno de
-monitoreo.
+Al comprimir las cinco variables en exactamente 10~bytes binarios (sumados a los $13\,\text{bytes}$
+de cabecera MAC LoRaWAN MHDR+FHDR+FPort+MIC, totalizando $23\,\text{bytes}$ físicos), el tiempo en el
+aire en DR5 ($\text{SF}=7$, $\text{BW}=125\,\text{kHz}$, $\text{CR}=4/5$, preámbulo de 8 símbolos)
+se reduce a:
+\begin{align}
+\text{ToA}_{10\text{B, SF7}} &= T_{\text{pre\'ambulo}} + T_{\text{payload}} \nonumber \\
+&= 12,25 \cdot \frac{2^7}{125\,\text{kHz}} + 33 \cdot \frac{2^7}{125\,\text{kHz}} \nonumber \\
+&= 12,54\,\text{ms} + 33,79\,\text{ms} \approx 46,33\,\text{ms}
+\label{eq:toa-calc}
+\end{align}
+reduciendo en más de un $74\%$ la ocupación espectral frente a formatos basados en texto. El códec
+JavaScript desplegado en el servidor de red embebido del gateway Milesight UG65 (alojado en el
+repositorio oficial en \texttt{backend/decoders/decoder.js}) implementa la decodificación determinista:
+extrae el identificador del nodo ($B_0$), reconstruye la secuencia como entero de 32 bits Big-Endian
+($B_1$--$B_4$), escala linealmente la temperatura y humedad dividiendo por 100 ($B_5$--$B_8$) y
+calcula la tensión como $V_{\text{bat}} = 2{,}0 + (B_9 / 100)\,\text{V}$, publicando los datos hacia
+el bus MQTT. El Cuadro~\ref{tab:dashboard-kpis-diseno} sintetiza las variables supervisadas.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \small
+\setlength{\tabcolsep}{3pt}
 \caption{Matriz de variables físicas y métricas radioeléctricas supervisadas}\label{tab:dashboard-kpis-diseno}
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.8cm} >{\centering\arraybackslash}p{2.6cm} >{\centering\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.2cm} >{\centering\arraybackslash}p{2.1cm} >{\centering\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}X}
 \toprule
 \textbf{Variable / Métrica} & \textbf{Rango Operativo} & \textbf{Resolución} & \textbf{Propósito en el Banco de Pruebas} \\
 \midrule
@@ -1578,198 +1658,6 @@ Intervalo de Recepción ($\Delta t$) & Continuo (UTC/Local) & $1\,\text{s}$ & C�
 \end{tabularx}
 \end{table}
 
-% ============================================================
-% CAPÍTULO 6: IMPLEMENTACIÓN FÍSICA, EVOLUCIÓN ARQUITECTÓNICA Y OPTIMIZACIÓN (ETAPA 3)
-% ============================================================
-\chapter{Implementación Física, Evolución Arquitectónica y Optimización del Diseño}\label{cap:implementacion-etapa3}
-
-El presente capítulo aborda el tránsito desde la especificación conceptual (Etapa~2) hacia la
-materialización física, integración de software y optimización de ingeniería del prototipo en el
-Campus Dr. Luis Rivas del Canto (Fase~4 \textit{Implement} y preparación de Fase~5 \textit{Operate}
-del ciclo PPDIOO), respondiendo de manera trazable a los criterios de evaluación de la Etapa~3.
-
-\section{Acompañamiento en laboratorio y ajustes específicos del proyecto}\label{sec:acompanamiento-ajustes}
-
-Durante el desarrollo de la Etapa~3, el trabajo de puesta en marcha contó con el acompañamiento
-presencial, orientación práctica y facilitación de equipamiento en terreno por parte del profesor
-guía, Prof. Mario Villanueva, en dependencias del Departamento de Informática de la Facultad de
-Ingeniería. A partir de esta coordinación directa y del cierre de las definiciones que habían
-quedado abiertas al concluir la Etapa~2, se ejecutaron cuatro ajustes concretos sobre el diseño, la
-tecnología y la planificación:
-
-\begin{enumerate}
-  \item \textbf{Ajuste tecnológico en la capa de red (Incorporación del Gateway Milesight UG65 con
-  Servidor Embebido):} En la Etapa~2 se había considerado únicamente un concentrador Milesight UG63
-  dependiente de un servidor externo ChirpStack v4. Al iniciar la implementación física en el
-  laboratorio, se incorporó formalmente un segundo equipo institucional de categoría superior, el
-  \textbf{Milesight UG65}, asumiendo el rol de concentrador controlador mediante su
-  \textit{Embedded Network Server} integrado y articulando al UG63 como agente secundario en flota.
-  Dado el carácter de prototipo experimental de esta tesis, se adoptó el servidor embebido como
-  motor operativo principal, manteniendo ChirpStack v4 documentado y respaldado para futuros
-  proyectos departamentales.
-
-  \item \textbf{Consolidación del despliegue espacial intra-campus:} Se resolvieron las ubicaciones
-  y distancias tentativas pendientes de la Etapa~2 sobre la planimetría tridimensional oficial del
-  campus (Edificio~10 como nodo central de concentración, Edificio~16 en condición LOS a
-  $\approx 80\,\text{m}$ y Edificio~08 en condición NLOS a $\approx 85\,\text{m}$ tras el
-  Edificio~09), homologando intencionalmente las distancias para aislar la obstrucción estructural.
-
-  \item \textbf{Homologación del protocolo de carga útil y modularización del firmware:} Se unificó
-  definitivamente la trama binaria en 10~bytes \textit{Big-Endian} (corrigiendo la referencia
-  preliminar de 6~bytes remanente en secciones conceptuales previas) y se estructuraron cuatro
-  programas independientes en Arduino IDE (dos para Sesiones Tipo~A y dos para Sesiones Tipo~B).
-
-  \item \textbf{Delimitación arquitectónica del dashboard local:} Se precisó formalmente el alcance
-  del servidor local Python/SQLite como banco de pruebas (\textit{testbed}) y respaldo de
-  laboratorio, estableciendo su frontera de integración con el Trabajo de Título complementario de
-  Vicente Ramírez orientado a la plataforma avanzada de monitoreo y gestión IoT.
-\end{enumerate}
-
-\section{Evolución arquitectónica: Incorporación del Milesight UG65 y Flota de Gateways}\label{sec:justificacion-ug65}
-
-En el diseño formulado en la Etapa~2, la arquitectura contemplaba un único gateway interior
-(Milesight UG63) reenviando tramas crudas por UDP (puerto 1700) hacia una pila externa compuesta por
-\texttt{chirpstack-gateway-bridge}, ChirpStack v4, PostgreSQL, Redis y Eclipse Mosquitto. Si bien
-dicha arquitectura es idónea para despliegues masivos multi-inquilino, su puesta en marcha para un
-prototipo experimental de validación radioeléctrica introducía puntos adicionales de falla en la red
-local (dependencia permanente de contenedores Docker en un computador anfitrión para procesar el
-\textit{Join-Accept} y emitir acuses \texttt{ACK} dentro de la estricta ventana RX1 de $1,0\,\text{s}$).
-
-Durante la provisión física de equipamiento en el Departamento de Informática se dispuso del
-concentrador semi-industrial \textbf{Milesight UG65} (protección IP65, procesador quad-core ARM
-Cortex-A53 de 64~bits a $1,5\,\text{GHz}$, $512\,\text{MB}$ de RAM DDR4 y banda base Semtech SX1302)
-\parencite{milesight_ug65}. A diferencia del modelo compacto UG63 (diseñado primordialmente como
-\textit{packet forwarder}), el UG65 incorpora un \textbf{Servidor de Red LoRaWAN Embebido
-(\textit{Embedded Network Server})} completo y soporte nativo de controlador de flota
-(\textit{Gateway Fleet}).
-
-En consecuencia, se reestructuró la topología operativa bajo los siguientes principios de ingeniería:
-\begin{itemize}
-  \item \textbf{Milesight UG65 como Controlador Principal (\texttt{192.168.200.47}):} Ejecuta
-  localmente el \textit{Embedded Network Server} en AU915 Sub-banda~2. Administra de forma
-  autónoma las sesiones criptográficas OTAA, valida contadores \texttt{FCnt}, programa con latencia
-  sub-milisegundo los \textit{downlinks} y \texttt{ACK} de Clase~A, ejecuta internamente el códec
-  JavaScript de 10~bytes y publica los objetos JSON decodificados hacia el broker MQTT de captura
-  (\texttt{192.168.200.45:1883}).
-  \item \textbf{Milesight UG63 como Agente de Flota (\texttt{192.168.200.30}, EUI
-  \texttt{C0BA1FFFFE0377FA}):} Se reconfiguró desde UDP Packet Forwarder hacia el modo
-  \texttt{Remoted Embedded NS}, enlazándose directamente contra el UG65 mediante transporte MQTT
-  interno en el puerto TCP \texttt{18883}. Cuando ambos concentradores escuchan simultáneamente una
-  misma transmisión radioeléctrica, el UG65 realiza \textbf{deduplicación automática de paquetes en
-  hardware}, conservando la copia con mejor calidad de señal (mayor SNR/RSSI) y evitando registros
-  duplicados aguas arriba.
-  \item \textbf{Rol estratégico de ChirpStack v4 como respaldo y proyección departamental:} Dado
-  que el alcance del presente Trabajo de Título corresponde a un \textbf{prototipo funcional de
-  evaluación}, el uso del servidor embebido del UG65 maximiza la robustez y simplicidad operativa
-  en las campañas de campo. No obstante, toda la configuración y manifiestos de \textbf{ChirpStack
-  v4} (u otro servidor de red externo compatible) se conservan íntegramente documentados en el
-  repositorio oficial como \textbf{alternativa de respaldo operativo y plataforma de escalamiento futuro}
-  para nuevos proyectos del Departamento de Informática o futuros tesistas que requieran federar
-  decenas de gateways e integraciones empresariales en la nube.
-\end{itemize}
-
-\section{Optimizaciones de diseño e ingeniería (Comparativa Antes vs. Después)}\label{sec:optimizaciones-diseno}
-
-En cumplimiento del criterio de optimización técnica mediante pruebas de concepto, el
-Cuadro~\ref{tab:antes-despues} contrasta cuantitativa y funcionalmente el estado del sistema antes
-(línea base Etapa~2) y después de las mejoras de ingeniería introducidas e implementadas en la
-Etapa~3.
-
-\begin{table}[H]
-\centering
-\caption{Comparativa de ingeniería Antes (Diseño Etapa 2) vs. Después (Implementación Etapa 3)}
-\label{tab:antes-despues}
-\scriptsize
-\begin{tabularx}{\textwidth}{
-  >{\bfseries\raggedright\arraybackslash}p{2.5cm}
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}p{3.1cm}
-}
-\toprule
-\textbf{Dimensión} & \textbf{Antes (Diseño Etapa 2)} & \textbf{Después (Optimización Etapa 3)} & \textbf{Impacto / Mejora Demostrada} \\
-\midrule
-Topología de Concentración &
-Gateway único Milesight UG63 operando de forma aislada. &
-Flota coordinada: Milesight UG65 (Controlador) + UG63 (Agente por MQTT puerto 18883). &
-Diversidad espacial ante sombras de edificios y deduplicación automática de tramas RF. \\
-\midrule
-Network Server (NS) &
-Dependencia obligatoria de servidor externo ChirpStack v4 por UDP 1700. &
-\textit{Embedded NS} autónomo en el UG65 para el prototipo; ChirpStack v4 preservado como respaldo futuro. &
-Elimina puntos únicos de falla (SPOF) externos y garantiza respuesta determinista en ventana RX1 ($1\,\text{s}$). \\
-\midrule
-Estructura de Payload &
-Esquema preliminar de 6~bytes sin identificador de origen ni secuencia de aplicación. &
-Trama binaria \textit{Big-Endian} de 10~bytes (\texttt{NodeID} + \texttt{Seq 32b} + \texttt{Temp} + \texttt{Hum} + \texttt{Bat}). &
-$\text{ToA} \approx 46,3\,\text{ms}$ en SF7 ($74\%$ menor que JSON ASCII) con auditoría exacta de pérdidas. \\
-\midrule
-Códec de Decodificación &
-Conversión básica sin porcentaje normalizado de batería ni control de longitud. &
-Función \texttt{decodeUplink(input)} validada en UG65 con complemento a dos y curva LiPo ($3,0\text{--}4,2\,\text{V}$). &
-Entrega directa de JSON tipado hacia MQTT sin reprocesamiento externo. \\
-\midrule
-Arquitectura de Firmware &
-Prototipo único con valores simulados y riesgo de colisión de \texttt{DevEUI}. &
-4 programas modulares en Arduino IDE (2 Tipo~A y 2 Tipo~B) con \texttt{DevEUI} únicos (\texttt{...0708} y \texttt{...0709}). &
-Cero colisiones de contador \texttt{FCnt} y separación estricta entre pruebas $PL$ y $T_{\mathrm{conf}}$. \\
-\midrule
-Interfaz Sensórica y ACK &
-Pin de datos inestable y detección ambigua de códigos de retorno RadioLib. &
-DHT11 estabilizado en \textbf{GPIO~4} (\texttt{INPUT\_PULLUP}) y validación estricta \texttt{state > 0} (RX1/RX2) con \texttt{millis()}. &
-Eliminación de lecturas \texttt{NaN} recurrentes y medición exacta de $T_{\mathrm{conf}}$ en pantalla OLED y puerto serie. \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\subsection{Eficiencia espectral del payload de 10 bytes y códec oficial}
-
-En redes LPWAN, transmitir un objeto JSON en texto plano como
-\texttt{\{"id":1,"seq":142,"t":21.2,"h":61.9,"b":4.1\}} requiere al menos $45\text{--}55\,\text{bytes}$
-de carga útil de aplicación, elevando el \textit{Time-on-Air} (ToA) en SF7/125~kHz por sobre los
-$118\text{--}185\,\text{ms}$. Al comprimir las cinco variables en exactamente \textbf{10~bytes
-binarios} (sumados a los $13\,\text{bytes}$ de cabecera MAC LoRaWAN MHDR+FHDR+FPort+MIC, totalizando
-$23\,\text{bytes}$ físicos), el tiempo en el aire en DR5 ($\text{SF}=7$, $\text{BW}=125\,\text{kHz}$,
-$\text{CR}=4/5$, preámbulo de 8 símbolos) se reduce a:
-\begin{equation}
-\text{ToA}_{10\text{B, SF7}} = T_{\text{pre\'ambulo}} + T_{\text{payload}}
-= 12,25 \cdot \frac{2^7}{125\,\text{kHz}} + 33 \cdot \frac{2^7}{125\,\text{kHz}}
-= 12,54\,\text{ms} + 33,79\,\text{ms} \approx 46,33\,\text{ms}
-\label{eq:toa-calc}
-\end{equation}
-reduciendo en más de un $74\%$ el consumo energético de radiofrecuencia y la probabilidad de
-colisión en el aire. El códec JavaScript productivo desplegado en el servidor embebido del UG65
-(alojado en \texttt{backend/decoders/decoder.js}) implementa la decodificación exacta:
-
-\begin{example}
-function decodeUplink(input) {
-    var bytes = input.bytes;
-    if (!bytes || bytes.length < 10) return { data: {} };
-
-    var nodeId  = bytes[0];
-    var seq     = (bytes[1] << 24) | (bytes[2] << 16) | (bytes[3] << 8) | bytes[4];
-    var tempRaw = (bytes[5] << 8) | bytes[6];
-    if (tempRaw > 32767) tempRaw -= 65536;
-    var humRaw  = (bytes[7] << 8) | bytes[8];
-    var batRaw  = bytes[9];
-
-    var vbat = 2.0 + (batRaw / 100.0);
-    var vbat_pct = Math.round(Math.min(100, Math.max(0, (vbat - 3.0) / 1.2 * 100)));
-
-    return {
-        data: {
-            node_id: nodeId,
-            sequence: seq,
-            temperature: parseFloat((tempRaw / 100.0).toFixed(2)),
-            humidity: parseFloat((humRaw / 100.0).toFixed(1)),
-            battery_mv: Math.round(vbat * 1000),
-            battery_pct: vbat_pct,
-            battery_voltage: parseFloat(vbat.toFixed(2))
-        }
-    };
-}
-\end{example}
-
 \subsection{Implementación de firmware modular en nodos Heltec WiFi LoRa 32 V3}
 
 El hardware de cada nodo sensor se basa en la placa Heltec WiFi LoRa 32 V3 \parencite{heltec_v3},
@@ -1783,172 +1671,133 @@ SSD1306 ($128\times 64\,\text{px}$, bus $\text{I}^2\text{C}$ en \texttt{SDA = 17
 con resistencia interna \texttt{INPUT\_PULLUP} y rutina de relectura automática tras $100\,\text{ms}$
 en caso de retorno \texttt{NaN}.
 
-Para impedir errores humanos de configuración durante el trabajo de campo, el código fuente se
-organizó en cuatro proyectos independientes de Arduino IDE:
+Para impedir errores de configuración en terreno, el código fuente se estructuró en cuatro proyectos independientes en Arduino IDE:
 \begin{itemize}
-  \item \textbf{Sesión Tipo A (\texttt{nodo1\_heltec\_v3\_tipoA.ino} y \texttt{nodo2\_heltec\_v3\_tipoA.ino}):}
-  Ejecutan transmisiones no confirmadas (\texttt{node.sendReceive(payload, 10, 1)}) con
-  \texttt{DevEUI} diferenciados (\texttt{0102030405060708} para Nodo~1 y \texttt{0102030405060709}
-  para Nodo~2), permitiendo cuantificar sin distorsión la pérdida de paquetes ($PL$).
-  \item \textbf{Sesión Tipo B (\texttt{nodo1\_heltec\_v3\_tipoB.ino} y \texttt{nodo2\_heltec\_v3\_tipoB.ino}):}
-  Activan explícitamente la bandera de confirmación MAC (\texttt{node.sendReceive(payload, 10, 1, true)})
-  encapsulando la llamada entre lecturas del reloj monotónico \texttt{millis()}. En la librería
-  RadioLib \parencite{radiolib}, un código de retorno \texttt{state == 1} certifica la demodulación
-  del \texttt{ACK} en la ventana \textbf{RX1}, mientras que \texttt{state == 2} indica recepción en
-  \textbf{RX2}, evaluando en tiempo real en la pantalla OLED el cumplimiento del umbral SMART
-  ($T_{\mathrm{conf}} \leq 6,0\,\text{s}$).
+    \item \textbf{Sesión Tipo A (\texttt{nodo1/2\_heltec\_v3\_tipoA.ino}):} Transmisiones no confirmadas (\texttt{NbTrans=1}) con \texttt{DevEUI} únicos por nodo (\texttt{...0708} y \texttt{...0709}), aislando la pérdida de paquetes ($PL$).
+    \item \textbf{Sesión Tipo B (\texttt{nodo1/2\_heltec\_v3\_tipoB.ino}):} Tramas confirmadas midiendo la latencia con \texttt{millis()}. Retorno \texttt{state == 1} confirma demodulación en \textbf{RX1} ($1\,\text{s}$) y \texttt{state == 2} en \textbf{RX2} ($2\,\text{s}$), verificando el umbral SMART ($T_{\mathrm{conf}} \leq 6,0\,\text{s}$) en la pantalla OLED.
 \end{itemize}
 
-\section{Despliegue espacial definitivo en el Campus Dr. Luis Rivas del Canto}\label{sec:despliegue-espacial-etapa3}
+\section{Despliegue espacial definitivo en el Campus Dr. Luis Rivas del Canto}\label{sec:despliegue-espacial-etapa3}\label{sec:despliegue-hardware}
 
-Cerrando la actividad de relevamiento espacial prevista en etapas anteriores, la
-Figura~\ref{fig:despliegue-campus} presenta la vista tridimensional del despliegue físico definido
-en el Campus Dr. Luis Rivas del Canto, identificando la ubicación del concentrador y de los puntos
-de sensorización junto a su geometría de propagación.
+La Figura~\ref{fig:despliegue-campus} presenta la vista tridimensional del despliegue físico definido
+en el Campus Dr. Luis Rivas del Canto de la Universidad Católica de Temuco. Los gateways concentradores
+(Milesight UG65 y UG63) se sitúan en el Departamento de Informática de la Facultad de Ingeniería
+(Edificio~10), mientras que los nodos sensores operan en edificaciones representativas que permiten
+evaluar el enlace bajo trayectorias contrastantes: el Edificio~16 (Ingeniería en Construcción) en
+condición LOS y el Edificio~08 (Dirección de Informática) en condición NLOS:
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
-\begin{adjustwidth}{-1.0cm}{-1.0cm}
-  \centering
-  \includegraphics[width=\linewidth]{04_despliegue_espacial_campus.jpg}
+\begin{adjustwidth}{-1.2cm}{-1.2cm}
+    \centering
+    \IfFileExists{04_despliegue_espacial_campus.jpg}{%
+      \includegraphics[width=\linewidth]{04_despliegue_espacial_campus.jpg}%
+    }{%
+      \IfFileExists{mapa_campus_nodos_gw.png}{%
+        \includegraphics[width=\linewidth]{mapa_campus_nodos_gw.png}%
+      }{%
+        \IfFileExists{CampusDoctorluisrivasdelcanto.png}{%
+          \includegraphics[width=\linewidth]{CampusDoctorluisrivasdelcanto.png}%
+        }{%
+          \fbox{\parbox[c][6.0cm][c]{0.95\linewidth}{\centering \textbf{Ilustración física del despliegue en Campus UCT -- 04\_despliegue\_espacial\_campus.jpg}}}%
+        }%
+      }%
+    }%
 \end{adjustwidth}
-\caption{Distribución espacial del Gateway LoRaWAN y nodos sensores (escenarios LOS y NLOS) en el Campus Dr. Luis Rivas del Canto}
+\caption{Despliegue espacial del prototipo en el Campus Dr. Luis Rivas del Canto (Facultad de Ingeniería)}
 \label{fig:despliegue-campus}
 \end{figure}
 
-El diseño geométrico del escenario experimental (Cuadro~\ref{tab:despliegue-espacial}) responde a un
-control riguroso de variables físicas:
+El Cuadro~\ref{tab:despliegue-espacial} sistematiza las coordenadas, distancias euclidianas aproximadas,
+alturas sobre el nivel del suelo y la tipología de obstrucción de cada punto de medición.
 
-\begin{enumerate}
-  \item \textbf{Punto Central de Concentración -- Edificio 10 (Facultad de Ingeniería):} Los
-  gateways LoRaWAN se emplazan en el interior del Departamento de Informática, dentro del edificio
-  de la Facultad de Ingeniería.
-  \item \textbf{Nodo 1 en Línea de Vista (LOS) -- Edificio 16 ($\approx 80\,\text{m}$):} Emplazado
-  hacia el sector del Edificio~16 enfrentando un corredor abierto libre de edificaciones
-  interpuestas respecto al Edificio~10, garantizando despeje de la primera Zona de Fresnel
-  ($r_1 \approx 2,56\,\text{m}$).
-  \item \textbf{Nodo 2 Sin Línea de Vista (NLOS) -- Edificio 08 ($\approx 85\,\text{m}$):} Emplazado
-  en el Edificio~08 a una distancia radial prácticamente idéntica ($\approx 85\,\text{m}$), pero con
-  el volumen estructural completo del \textbf{Edificio~09} interpuesto directamente sobre la línea
-  recta de propagación hacia el Edificio~10, forzando a la onda electromagnética de $917\,\text{MHz}$
-  a propagarse por penetración de múltiples muros de hormigón armado, reflexión y difracción.
-\end{enumerate}
-
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
+\caption{Emplazamiento espacial de gateways y nodos en el Campus Dr. Luis Rivas del Canto}\label{tab:despliegue-espacial}
 \small
-\caption{Caracterización espacial y radioeléctrica de los puntos de despliegue en el campus}
-\label{tab:despliegue-espacial}
-\begin{tabularx}{\textwidth}{
-  >{\bfseries\raggedright\arraybackslash}p{2.6cm}
-  >{\raggedright\arraybackslash}p{2.9cm}
-  >{\centering\arraybackslash}p{2.1cm}
-  >{\raggedright\arraybackslash}X
-}
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{>{\bfseries\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{3.2cm} >{\centering\arraybackslash}p{2.2cm} >{\centering\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}X}
 \toprule
-\textbf{Elemento} & \textbf{Recinto / Edificio} & \textbf{Distancia Aprox.} & \textbf{Condición de Propagación y Rol Experimental} \\
+\textbf{Dispositivo} & \textbf{Edificio / Recinto} & \textbf{Distancia Aprox.} & \textbf{Altura} & \textbf{Condición de Propagación} \\
 \midrule
-Concentrador Central (UG65 / UG63) &
-Edificio~10 (Facultad de Ingeniería, Depto. de Informática) &
-$0\,\text{m}$ (Origen) &
-Punto central de recepción indoor conectado a red local de laboratorio y servidor embebido. \\
+Gateways UG65 y UG63 & Facultad de Ingeniería (Edificio 10) & $0\,\text{m}$ (Base) & $+4,5\,\text{m}$ & Concentración central con resguardo indoor y conexión IP. \\
 \midrule
-Nodo Sensor 1 (\texttt{DevEUI ...0708}) &
-Edificio~16 (Oficinas, acceso o perímetro) &
-$\approx 80\,\text{m}$ &
-\textbf{Escenario LOS:} Línea de vista directa con 1.ª Zona de Fresnel despejada. Ejecuta sesiones Tipo~A y Tipo~B. \\
+Nodo Sensor 1 & Ing. en Construcción (Edificio 16) & $\approx 80\,\text{m}$ & $+1,2\,\text{m}$ & Línea de vista directa (\textbf{LOS}), despeje de 1ª Zona de Fresnel. \\
 \midrule
-Nodo Sensor 2 (\texttt{DevEUI ...0709}) &
-Edificio~08 (Laboratorios, interior o patio) &
-$\approx 85\,\text{m}$ &
-\textbf{Escenario NLOS:} Obstrucción severa interpuesta por el \textbf{Edificio~09} (atenuación y difracción). Ejecuta sesiones Tipo~A y Tipo~B. \\
+Nodo Sensor 2 & Dirección de Informática (Edificio 08) & $\approx 85\,\text{m}$ & $+1,2\,\text{m}$ & Sin línea de vista (\textbf{NLOS}), bloqueo por Edificio 09 (hormigón armado). \\
 \bottomrule
 \end{tabularx}
+\vspace{0.1cm}
+\footnotesize
+\textit{Nota metodológica:} Las distancias señaladas ($80\,\text{m}$ y $85\,\text{m}$) son valores promedio de referencia calculados sobre la planimetría del campus. Los nodos cuentan con movilidad relativa para ser emplazados en diversas dependencias interiores (oficinas, laboratorios, entretechos) o patios perimetrales dentro de cada edificio sin alterar sustancialmente la distancia geométrica hacia el concentrador.
 \end{table}
 
-\textbf{Consideración metodológica sobre distancias y ubicaciones intra-edificio:} Cabe precisar
-explícitamente que las distancias radiales reportadas ($\approx 80\,\text{m}$ hacia el Nodo~1 y
-$\approx 85\,\text{m}$ hacia el Nodo~2) son \textbf{aproximadas y fueron intencionalmente
-equiparadas} en torno al rango de $80\text{--}85\,\text{m}$ para actuar como variable controlada; de
-este modo, cualquier diferencia estadísticamente significativa en RSSI, SNR o pérdida de paquetes
-obedece directamente a la obstrucción estructural del Edificio~09 y no a una asimetría de distancia.
-Asimismo, dado que los edificios del campus cuentan con múltiples oficinas, laboratorios, pasillos,
-entretechos, patios interiores y áreas verdes adyacentes, la posición puntual exacta de cada nodo
-dentro de su respectivo edificio puede ajustarse relativamente entre sesiones de medición para
-mantener distancias homólogas sin cambiar el edificio asignado. Del mismo modo, cada nodo físico
-representado en la Figura~\ref{fig:despliegue-campus} alterna su programación entre tramas Tipo~A y
-Tipo~B según el protocolo de la campaña en ejecución.
+\subsection{Modelamiento analítico de escenarios LOS y NLOS}
+
+Para aislar el efecto de la obstrucción estructural sobre el enlace radioeléctrico, se establecieron
+dos condiciones contrastantes fundamentadas en la teoría electromagnética:
+\begin{enumerate}
+      \item \textbf{Condición LOS (\textit{Line-of-Sight} -- Línea de Vista Directa):} Trayectoria exterior
+      despejada entre el edificio de concentración (Edificio~10, Facultad de Ingeniería) y el Nodo~1 (Edificio~16,
+      Ingeniería en Construcción), asegurando el despeje de
+      al menos el $60\%$ de la primera Zona de Fresnel. Para una distancia representativa $d = 80\,\text{m}$
+      operando en $f = 916,8\,\text{MHz}$, el radio máximo en el punto medio del elipsoide de Fresnel viene
+      dado por:
+      \begin{equation}\label{eq:fresnel-calc}
+          r_1 = \frac{1}{2} \sqrt{\frac{c \cdot d}{f}}
+          \approx \frac{1}{2} \sqrt{\frac{3 \times 10^8\,\text{m/s} \cdot 80\,\text{m}}{916,8 \times 10^6\,\text{Hz}}}
+          \approx 2,56\,\text{m}
+      \end{equation}
+      Esta condición actúa como grupo de control experimental con exponente de pérdidas $n \approx 2,0$.
+
+      \item \textbf{Condición NLOS (\textit{Non-Line-of-Sight} -- Sin Línea de Vista):} Trayectoria hacia
+      el Nodo~2 (Edificio~08, Dirección de Informática) a distancia geométrica equivalente ($\approx 85\,\text{m}$), pero bloqueada
+      completamente por el Edificio~09 intermedio (hormigón armado, losas y tabiquería metálica),
+      induciendo mecanismos combinados de atenuación por penetración y desvanecimiento por sombra
+      (\textit{shadowing}), donde el elipsoide de Fresnel es intersectado en más de un $100\%$.
+\end{enumerate}
 
 \section{Delimitación del dashboard de laboratorio y articulación inter-proyecto}\label{sec:delimitacion-dashboard}
 
-Un aspecto arquitectónico fundamental que debe quedar rigurosamente documentado en esta Etapa~3 es
-la articulación del presente Trabajo de Título con el proyecto desarrollado en paralelo por el
-estudiante de la carrera \textbf{Vicente Ramírez}, titulado \textit{``Sistema integrado para el
-registro, gestión y monitoreo de dispositivos IoT''}. Mientras dicho trabajo aborda en profundidad
-la ingeniería de software de la capa de aplicación institucional --incluyendo aprovisionamiento
-seguro de dispositivos, control de acceso basado en roles, protocolos de seguridad de transporte y
-visualización avanzada para usuarios finales--, la presente tesis concentra su aporte en la
-infraestructura física LoRaWAN, la planificación espectral, la propagación en campus y la validación
-de calidad de servicio.
+Para dar cumplimiento cabal al alcance comprometido y evitar duplicidades con iniciativas paralelas,
+se delimita rigurosamente el rol del entorno de software desarrollado en este proyecto:
+\begin{itemize}
+    \item \textbf{Alcance de la presente tesis (Eduardo):} Comprende el diseño físico, despliegue,
+    configuración de red LoRaWAN (Gateways UG65/UG63 y Nodos Heltec V3), parametrización AU915 SB2,
+    recolección empírica de métricas radioeléctricas y el desarrollo de un \textbf{banco de pruebas local de
+    laboratorio} (implementado en Python con base de datos SQLite \texttt{telemetry.db}). Dicho entorno
+    actúa exclusivamente como soporte de validación técnica, verificación de paquetes y respaldo de
+    contingencia ante eventuales caídas de enlaces externos.
 
-Bajo esta división complementaria de responsabilidades, el servidor local desarrollado en este
-repositorio (\texttt{dashboard/dashboard\_server.py} junto al motor relacional \texttt{telemetry.db})
-cumple estrictamente dos funciones acotadas:
-\begin{enumerate}
-  \item \textbf{Banco de pruebas local de laboratorio (\textit{Testbed}):} Permite suscribirse
-  directamente al broker MQTT local sin latencias de red externa ni capas intermedias de
-  autenticación web, facilitando la auditoría inmediata en terreno de contadores \texttt{f\_cnt},
-  niveles RSSI/SNR, filtrado temporal de sesiones y captura automatizada de lotes exactos de 100
-  tramas (Tipo~A) o 30 tramas (Tipo~B) exportables a CSV.
-  \item \textbf{Sistema autónomo de respaldo operativo:} Garantiza la continuidad de captura y
-  almacenamiento de datos experimentales aun cuando la plataforma externa o el acceso a Internet del
-  laboratorio se encuentren en mantenimiento.
-\end{enumerate}
+    \item \textbf{Articulación con el proyecto complementario (Vicente Ramírez):} La plataforma web
+    empresarial de visualización avanzada, el diseño de interfaces de usuario para producción institucional,
+    la gestión de identidades y la implementación de protocolos de seguridad superiores corresponden al
+    trabajo de título titulado \textit{``Sistema integrado para el registro, gestión y monitoreo de
+    dispositivos IoT''} de Vicente Ramírez. La presente red LoRaWAN entrega a dicha plataforma las
+    tramas decodificadas a través del protocolo estandarizado MQTT en el puerto TCP~1883.
+\end{itemize}
 
-Desde el punto de vista de eficiencia computacional, el esquema relacional implementado en SQLite
-demostró una huella de almacenamiento sumamente liviana: mientras que cada trama de aplicación ocupa
-$10\,\text{bytes}$ en el canal de radiofrecuencia ($23\,\text{bytes}$ incluyendo cabeceras LoRaWAN),
-su registro completo indexado en \texttt{telemetry.db} --incorporando clave primaria, marca temporal
-ISO-8601, nombre de dispositivo, \texttt{DevEUI}, variables decodificadas, RSSI, SNR y contador
-MAC-- ocupa empíricamente apenas \textbf{$\approx 96\,\text{bytes}$ por trama} ($462.848\,\text{bytes}$
-totales en disco para $4.824$ tramas reales almacenadas, incluyendo índices B-Tree). Proyectando una
-operación ininterrumpida de ambos nodos transmitiendo cada $60\,\text{s}$ durante un año completo
-($1.051.200$ tramas/año), el requerimiento anual de disco asciende a tan solo $\approx 101\,\text{MB}$,
-confirmando la plena viabilidad de alojar históricos plurianuales en hardware embebido o servidores
-ligeros departamentales.
-
-% ============================================================
-% CAPÍTULO 7: PRUEBAS INICIALES, ANÁLISIS PRELIMINAR Y VALIDACIÓN DEL PROTOTIPO
 % ============================================================
 \chapter{Pruebas Iniciales, Análisis Preliminar y Validación del Prototipo}\label{cap:pruebas-preliminares}
 
-Con el propósito de validar empíricamente la arquitectura implementada antes de ejecutar las
-campañas finales multi-horario de la Etapa~4, entre el 5 y el 28 de octubre de 2026 se llevaron a
-cabo pruebas sistemáticas de laboratorio, enlaces estacionarios entre edificios y pruebas dinámicas
-de recorrido (\textit{walk-test}), cuyos registros quedaron persistidos íntegramente en la base de
-datos local \texttt{telemetry.db}.
+Para validar empíricamente la arquitectura antes de las campañas multi-horario de la Etapa~4, entre el 5 y el 28 de octubre de 2026 se ejecutaron pruebas de laboratorio, enlaces estacionarios y pruebas dinámicas de recorrido (\textit{walk-test}), cuyos registros quedaron almacenados en la base de datos local \texttt{telemetry.db}.
 
 \section{Caracterización general del conjunto de datos preliminar}\label{sec:dataset-preliminar}
 
-Durante las jornadas de puesta en marcha y verificación experimental (5, 15, 16, 20, 22 y 28 de
-octubre de 2026) el banco de pruebas local registró un total acumulado de \textbf{4.824 tramas
-LoRaWAN reales} autenticadas mediante OTAA y decodificadas extremo a extremo. En el
-Cuadro~\ref{tab:dataset-global} se resume la distribución volumétrica y estadística global del
-conjunto de datos capturado por dispositivo, incluyendo además un tercer nodo auxiliar de
-verificación (\texttt{Heltec-V3-Nodo3B}) empleado para validar escalabilidad concurrente y sesiones
-confirmadas extendidas Tipo~B sin interferir sobre los dos nodos titulares.
+Durante seis jornadas experimentales (5, 15, 16, 20, 22 y 28 de octubre) se capturaron \textbf{4.824 tramas LoRaWAN reales} autenticadas por OTAA y decodificadas extremo a extremo. El Cuadro~\ref{tab:dataset-global} resume la distribución estadística por dispositivo, incluyendo el nodo auxiliar (\texttt{Heltec-V3-Nodo3B}) empleado para validar concurrencia y sesiones confirmadas Tipo~B sin alterar los dos nodos titulares.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
-\caption{Resumen estadístico global de las 4.824 tramas capturadas en la base de datos local (Octubre 2026)}
+\caption{Resumen estadístico global de las 4.824 tramas capturadas en base de datos local (Octubre 2026)}
 \label{tab:dataset-global}
 \scriptsize
+\setlength{\tabcolsep}{2.5pt}
 \begin{tabularx}{\textwidth}{
-  >{\bfseries\raggedright\arraybackslash}p{2.9cm}
-  >{\centering\arraybackslash}p{1.3cm}
-  >{\centering\arraybackslash}p{2.4cm}
-  >{\centering\arraybackslash}p{2.5cm}
-  >{\centering\arraybackslash}p{2.5cm}
+  >{\bfseries\raggedright\arraybackslash}p{2.2cm}
+  >{\centering\arraybackslash}p{1.0cm}
+  >{\centering\arraybackslash}p{1.6cm}
+  >{\centering\arraybackslash}p{2.0cm}
+  >{\centering\arraybackslash}p{1.9cm}
   >{\raggedright\arraybackslash}X
 }
 \toprule
@@ -1985,217 +1834,133 @@ Dataset preliminar íntegro ($452\,\text{KB}$ en SQLite). \\
 \end{tabularx}
 \end{table}
 
-\section{Resultados preliminares en Sesiones Tipo A: Pérdida de paquetes ($PL$) y Disponibilidad ($A$)}
+\section{Resultados preliminares en Sesiones Tipo A: Pérdida de paquetes ($PL$) y Disponibilidad ($A$)}\label{sec:resultados-tipo-a}
 
-Para evaluar preliminarmente la confiabilidad física del canal sin reintentos MAC ($NbTrans = 1$),
-se analizaron series estacionarias representativas extraídas de \texttt{telemetry.db} tanto en
-condición despejada (LOS) como bajo obstrucción estructural (NLOS), cuyos indicadores exactos se
-detallan en el Cuadro~\ref{tab:resultados-preliminares-sesiones}.
+La evaluación preliminar del canal físico sin retransmisiones MAC ($NbTrans = 1$) se realizó sobre series estacionarias en condiciones LOS y NLOS (Cuadro~\ref{tab:resultados-preliminares-sesiones}).
 
 \begin{table}[H]
 \centering
 \caption{Resultados cuantitativos de sesiones estacionarias preliminares (Tipo A y Tipo B)}
 \label{tab:resultados-preliminares-sesiones}
 \tiny
-\setlength{\tabcolsep}{3pt}
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.08}
 \begin{tabularx}{\textwidth}{
-  >{\bfseries\raggedright\arraybackslash}p{2.3cm}
-  >{\centering\arraybackslash}p{1.4cm}
-  >{\centering\arraybackslash}p{1.2cm}
+  >{\bfseries\raggedright\arraybackslash}p{2.2cm}
+  >{\centering\arraybackslash}p{0.8cm}
+  >{\centering\arraybackslash}p{0.9cm}
   >{\centering\arraybackslash}p{1.3cm}
-  >{\centering\arraybackslash}p{2.1cm}
-  >{\centering\arraybackslash}p{2.0cm}
-  >{\centering\arraybackslash}p{1.2cm}
-  >{\centering\arraybackslash}p{1.2cm}
+  >{\centering\arraybackslash}p{1.7cm}
+  >{\centering\arraybackslash}p{1.6cm}
+  >{\centering\arraybackslash}p{1.15cm}
+  >{\centering\arraybackslash}p{1.15cm}
   >{\raggedright\arraybackslash}X
 }
 \toprule
-\textbf{Sesión / Nodo} & \textbf{Fecha} & \textbf{Régimen} & \textbf{Muestras ($N_{\mathrm{rec}}/N_{\mathrm{env}}$)} & \textbf{RSSI Medio $\pm \sigma$ [dBm]} & \textbf{SNR Medio $\pm \sigma$ [dB]} & \textbf{$PL$ [\%]} & \textbf{$A$ [\%]} & \textbf{Variables Ambientales Medias} \\
+\makecell[l]{\textbf{Sesión /}\\\textbf{Nodo}} &
+\makecell{\textbf{Fecha}} &
+\makecell{\textbf{Tipo}} &
+\makecell{\textbf{Muestras}\\($N_{\mathrm{rec}}/N_{\mathrm{env}}$)} &
+\makecell{\textbf{RSSI Medio}\\$\pm \sigma$ [dBm]} &
+\makecell{\textbf{SNR Medio}\\$\pm \sigma$ [dB]} &
+\makecell{$PL$\\\relax[\%]} &
+\makecell{$A$\\\relax[\%]} &
+\makecell[l]{\textbf{Variables}\\\textbf{Ambientales}} \\
 \midrule
-Nodo 1 (LOS Lote 100) & 22/10 & Tipo A & $99 / 100$ & $-61,10 \pm 2,99$ & $+13,24 \pm 1,46$ & $\mathbf{1,00\%}$ & $100,0\%$ & $21,20^\circ\text{C}$ / $61,93\%$ \\
+Nodo 1 (LOS Lote 100) & 22/10 & Tipo A & $99 / 100$ & $-61,10 \pm 2,99$ & $+13,24 \pm 1,46$ & $1,00\,\%$ & $100,0\,\%$ & $21,20^\circ\text{C}$ / $61,93\%$ \\
 \midrule
-Nodo 1 (LOS Continuo) & 28/10 & Tipo A & $112 / 112$ & $-17,46 \pm 1,85^\dagger$ & $+13,24 \pm 0,97$ & $\mathbf{0,00\%}$ & $100,0\%$ & $24,15^\circ\text{C}$ / $52,65\%$ \\
+Nodo 1 (LOS Continuo) & 28/10 & Tipo A & $112 / 112$ & $-17,46 \pm 1,85^\dagger$ & $+13,24 \pm 0,97$ & $0,00\,\%$ & $100,0\,\%$ & $24,15^\circ\text{C}$ / $52,65\%$ \\
 \midrule
-Nodo 2 (NLOS Ext.) & 15/10 & Tipo A & $704 / 720$ & $-70,00 \pm 0,00$ & $+10,00 \pm 0,00$ & $\mathbf{2,22\%}$ & --$^\ddagger$ & $23,00^\circ\text{C}$ / $68,25\%$ \\
+Nodo 2 (NLOS Ext.) & 15/10 & Tipo A & $704 / 720$ & $-70,00 \pm 0,00$ & $+10,00 \pm 0,00$ & $2,22\,\%$ & --$^\ddagger$ & $23,00^\circ\text{C}$ / $68,25\%$ \\
 \midrule
-Nodo 2 (NLOS Campo) & 28/10 & Tipo A & $76 / 77$ & $-65,13 \pm 4,35$ & $+12,97 \pm 1,58$ & $\mathbf{1,30\%}$ & $100,0\%$ & Falla pin DHT11 ($0,0$) \\
+Nodo 2 (NLOS Campo) & 28/10 & Tipo A & $76 / 77$ & $-65,13 \pm 4,35$ & $+12,97 \pm 1,58$ & $1,30\,\%$ & $100,0\,\%$ & Falla pin DHT11 ($0,0$) \\
 \midrule
-Nodo 2 (Conf. ACK) & 22/10 & Tipo B & $25 / 25$ & $-61,92 \pm 3,22$ & $+13,00 \pm 1,51$ & $\mathbf{0,00\%}$ & $100,0\%$ & $24,27^\circ\text{C}$ / $18,81\%$ \\
+Nodo 2 (Conf. ACK) & 22/10 & Tipo B & $25 / 25$ & $-61,92 \pm 3,22$ & $+13,00 \pm 1,51$ & $0,00\,\%$ & $100,0\,\%$ & $24,27^\circ\text{C}$ / $18,81\%$ \\
 \midrule
-Nodo 3B (Conf. Lote 1) & 28/10 & Tipo B & $87 / 87$ & $-56,38 \pm 3,09$ & $+13,20 \pm 1,40$ & $\mathbf{0,00\%}$ & $100,0\%$ & $29,00^\circ\text{C}$ / $34,00\%$ \\
+Nodo 3B (Conf. Lote 1) & 28/10 & Tipo B & $87 / 87$ & $-56,38 \pm 3,09$ & $+13,20 \pm 1,40$ & $0,00\,\%$ & $100,0\,\%$ & $29,00^\circ\text{C}$ / $34,00\%$ \\
 \midrule
-Nodo 3B (Conf. Lote 2) & 28/10 & Tipo B & $326 / 326$ & $-55,24 \pm 4,13$ & $+13,23 \pm 1,34$ & $\mathbf{0,00\%}$ & $100,0\%$ & Sonda deshab. ($0,0$) \\
+Nodo 3B (Conf. Lote 2) & 28/10 & Tipo B & $326 / 326$ & $-55,24 \pm 4,13$ & $+13,23 \pm 1,34$ & $0,00\,\%$ & $100,0\,\%$ & Sonda deshab. ($0,0$) \\
 \bottomrule
 \end{tabularx}
 \vspace{0.1cm}
 \footnotesize
-\textit{Notas:} $^\dagger$Control de proximidad en laboratorio post-recorrido ($\Delta t_{\mathrm{med}} = 17,0\,\text{s}$). $^\ddagger$Sesión exploratoria multipunto con pausas manuales deliberadas entre traslados. En todas las sesiones estacionarias continuas no se registraron intervalos $\Delta t_{\mathrm{rec}} > 3\,T_{\mathrm{periodo}}$, obteniéndose disponibilidad efectiva $A = 100,0\%$.
+\textit{Notas:} $^\dagger$Control de proximidad en laboratorio. $^\ddagger$Sesión exploratoria con pausas de traslado. Disponibilidad $A = 100,0\%$ en todas las series continuas.
 \end{table}
 
-El análisis comparativo de los datos preliminares arroja tres hallazgos técnicos relevantes:
+Del análisis cuantitativo destacan tres conclusiones principales:
 \begin{enumerate}
-  \item \textbf{Cumplimiento holgado del umbral SMART de pérdida de paquetes ($PL \leq 10\%$):} En
-  el lote de referencia de 100 secuencias del Nodo~1 en condición despejada (22/10) se registró
-  $PL = 1,00\%$ ($\text{PDR} = 99,0\%$), y en la corrida continua de 112 secuencias (28/10) se
-  alcanzó $PL = 0,00\%$. Por su parte, en condición obstruida (Nodo~2), la pérdida se situó entre
-  $1,30\%$ (lote continuo de 77 tramas el 28/10, con RSSI cayendo hasta $-86\,\text{dBm}$) y
-  $2,22\%$ (lote extendido de 720 secuencias el 15/10), manteniéndose casi ocho puntos porcentuales
-  por debajo del máximo admisible del $10\%$.
-  \item \textbf{Cuantificación empírica de la penalización por obstrucción NLOS:} Contrastando las
-  campañas de campo ejecutadas en condiciones comparables de distancia, el enlace obstruido del
-  Nodo~2 exhibe niveles medios de recepción entre $-65,13\,\text{dBm}$ y $-70,00\,\text{dBm}$ (con
-  mínimos puntuales de $-86$ a $-94\,\text{dBm}$ y desviación estándar superior, $\sigma = 4,35\,\text{dB}$),
-  lo que representa una \textbf{atenuación adicional efectiva de entre $4\,\text{dB}$ y $9\,\text{dB}$} y
-  mayor dispersión por multitrayectoria respecto al enlace LOS ($\text{RSSI} = -61,10\,\text{dBm}$,
-  $\sigma = 2,99\,\text{dB}$), en plena concordancia con el término de sombra $X_\sigma$ del modelo
-  log-distancia (Ecuación~\ref{eq:logdistance}).
-  \item \textbf{Continuidad temporal y disponibilidad ($A \geq 90\%$):} En las sesiones
-  estacionarias ininterrumpidas con cadencia nominal $T_{\text{periodo}} \approx 17,0\,\text{s}$
-  ($15\,\text{s}$ de espera más apertura de ventanas Clase~A), ninguna brecha entre paquetes
-  consecutivos superó el umbral de corte $3\,T_{\text{periodo}} = 51\,\text{s}$, arrojando una
-  disponibilidad preliminar del $100,0\%$.
+    \item \textbf{Cumplimiento del criterio SMART de pérdida ($PL \leq 10\%$):} En trayecto despejado (LOS), la pérdida de paquetes fue de $0,00\%$ a $1,00\%$. En condición obstruida (NLOS), se situó entre $1,30\%$ y $2,22\%$, operando siempre muy por debajo del umbral máximo admisible.
+    \item \textbf{Penalización por sombra estructural:} La obstrucción física en el Nodo~2 añadió entre $4\,\text{dB}$ y $9\,\text{dB}$ de atenuación media adicional y mayor dispersión ($\sigma = 4,35\,\text{dB}$ frente a $2,99\,\text{dB}$ en LOS), validando experimentalmente el factor de desvanecimiento $X_\sigma$ del modelo log-distancia.
+    \item \textbf{Continuidad temporal ($A \geq 90\%$):} Las series estacionarias alcanzaron $A = 100,0\%$, registrándose una cadencia regular de recepción sin caídas mayores a $3\,T_{\mathrm{periodo}}$.
 \end{enumerate}
 
 \section{Verificación preliminar en Sesiones Tipo B: Retardo de confirmación ($T_{\mathrm{conf}}$)}\label{sec:resultados-tipo-b}
 
-Para comprobar la bidireccionalidad del enlace y el cumplimiento del requerimiento RQS2
-($T_{\mathrm{conf}} \leq 6,0\,\text{s}$), se ejecutaron campañas preliminares bajo régimen
-confirmado (\texttt{node.sendReceive(payload, 10, 1, true)}), tanto en el Nodo~2 (22/10, 25 tramas
-confirmadas consecutivas) como en pruebas intensivas sobre el nodo auxiliar \texttt{Heltec-V3-Nodo3B}
-(28/10, dos corridas continuas de 87 y 326 tramas confirmadas sin pérdida).
+La bidireccionalidad del canal y el cumplimiento del umbral RQS2 ($T_{\mathrm{conf}} \leq 6,0\,\text{s}$) se verificaron mediante transmisiones confirmadas en el Nodo~2 (25 tramas) y en el nodo auxiliar 3B (413 tramas totales sin pérdida).
 
-Durante la supervisión directa en laboratorio mediante monitor serie ($115.200\,\text{bps}$) y
-pantalla OLED integrada, se verificó que el servidor embebido del Milesight UG65 emite de manera
-consistente el paquete descendente de confirmación en la primera ventana de recepción
-\textbf{RX1} (\texttt{state == 1} en RadioLib), registrando valores típicos de cronómetro interno
-(\texttt{millis()}) en el rango de \textbf{$1,05\,\text{s}$ a $1,25\,\text{s}$} (correspondientes a
-$\text{ToA}_{\text{up}} \approx 46,3\,\text{ms}$, más el retardo \texttt{RECEIVE\_DELAY1} de $1,00\,\text{s}$ y
-$\text{ToA}_{\text{down}}$), y conmutando limpiamente a la ventana secundaria \textbf{RX2}
-($923,3\,\text{MHz}$, \texttt{state == 2}) con retardos en torno a \textbf{$2,10\text{--}2,25\,\text{s}$}
-únicamente ante colisiones esporádicas de canal.
-
-Adicionalmente, las marcas temporales del servidor en \texttt{telemetry.db} aportan una verificación
-independiente e irrefutable de dicho retardo: dado que el firmware de Sesión Tipo~B ejecuta una
-pausa fija exacta de \texttt{delay(12000)} milisegundos inmediatamente después de recibir el
-\texttt{ACK}, el intervalo total entre dos recepciones consecutivas cumple
-$\Delta t_{\text{ciclo}} = T_{\mathrm{conf}} + 12,00\,\text{s} + t_{\text{sensor}}$. En las tres
-corridas Tipo~B del Cuadro~\ref{tab:resultados-preliminares-sesiones}, la mediana observada en base
-de datos fue exactamente $\Delta t_{\text{med}} = 13,0\,\text{s}$ y el promedio empírico fue de
-$13,32\,\text{s}$ ($333\,\text{s}/25$ en Nodo~2), $13,34\,\text{s}$ ($1.161\,\text{s}/87$ en Lote~1)
-y $13,22\,\text{s}$ ($4.348\,\text{s}/329$ en Lote~2). Descontando los $12,00\,\text{s}$ fijos y
-$\approx 0,1\,\text{s}$ de lectura DHT11/OLED, se corrobora analítica y empíricamente un retardo
-medio efectivo \textbf{$\overline{T_{\mathrm{conf}}} \approx 1,12\text{--}1,24\,\text{s}$}, casi cinco
-veces inferior al umbral máximo permitido de $6,0\,\text{s}$.
+El concentrador Milesight UG65 emitió los paquetes \texttt{ACK} predominantemente en la primera ventana de recepción (\textbf{RX1}, retardo base de $1,0\,\text{s}$), cronometrándose en el firmware un tiempo efectivo de confirmación en el rango de \textbf{$1,05\,\text{s}$ a $1,25\,\text{s}$}. En colisiones esporádicas, el sistema conmutó correctamente a la ventana secundaria \textbf{RX2} ($923,3\,\text{MHz}$, $\approx 2,1\text{--}2,2\,\text{s}$). Asimismo, el análisis del intervalo entre marcas temporales en \texttt{telemetry.db} ($\Delta t_{\mathrm{ciclo}} \approx 13,2\text{--}13,3\,\text{s}$ frente a una espera fija de $12,0\,\text{s}$) corrobora de forma independiente un retardo medio $\overline{T_{\mathrm{conf}}} \approx 1,12\text{--}1,24\,\text{s}$, cumpliendo holgadamente el límite de $6,0\,\text{s}$.
 
 \section{Prueba de recorrido (\textit{Walk-Test}) y caracterización de zonas de sombra}\label{sec:walktest}
 
-Además de las mediciones en puntos fijos, el 28 de octubre de 2026 (entre las 14:50 y las 15:00
-horas) se ejecutó una prueba dinámica de caminata (\textit{walk-test}) portando el
-\texttt{Heltec-V3-Nodo1} desde las inmediaciones de la Facultad de Ingeniería hacia sectores
-alejados con apantallamiento múltiple de edificios de hormigón, con el objetivo de estresar el
-límite de sensibilidad del enlace y estudiar el fenómeno de sombra (\textit{shadowing}). El
-Cuadro~\ref{tab:walktest-oct28} presenta la secuencia cronológica real registrada en
-\texttt{telemetry.db}.
+El 28 de octubre de 2026 se ejecutó una prueba dinámica de recorrido (\textit{walk-test}) portando el Nodo~1 desde la Facultad de Ingeniería hacia sectores apantallados por múltiples edificios de hormigón, evaluando el límite de sensibilidad del transceptor (Cuadro~\ref{tab:walktest-oct28}).
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
-\caption{Secuencia empírica de degradación y recuperación sub-ruido durante la prueba de recorrido (28/10/2026)}
+\caption{Hitos empíricos de degradación y recuperación de señal durante el walk-test (28/10/2026)}
 \label{tab:walktest-oct28}
 \scriptsize
 \begin{tabularx}{\textwidth}{
-  >{\centering\arraybackslash}p{1.9cm}
-  >{\centering\arraybackslash}p{1.4cm}
   >{\centering\arraybackslash}p{1.8cm}
-  >{\centering\arraybackslash}p{1.7cm}
+  >{\centering\arraybackslash}p{1.2cm}
+  >{\centering\arraybackslash}p{1.8cm}
+  >{\centering\arraybackslash}p{1.6cm}
   >{\raggedright\arraybackslash}X
 }
 \toprule
-\textbf{Hora Local} & \textbf{\texttt{f\_cnt}} & \textbf{RSSI [dBm]} & \textbf{SNR [dB]} & \textbf{Comportamiento Radioeléctrico Observado} \\
+\textbf{Hora Local} & \textbf{\texttt{f\_cnt}} & \textbf{RSSI [dBm]} & \textbf{SNR [dB]} & \textbf{Condición Operativa / Radioeléctrica} \\
 \midrule
-14:50:36 & $1$  & $-51$  & $+14,0$ & Inicio cercano al Edificio~10; señal fuerte en línea de vista. \\
-14:51:08 & $3$  & $-71$  & $+14,0$ & Desplazamiento exterior inicial ($\Delta \text{RSSI} = -20\,\text{dB}$); SNR saturado. \\
-14:51:25 & $4$  & $-88$  & $+8,8$  & Primera difracción por esquina de bloque edificado. \\
-14:52:14 & $7$  & $-90$  & $+11,0$ & Tránsito por corredor lateral parcialmente obstruido. \\
-14:52:32 & $8$  & $-94$  & $+7,0$  & Ingreso progresivo a región de sombra estructural múltiple. \\
-14:53:06 & $10$ & $-102$ & $\mathbf{-9,8}$ & Pérdida puntual de \texttt{f\_cnt = 9}; \textbf{demodulación exitosa $9,8\,\text{dB}$ bajo el ruido}. \\
-14:53:22 & $11$ & $-102$ & $-5,0$  & Operación sostenida en régimen de SNR negativo (ganancia de procesamiento CSS). \\
-14:53:39 & $12$ & $-99$  & $-3,0$  & Última trama recibida antes de bloqueo profundo por masa de hormigón. \\
+14:50:36 & $1$  & $-51$  & $+14,0$ & Línea de vista despejada junto al Edificio~10 (señal óptima). \\
+14:51:25 & $4$  & $-88$  & $+8,8$  & Primera difracción en esquina de bloque edificado. \\
+14:53:06 & $10$ & $-102$ & $\mathbf{-9,8}$ & \textbf{Demodulación sub-ruido exitosa a $9,8\,\text{dB}$ bajo piso de ruido}. \\
+14:53:39 & $12$ & $-99$  & $-3,0$  & Borde previo al bloqueo estructural profundo. \\
 \midrule
-\multicolumn{5}{c}{\textit{Zona de sombra severa (14:53:40 -- 14:56:48): pérdida de 10 tramas consecutivas (\texttt{f\_cnt} 13 al 22)}} \\
+\multicolumn{5}{c}{\textit{Zona de sombra severa (14:53:40 -- 14:56:48): 10 paquetes perdidos por apantallamiento total}} \\
 \midrule
-14:56:49 & $23$ & $-101$ & $-4,8$  & Recuperación autónoma de sesión OTAA al salir del núcleo de sombra sin re-Join. \\
-14:59:06 & $31$ & $\mathbf{-105}$ & $\mathbf{-7,8}$ & Recepción efectiva en borde extremo de sensibilidad con SF7. \\
+14:56:49 & $23$ & $-101$ & $-4,8$  & Recuperación autónoma de sesión OTAA al salir de la sombra sin re-Join. \\
+14:59:06 & $31$ & $\mathbf{-105}$ & $\mathbf{-7,8}$ & Límite extremo de sensibilidad en SF7 ($125\,\text{kHz}$). \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-Los datos del Cuadro~\ref{tab:walktest-oct28} demuestran empíricamente dos propiedades
-fundamentales de la red implementada: (1) la ganancia de procesamiento de la modulación LoRa CSS
-permite demodular tramas íntegras de 10~bytes con niveles de potencia de hasta $-105\,\text{dBm}$ y
-relaciones señal-ruido negativas de hasta \textbf{$\text{SNR} = -9,8\,\text{dB}$} incluso en el
-factor de dispersión más rápido (SF7, cuyo límite teórico típico es $-7,5$ a $-10\,\text{dB}$
-\parencite{semtech_sx1302}); y (2) al interponerse simultáneamente múltiples bloques masivos de
-hormigón armado se generan conos de sombra capaces de interrumpir el enlace de un gateway único en
-SF7, hallazgo que justificó directamente la articulación de la flota multi-gateway UG65 + UG63.
+Esta prueba demostró dos comportamientos clave: (1) la modulación LoRa permite demodular tramas en ráfaga bajo el nivel de ruido ($\text{SNR} = -9,8\,\text{dB}$ a $-105\,\text{dBm}$) en SF7; y (2) la interposición de múltiples bloques de hormigón genera sombras profundas que justifican plenamente la configuración de flota multi-gateway (UG65 + UG63).
 
 \section{Evidencia de ajustes técnicos informados por las pruebas preliminares}\label{sec:ajustes-derivados}
 
-En concordancia directa con la metodología experimental iterativa, el análisis de las mediciones
-preliminares permitió detectar anomalías tempranas y aplicar cinco mejoras correctivas verificables:
-
+Las mediciones empíricas permitieron corregir anomalías tempranas:
 \begin{enumerate}
-  \item \textbf{Detección y corrección de falso contacto físico en sensórica del Nodo 2:} Al
-  auditar la sesión del 28/10 del \texttt{Heltec-V3-Nodo2} (Cuadro~\ref{tab:resultados-preliminares-sesiones},
-  77 tramas), se observó que el enlace LoRaWAN operó con normalidad ($\text{RSSI} = -65,13\,\text{dBm}$,
-  $PL = 1,30\%$), pero las columnas decodificadas de temperatura y humedad registraron exactamente
-  $0,0^\circ\text{C}$ y $0,0\%$. Esto evidenció una desconexión mecánica del conductor de datos en
-  el pin \textbf{GPIO~4} ocurrida durante el traslado del prototipo, sin colapsar la tarea de
-  transmisión gracias al manejo defensivo de errores \texttt{isnan()} en el firmware. A partir de
-  este hallazgo se reforzó la fijación física del cableado DHT11 y la alerta temprana
-  \texttt{Sensor: ERROR} en la pantalla OLED antes de iniciar cada campaña.
-
-  \item \textbf{Eliminación de colisiones de identidad y contadores OTAA:} En las primeras pruebas
-  de laboratorio se detectó descarte silencioso de paquetes cuando dos placas compartían
-  credenciales de ejemplo o cuando un nodo era dado de alta simultáneamente en dos servidores de
-  red independientes. Se estableció como regla estricta de arquitectura el uso de \texttt{DevEUI}
-  únicos por hardware (\texttt{...0708} y \texttt{...0709}) y el registro centralizado
-  exclusivamente en el \textit{Embedded NS} del Milesight UG65.
-
-  \item \textbf{Articulación de diversidad espacial mediante Gateway Fleet (UG65 + UG63):} La
-  sombra profunda documentada entre las 14:53 y 14:56 del \textit{walk-test} fundamentó
-  empíricamente mantener habilitado el enlace de flota entre el UG65 y el UG63 por MQTT puerto
-  \texttt{18883}, permitiendo ampliar la huella de cobertura interior/exterior sin duplicar tramas.
-
-  \item \textbf{Incorporación de filtros y capturador determinista de sesiones en el banco local:}
-  Al observar que las pruebas continuas acumulaban centenares de tramas heterogéneas en
-  \texttt{telemetry.db} (p.~ej., 1.759 tramas el 15/10), se programó e integró sobre el servidor
-  local un módulo de filtrado por dispositivo/ventana temporal y un capturador automático que
-  aísla exactamente lotes limpios de 100 tramas (Tipo~A) y 30 tramas (Tipo~B) para la Etapa~4.
-
-  \item \textbf{Instrumentación de persistencia de $T_{\mathrm{conf}}$ por trama para Etapa 4:} Si
-  bien en la Etapa~3 el cronometraje exacto en milisegundos de $T_{\mathrm{conf}}$ se verificó por
-  consola serie/OLED y mediante el diferencial de marcas en base de datos, se definió capturar
-  también el volcado directo del puerto serie (\texttt{.csv} / \texttt{.log}) durante las sesiones
-  Tipo~B finales de la Etapa~4 para reportar histogramas y percentiles exactos ($P_{50}, P_{95}$)
-  con resolución de milisegundos.
+    \item \textbf{Conexión sensórica (Nodo 2):} Lecturas nulas ($0,0$) por desconexión en GPIO~4. El firmware manejó el error con \texttt{isnan()} y se reforzó el conexionado con alerta en OLED.
+    \item \textbf{Asociación OTAA determinista:} Se asignaron \texttt{DevEUI} únicos por hardware, concentrando las asociaciones en el \textit{Embedded NS} del UG65.
+    \item \textbf{Cobertura en flota (UG65 + UG63):} Las zonas de sombra del \textit{walk-test} validaron el enlace de flota MQTT (puerto 18883).
+    \item \textbf{Filtrado determinista en banco local:} Se automatizó el aislamiento de lotes de 100 tramas (Tipo~A) y 30 tramas (Tipo~B) en SQLite.
+    \item \textbf{Instrumentación de $T_{\mathrm{conf}}$:} Se configuró la captura serial automatizada para histogramas exactos de confirmación en la memoria final.
 \end{enumerate}
 
 \section{Informe de validación preliminar de requerimientos}\label{sec:validacion-preliminar}
 
-El Cuadro~\ref{tab:validacion-preliminar} consolida el informe de validación preliminar del
-prototipo al cierre de la Etapa~3, contrastando la totalidad de los requerimientos especificados en
-el Capítulo~4 frente a la evidencia empírica obtenida bajo condiciones controladas.
+El Cuadro~\ref{tab:validacion-preliminar} consolida el estado de conformidad de los requerimientos frente a la evidencia empírica acumulada en la Etapa~3.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{Matriz de validación preliminar de requerimientos funcionales, técnicos y de calidad de servicio (Etapa 3)}
 \label{tab:validacion-preliminar}
 \scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.98}
 \begin{tabularx}{\textwidth}{
-  >{\bfseries\raggedright\arraybackslash}p{0.9cm}
-  >{\raggedright\arraybackslash}p{3.3cm}
-  >{\centering\arraybackslash}p{2.0cm}
-  >{\raggedright\arraybackslash}X
+    >{\bfseries\raggedright\arraybackslash}p{0.8cm}
+    >{\raggedright\arraybackslash}p{2.8cm}
+    >{\centering\arraybackslash}p{1.8cm}
+    >{\raggedright\arraybackslash}X
 }
 \toprule
 \textbf{ID} & \textbf{Requisito / Umbral Comprometido} & \textbf{Estado Etapa 3} & \textbf{Evidencia Empírica de Conformidad} \\
@@ -2226,7 +1991,7 @@ RQS3 & Disponibilidad temporal estacionaria: $A \geq 90\%$. & \textbf{Validado P
 \end{table}
 
 % ============================================================
-% CAPÍTULO 8: PLANIFICACIÓN, CONTROL DE AVANCE PPDIOO Y DOCUMENTACIÓN TÉCNICA
+% CAPÍTULO 6: PLANIFICACIÓN, CONTROL DE AVANCE PPDIOO Y DOCUMENTACIÓN TÉCNICA
 % ============================================================
 \chapter{Planificación, Control de Avance PPDIOO y Documentación Técnica}\label{cap:planificacion}
 
@@ -2246,28 +2011,32 @@ octubre.
 \centering
 \caption{Estado de ejecución acumulada del backlog por épicas y fases PPDIOO (Hito Etapa 3)}
 \label{tab:resumen-backlog-avance}
-\small
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.05}
 \begin{tabularx}{\textwidth}{
   >{\raggedright\arraybackslash}X
   >{\centering\arraybackslash}p{2.3cm}
+  >{\centering\arraybackslash}p{1.3cm}
   >{\centering\arraybackslash}p{1.5cm}
-  >{\centering\arraybackslash}p{1.7cm}
-  >{\centering\arraybackslash}p{1.7cm}
-  >{\centering\arraybackslash}p{1.6cm}
+  >{\centering\arraybackslash}p{1.5cm}
+  >{\centering\arraybackslash}p{1.5cm}
 }
 \toprule
-\textbf{Épica} & \textbf{Fase PPDIOO} & \textbf{Objetivos} & \textbf{Planificadas} & \textbf{Ejecutadas} & \textbf{Avance} \\
+\makecell[l]{\textbf{Épica}} &
+\makecell{\textbf{Fase}\\\textbf{PPDIOO}} &
+\makecell{\textbf{Obj.}} &
+\makecell{\textbf{Horas}\\\textbf{Planif.}} &
+\makecell{\textbf{Horas}\\\textbf{Ejec.}} &
+\makecell{\textbf{\%}\\\textbf{Avance}} \\
 \midrule
-Épica 1: Topología del despliegue & Prepare / Plan & O1, O4 & 20 horas & 20 horas & \textbf{100,0\%} \\
-Épica 2: Marco regulatorio SUBTEL & Prepare / Plan & O1 & 10 horas & 10 horas & \textbf{100,0\%} \\
-Épica 3: Arquitectura y prototipo & Design & O1, O2, O3 & 36 horas & 36 horas & \textbf{100,0\%} \\
+Épica 1: Topología del despliegue & Prepare / Plan & O1, O4 & 20\,h & 20\,h & \textbf{100,0\%} \\
+Épica 2: Infraestructura Gateway & Plan / Design & O1, O2 & 28\,h & 28\,h & \textbf{100,0\%} \\
+Épica 3: Nodos y Adquisición & Design / Impl. & O1, O4 & 30\,h & 30\,h & \textbf{100,0\%} \\
+Épica 4: Integración IP / MQTT & Impl. / Operate & O2, O3 & 20\,h & 20\,h & \textbf{100,0\%} \\
+Épica 5: Pruebas y Validación & Operate / Optimize & O4 & 42\,h & 19\,h & \textbf{45,2\%} \\
 \midrule
-\multicolumn{3}{l}{\textbf{Subtotal Fases de Preparación, Planificación y Diseño}} & \textbf{66 horas} & \textbf{66 horas} & \textbf{100,0\%} \\
-\midrule
-Épica 4: Despliegue físico en campus & Implement & O1, O2 & 52 horas & 44 horas & \textbf{84,6\%} \\
-Épica 5: Pruebas de rendimiento & Operate & O4 & 46 horas & 26 horas & \textbf{56,5\%} \\
-\midrule
-\multicolumn{3}{l}{\textbf{Total esfuerzo técnico acumulado al cierre de Etapa 3}} & \textbf{164 horas} & \textbf{136 horas} & \textbf{82,9\%} \\
+\textbf{Total acumulado} & \textbf{Ciclo PPDIOO} & \textbf{O1--O4} & \textbf{140\,h} & \textbf{117\,h} & \textbf{83,6\%} \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -2282,7 +2051,7 @@ En el Cuadro~\ref{tab:gantt-etapa3} se actualiza el Diagrama de Gantt al términ
 (cierre de la Etapa~3), distinguiendo visualmente los bloques efectivamente completados respecto a
 las actividades finales de cierre experimental y defensa.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{Cronograma general y estado de avance real acumulado al cierre de la Etapa 3 (Semana 12)}
 \label{tab:gantt-etapa3}
@@ -2344,24 +2113,24 @@ En estricto apego a las buenas prácticas de ingeniería y documentación de pro
 Cuadro~\ref{tab:desviaciones-plan} registra y justifica técnicamente las adaptaciones introducidas
 durante la implementación respecto a la formulación preliminar de las Etapas~1 y 2.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{Registro trazable de desviaciones y adaptaciones de ingeniería respecto al plan inicial}
 \label{tab:desviaciones-plan}
 \scriptsize
 \begin{tabularx}{\textwidth}{
-  >{\bfseries\raggedright\arraybackslash}p{2.6cm}
-  >{\raggedright\arraybackslash}p{3.2cm}
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}p{2.9cm}
+    >{\bfseries\raggedright\arraybackslash}p{2.6cm}
+    >{\raggedright\arraybackslash}p{3.2cm}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}p{2.9cm}
 }
 \toprule
 \textbf{Componente} & \textbf{Plan Original (Etapa 2)} & \textbf{Adaptación en Implementación (Etapa 3)} & \textbf{Justificación Técnica} \\
 \midrule
 Servidor de Red y Concentración &
 Gateway único Milesight UG63 conectado por UDP 1700 a ChirpStack v4 externo. &
-Incorporación del Milesight UG65 con \textit{Embedded NS} como controlador principal y UG63 en \textit{Gateway Fleet} (MQTT 18883); ChirpStack queda como respaldo futuro. &
-Tratándose de un prototipo experimental, elimina dependencias externas en terreno, asegura latencia mínima en RX1 y deja ChirpStack documentado para futuros tesistas. \\
+Incorporación del Milesight UG65 con \textit{Embedded NS} como controlador principal y UG63 en \textit{Gateway Fleet} (MQTT 18883); ChirpStack v4 se preserva y documenta como opción de servidor externo de respaldo para futuros tesistas. &
+Tratándose de un prototipo experimental, elimina dependencias externas en terreno, asegura latencia mínima en RX1 y deja ChirpStack completamente documentado para futuros tesistas y proyectos departamentales. \\
 \midrule
 Alcance del Dashboard &
 Panel general de visualización IoT. &
@@ -2394,85 +2163,50 @@ inmediata por parte de revisores y futuros estudiantes:
 lorawan-sensor-network-uct/
 |-- firmware/
 |   |-- sesion-tipo-a/
-|   |   |-- nodo1_heltec_v3_tipoA/nodo1_heltec_v3_tipoA.ino   # LOS (DevEUI ...0708, sin ACK)
-|   |   `-- nodo2_heltec_v3_tipoA/nodo2_heltec_v3_tipoA.ino   # NLOS (DevEUI ...0709, sin ACK)
-|   `-- sesion-tipo-b/
-|       |-- nodo1_heltec_v3_tipoB/nodo1_heltec_v3_tipoB.ino   # LOS (Confirmado ACK + T_conf)
-|       `-- nodo2_heltec_v3_tipoB/nodo2_heltec_v3_tipoB.ino   # NLOS (Confirmado ACK + T_conf)
+|   |   |-- nodo1_heltec_v3_tipoA/   [LOS, DevEUI ...0708, sin ACK]
+|   |   -- nodo2_heltec_v3_tipoA/   [NLOS, DevEUI ...0709, sin ACK]
+|   -- sesion-tipo-b/
+|       |-- nodo1_heltec_v3_tipoB/   [LOS, confirmado ACK + T_conf]
+|       -- nodo2_heltec_v3_tipoB/   [NLOS, confirmado ACK + T_conf]
 |-- backend/
-|   `-- decoders/decoder.js                                   # Codec oficial JS 10 bytes (UG65 / ChirpStack)
+|   -- decoders/decoder.js          [Codec JS 10B UG65 / ChirpStack]
 |-- dashboard/
-|   `-- dashboard_server.py                                   # Banco de pruebas local MQTT + SQLite + Web
+|   -- dashboard_server.py          [Testbed local MQTT + SQLite + Web]
 |-- scripts/
-|   |-- monitor_lorawan.py                                    # Monitor ligero de consola MQTT
-|   |-- bridge_cloud.py                                       # Puente opcional de reenvio MQTT externo
-|   `-- crear_configs_chirpstack.py                           # Generador de respaldo para ChirpStack v4
-`-- docs/
-    |-- diagramas/                                            # Figuras vectoriales y mapa 3D del campus
-    |-- guias/manual_configuracion_gateway_ug63.md            # Manual tecnico de puesta en marcha
-    `-- informes/                                             # Fuentes LaTeX y bibliografia BibTeX
+|   |-- monitor_lorawan.py           [Monitor de consola MQTT]
+|   |-- bridge_cloud.py              [Puente de reenvio MQTT externo]
+|   -- crear_configs_chirpstack.py  [Configuraciones ChirpStack v4]
+-- docs/
+      |-- diagramas/                   [Figuras vectoriales y plano 3D]
+      |-- guias/                       [Manual tecnico de puesta en marcha]
+      -- informes/                    [Fuentes LaTeX y bibliografia BibTeX]
 \end{example}
 
 % ============================================================
-% CAPÍTULO 9: CONCLUSIONES DE LA ETAPA 3 Y PREPARACIÓN DE LA ENTREGA FINAL
+% CAPÍTULO 7: CONCLUSIONES DE LA ETAPA 3 Y PREPARACIÓN DE LA ENTREGA FINAL
 % ============================================================
 \chapter{Conclusiones de la Etapa 3 y Preparación de la Entrega Final}\label{cap:conclusiones-etapa3}
 
 \section{Síntesis de cumplimiento de la Etapa 3}
 
-El cierre de la Etapa~3 consolida exitosamente la implementación física, optimización de ingeniería
-y validación preliminar en terreno del prototipo de red LoRaWAN en el Campus Dr. Luis Rivas del
-Canto, satisfaciendo integralmente las seis dimensiones evaluativas del hito:
-
+El cierre de la Etapa~3 consolida exitosamente la implementación física, optimización de ingeniería y validación empírica preliminar del prototipo LoRaWAN:
 \begin{enumerate}
-  \item \textbf{Acompañamiento y ajustes específicos (20\%):} Con el acompañamiento presencial del
-  profesor guía en el Departamento de Informática, se cerraron la totalidad de las definiciones
-  pendientes de la Etapa~2, incorporando el Gateway Milesight UG65, definiendo la geometría exacta
-  LOS/NLOS sobre el plano 3D del campus y delimitando la articulación con el proyecto de título
-  complementario de plataforma IoT.
-  \item \textbf{Optimización comprobada del diseño (15\%):} Se migró hacia una topología de flota
-  autónoma (UG65 Controlador \textit{Embedded NS} + UG63 Agente en puerto 18883), se consolidó el
-  payload binario de 10~bytes ($\text{ToA} \approx 46,3\,\text{ms}$, $>74\%$ más eficiente que JSON)
-  con su códec \texttt{decodeUplink}, y se estabilizó la sensórica DHT11 en GPIO~4 y el cronometraje
-  MAC en cuatro firmwares modulares.
-  \item \textbf{Avance sustantivo en la implementación (10\%):} Se completó el \textbf{84,6\% de la
-  Épica~4 de implementación física} (44 de 52 horas) y el \textbf{82,9\% del esfuerzo total del
-  proyecto} (136 de 164 horas), superando holgadamente el mínimo exigido del 50\%.
-  \item \textbf{Pruebas iniciales y análisis empírico preliminar (30\%):} Se capturaron y analizaron
-  \textbf{4.824 tramas reales} en SQLite ($\approx 96\,\text{bytes/trama}$), cuantificando pérdidas
-  entre $0,00\%$ y $2,22\%$, una penalización de obstrucción NLOS de $4\text{--}9\,\text{dB}$ tras
-  el Edificio~09, tiempos medios de confirmación $\overline{T_{\mathrm{conf}}} \approx 1,1\text{--}1,2\,\text{s}$
-  en ventana RX1 y demodulación efectiva bajo el piso de ruido ($\text{SNR} = -9,8\,\text{dB}$,
-  $\text{RSSI} = -105\,\text{dBm}$) durante pruebas de recorrido, utilizando dichos hallazgos para
-  corregir anomalías de cableado sensórico y colisiones de sesión.
-  \item \textbf{Validación preliminar en condiciones controladas (10\%):} Se verificó la conformidad
-  funcional, regulatoria (SUBTEL 14~dBm AU915 SB2) y de calidad de servicio frente a los umbrales
-  SMART comprometidos ($PL \leq 10\%$, $T_{\mathrm{conf}} \leq 6,0\,\text{s}$, $A \geq 90\%$).
-  \item \textbf{Documentación técnica y repositorio profesional (15\%):} Se documentaron
-  formalmente todas las adaptaciones respecto al plan inicial --incluyendo la preservación de
-  ChirpStack v4 como respaldo departamental futuro-- y se depuró el repositorio público en GitHub.
+    \item \textbf{Acompañamiento en laboratorio (20\%):} Definiciones cerradas junto al profesor guía en dependencias del Departamento de Informática (incorporación del UG65, delimitación LOS/NLOS y articulación con proyecto IoT complementario).
+    \item \textbf{Optimización del diseño (15\%):} Flota autónoma UG65 (Embedded NS) + UG63 (MQTT 18883), payload binario de 10~bytes ($\text{ToA} \approx 46,3\,\text{ms}$) con códec \texttt{decodeUplink} y cuatro firmwares modulares C++.
+    \item \textbf{Avance de implementación (10\%):} \textbf{84,6\% en Épica~4} (44/52~h) y \textbf{82,9\% global del backlog} (136/164~h), superando ampliamente el 50\% exigido para la entrega.
+    \item \textbf{Pruebas iniciales y análisis (30\%):} \textbf{4.824 tramas reales} en SQLite; pérdidas entre $0,00\%$ y $2,22\%$, atenuación NLOS de $4\text{--}9\,\text{dB}$ en Edificio~08 tras Edificio~09, retardo $\overline{T_{\mathrm{conf}}} \approx 1,1\text{--}1,2\,\text{s}$ y demodulación sub-ruido ($\text{SNR} = -9,8\,\text{dB}$) en \textit{walk-test}.
+    \item \textbf{Validación de requerimientos (10\%):} Conformidad regulatoria (SUBTEL AU915 SB2 $14\,\text{dBm}$) y de QoS SMART ($PL \leq 10\%$, $T_{\mathrm{conf}} \leq 6,0\,\text{s}$, $A \geq 90\%$).
+    \item \textbf{Documentación y repositorio (15\%):} Trazabilidad de adaptaciones (ChirpStack v4 como respaldo externo documentado) y repositorio GitHub estructurado.
 \end{enumerate}
 
 \section{Plan de trabajo para la Entrega Final (Etapa 4)}
 
-Con la planta física y el banco de captura plenamente validados, las cuatro semanas finales del
-cronograma (Semanas S13--S16, 28 horas remanentes del backlog) se concentrarán en ejecutar el
-protocolo experimental definitivo (Fase \textit{Operate} y \textit{Optimize} de PPDIOO):
-
+Las cuatro semanas finales (S13--S16, 28~h restantes) ejecutarán el cierre experimental y de memoria:
 \begin{enumerate}
-  \item \textbf{Campañas definitivas Sesión Tipo A multi-franja horaria:} Ejecución rigurosa de las
-  3 repeticiones independientes de 100 tramas ($NbTrans = 1$) en horarios de mañana, mediodía y
-  tarde tanto para el Nodo~1 en el Edificio~16 ($\text{LOS} \approx 80\,\text{m}$) como para el
-  Nodo~2 en el Edificio~08 ($\text{NLOS} \approx 85\,\text{m}$), totalizando al menos 600 tramas
-  estandarizadas de evaluación primaria.
-  \item \textbf{Campañas definitivas Sesión Tipo B con registro al milisegundo:} Ejecución de lotes
-  de $\geq 30$ tramas confirmadas en ambos escenarios (LOS y NLOS), registrando simultáneamente el
-  volcado serial del cronómetro interno (\texttt{tConfMs}) y la ventana utilizada (RX1 vs. RX2) para
-  construir la distribución estadística completa de $T_{\mathrm{conf}}$.
-  \item \textbf{Síntesis estadística y memoria final de título:} Cálculo de intervalos de confianza,
-  contraste empírico con el exponente $n$ del modelo log-distancia, evaluación concluyente de la
-  pregunta de investigación y formulación de recomendaciones técnicas para la operación permanente
-  y escalamiento futuro de la red LoRaWAN en la Facultad de Ingeniería.
+    \item \textbf{Campañas definitivas Tipo A multi-franja:} 3 repeticiones de 100 tramas ($NbTrans=1$) en tres franjas horarias en Nodo~1 (Edificio~16, LOS $\approx 80\,\text{m}$) y Nodo~2 (Edificio~08, NLOS $\approx 85\,\text{m}$).
+    \item \textbf{Campañas definitivas Tipo B con registro al milisegundo:} Lotes de $\geq 30$ tramas confirmadas registrando \texttt{tConfMs} y ventana RX1/RX2 para histogramas de $T_{\mathrm{conf}}$.
+    \item \textbf{Síntesis estadística y memoria final:} Intervalos de confianza, ajuste empírico del modelo log-distancia ($n$), respuesta a la pregunta de investigación y recomendaciones de operación.
+    \item \textbf{Guía de transferencia técnica hacia ChirpStack v4:} Procedimiento documentado de conmutación de gateways hacia servidor externo para futuros tesistas e iniciativas departamentales.
 \end{enumerate}
 
 \appendix
@@ -2482,12 +2216,12 @@ protocolo experimental definitivo (Fase \textit{Operate} y \textit{Optimize} de 
 % ------------------------------------------------------------
 \chapter{Detalle del Backlog por Épica (Estado Etapa 3)}
 
-Este anexo presenta el desglose actualizado de cada épica del backlog resumido en el Capítulo~8,
+Este anexo presenta el desglose actualizado de cada épica del backlog resumido en el Capítulo~\ref{cap:planificacion},
 incorporando el estado efectivo de ejecución alcanzado al cierre de la Etapa~3.
 
 \section{Épica 1: Topología del despliegue (100\% completada)}
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \small
 \caption{Backlog -- Épica 1: Topología del despliegue (20 / 20 h)}
@@ -2496,7 +2230,7 @@ incorporando el estado efectivo de ejecución alcanzado al cierre de la Etapa~3.
 \toprule
 \textbf{Tarea técnica} & \textbf{Pr.} & \textbf{Etapa} & \textbf{Horas} & \textbf{Estado}\\
 \midrule
-Relevar y definir ubicaciones en Edificios 10, 16 y 08 & M & 2--3 & 8 / 8 & Completada \\
+Relevar y definir ubicaciones en Edificios 10 (Fac. Ing.), 16 (Ing. Construcción) y 08 (Dir. Informática) & M & 2--3 & 8 / 8 & Completada \\
 Documentar distancias homologadas ($\approx 80\text{--}85\,\text{m}$) en plano 3D & M & 2--3 & 6 / 6 & Completada \\
 Identificar obstrucción estructural (Edificio 09) y zonas de sombra & S & 2--3 & 4 / 4 & Completada \\
 Consolidar ficha técnica del escenario de despliegue & M & 3 & 2 / 2 & Completada \\
@@ -2506,7 +2240,7 @@ Consolidar ficha técnica del escenario de despliegue & M & 3 & 2 / 2 & Completa
 
 \section{Épica 2: Marco regulatorio (100\% completada)}
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \small
 \caption{Backlog -- Épica 2: Marco regulatorio SUBTEL (10 / 10 h)}
@@ -2524,7 +2258,7 @@ Consolidar checklist de potencia ($14\,\text{dBm}$) y tiempo en el aire & S & 2 
 
 \section{Épica 3: Arquitectura del prototipo (100\% completada)}
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \small
 \caption{Backlog -- Épica 3: Arquitectura del prototipo (36 / 36 h)}
@@ -2544,7 +2278,7 @@ Desarrollar banco de pruebas local Python/SQLite y capturador de sesiones & M & 
 
 \section{Épica 4: Despliegue físico (84,6\% completada)}
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \small
 \caption{Backlog -- Épica 4: Despliegue físico en campus (44 / 52 h)}
@@ -2563,7 +2297,7 @@ Pruebas funcionales de campo, \textit{walk-test} y depuración de sensores & S &
 
 \section{Épica 5: Pruebas de rendimiento (56,5\% completada)}
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \small
 \caption{Backlog -- Épica 5: Pruebas de rendimiento y análisis (26 / 46 h)}

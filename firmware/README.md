@@ -61,10 +61,10 @@ firmware/
 
 | Sketch | Rol Experimental | DevEUI | Primer Byte Payload (`node_id`) | Nombre en NS UG65 |
 |---|---|---|---|---|
-| `nodo1_heltec_v3_tipoA.ino` | Sesión Tipo A - Línea de Vista (LOS) | `0102030405060708` | `0x01` | `Heltec-V3-Nodo1` |
-| `nodo2_heltec_v3_tipoA.ino` | Sesión Tipo A - Obstruido (NLOS) | `0102030405060709` | `0x02` | `Heltec-V3-Nodo2` |
-| `nodo1_heltec_v3_tipoB.ino` | Sesión Tipo B - Línea de Vista (LOS) | `0102030405060708` | `0x01` | `Heltec-V3-Nodo1` |
-| `nodo2_heltec_v3_tipoB.ino` | Sesión Tipo B - Obstruido (NLOS) | `0102030405060709` | `0x02` | `Heltec-V3-Nodo2` |
+| `nodo1_heltec_v3_tipoA.ino` | Sesión Tipo A - LOS (Edif. 16 Ing. en Construcción) | `0102030405060708` | `0x01` | `Heltec-V3-Nodo1` |
+| `nodo2_heltec_v3_tipoA.ino` | Sesión Tipo A - NLOS (Edif. 08 Dirección de Informática) | `0102030405060709` | `0x02` | `Heltec-V3-Nodo2` |
+| `nodo1_heltec_v3_tipoB.ino` | Sesión Tipo B - LOS (Edif. 16 Ing. en Construcción) | `0102030405060708` | `0x01` | `Heltec-V3-Nodo1` |
+| `nodo2_heltec_v3_tipoB.ino` | Sesión Tipo B - NLOS (Edif. 08 Dirección de Informática) | `0102030405060709` | `0x02` | `Heltec-V3-Nodo2` |
 
 ---
 

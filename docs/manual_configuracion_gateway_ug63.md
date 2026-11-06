@@ -85,11 +85,30 @@ Para cumplir con la **Resolución Exenta 1.985 de la SUBTEL** y coordinar con lo
 
 ---
 
-## 5. Integración con el Servidor de Red (ChirpStack v4)
+## 5. Integración con el Servidor de Red: Modos de Operación
 
-El UG63 reenvía los paquetes capturados por radio hacia el servidor central ChirpStack mediante el protocolo estándar **Semtech UDP Packet Forwarder**.
+El Milesight UG63 soporta dos arquitecturas de integración de red según las necesidades del proyecto:
 
-### Paso 5.1: Configuración en la Web GUI del Gateway
+### Modo 1 (Operación Primaria Etapa 3): Flota de Gateways con Milesight UG65 (Embedded NS)
+En el prototipo activo del campus, el UG63 actúa como **Gateway Agente de Extensión**, retransmitiendo todo el tráfico LoRaWAN recibido hacia el Gateway Controlador **Milesight UG65**, el cual ejecuta de forma autónoma el *Embedded Network Server*.
+
+1. En la Web GUI del UG63, ir a **Packet Forwarder** $\rightarrow$ **General**.
+2. En **Server Settings**:
+   * **Enable:** Marcar en `ON`.
+   * **Type:** Seleccionar **Gateway Fleet** (o enlace MQTT a UG65).
+   * **Server Address:** Ingresar la IP estática del UG65 en la red de campus:
+     ```text
+     192.168.200.47
+     ```
+   * **Port:** `18883` (puerto TCP del servicio de flota en Milesight UG65).
+3. Hacer clic en **Save** y **Apply**.
+4. Con esto, el UG65 deduplica automáticamente las tramas recibidas por ambos gateways y ejecuta el códec `decodeUplink()` sin requerir servidores externos en la nube.
+
+---
+
+### Modo 2 (Entorno de Respaldo para Futuros Proyectos): Servidor Externo Centralizado ChirpStack v4
+Para futuros proyectos de titulación, iniciativas departamentales o ampliaciones hacia múltiples campus que requieran centralizar la gestión en un servidor Linux/Cloud institucional, el UG63 puede conmutar a **Semtech UDP Packet Forwarder**:
+
 1. En el menú izquierdo, ir a **Packet Forwarder** $\rightarrow$ **General**.
 2. Verificar que el **Gateway EUI** mostrado en pantalla sea exactamente:
    ```text
@@ -98,16 +117,16 @@ El UG63 reenvía los paquetes capturados por radio hacia el servidor central Chi
 3. En la sección **Server Settings**:
    * **Enable:** Marcar la casilla / Switch en `ON`.
    * **Type:** Seleccionar **Semtech UDP Forwarder**.
-   * **Server Address:** Ingresar la dirección IP del servidor donde corre ChirpStack (por ejemplo, `192.168.1.50` o la IP interna de la facultad).
+   * **Server Address:** Ingresar la dirección IP del servidor donde corre ChirpStack (por ejemplo, `chirpstack.uct.cl` o la IP interna de la facultad `192.168.200.45`).
    * **Port Up:** `1700` (puerto estándar de recepción de uplinks en `chirpstack-gateway-bridge`).
    * **Port Down:** `1700` (puerto de downlinks/ACKs).
 4. Hacer clic en **Save** y **Apply**.
 
 ---
 
-## 6. Registro del Gateway en ChirpStack
+## 6. Registro del Gateway en ChirpStack (Para Modo 2: Servidor de Respaldo)
 
-Una vez configurado el gateway, se debe dar de alta en la consola de gestión de ChirpStack:
+En caso de activar el **Modo 2 (ChirpStack v4)**, el gateway se debe dar de alta en la consola web del servidor centralizado:
 
 1. Abrir la interfaz web de ChirpStack en el navegador (`http://<IP_SERVIDOR>:8080`).
 2. Iniciar sesión y seleccionar el **Tenant** del proyecto (ej. `UCT-LoRaWAN`).
