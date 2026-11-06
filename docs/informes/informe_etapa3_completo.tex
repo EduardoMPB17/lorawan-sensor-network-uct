@@ -2016,11 +2016,11 @@ octubre.
 \renewcommand{\arraystretch}{1.05}
 \begin{tabularx}{\textwidth}{
   >{\raggedright\arraybackslash}X
-  >{\centering\arraybackslash}p{2.3cm}
-  >{\centering\arraybackslash}p{1.3cm}
+  >{\centering\arraybackslash}p{2.2cm}
+  >{\centering\arraybackslash}p{1.2cm}
   >{\centering\arraybackslash}p{1.5cm}
   >{\centering\arraybackslash}p{1.5cm}
-  >{\centering\arraybackslash}p{1.5cm}
+  >{\centering\arraybackslash}p{1.4cm}
 }
 \toprule
 \makecell[l]{\textbf{Épica}} &
@@ -2031,12 +2031,15 @@ octubre.
 \makecell{\textbf{\%}\\\textbf{Avance}} \\
 \midrule
 Épica 1: Topología del despliegue & Prepare / Plan & O1, O4 & 20\,h & 20\,h & \textbf{100,0\%} \\
-Épica 2: Infraestructura Gateway & Plan / Design & O1, O2 & 28\,h & 28\,h & \textbf{100,0\%} \\
-Épica 3: Nodos y Adquisición & Design / Impl. & O1, O4 & 30\,h & 30\,h & \textbf{100,0\%} \\
-Épica 4: Integración IP / MQTT & Impl. / Operate & O2, O3 & 20\,h & 20\,h & \textbf{100,0\%} \\
-Épica 5: Pruebas y Validación & Operate / Optimize & O4 & 42\,h & 19\,h & \textbf{45,2\%} \\
+Épica 2: Marco regulatorio SUBTEL & Prepare / Plan & O1 & 10\,h & 10\,h & \textbf{100,0\%} \\
+Épica 3: Arquitectura y prototipo & Design & O1--O3 & 36\,h & 36\,h & \textbf{100,0\%} \\
 \midrule
-\textbf{Total acumulado} & \textbf{Ciclo PPDIOO} & \textbf{O1--O4} & \textbf{140\,h} & \textbf{117\,h} & \textbf{83,6\%} \\
+\multicolumn{3}{l}{\textbf{Subtotal Preparación, Planificación y Diseño}} & \textbf{66\,h} & \textbf{66\,h} & \textbf{100,0\%} \\
+\midrule
+Épica 4: Despliegue físico en campus & Implement & O1, O2 & 52\,h & 44\,h & \textbf{84,6\%} \\
+Épica 5: Pruebas de rendimiento & Operate & O4 & 46\,h & 26\,h & \textbf{56,5\%} \\
+\midrule
+\multicolumn{3}{l}{\textbf{Total esfuerzo técnico acumulado (Etapa 3)}} & \textbf{164\,h} & \textbf{136\,h} & \textbf{82,9\%} \\
 \bottomrule
 \end{tabularx}
 \end{table}
