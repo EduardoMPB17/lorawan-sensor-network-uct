@@ -863,8 +863,8 @@ dominios tecnológicos: (1) el dominio de radiofrecuencia y sensórica con nodos
 dominio de concentración y servidor de red LoRaWAN, constituido operativamente por la flota de
 gateways Milesight (UG65 como controlador principal con su \textit{Embedded Network Server} y UG63 como
 agente de extensión en flota mediante MQTT en el puerto 18883), preservando la plataforma de código
-abierto ChirpStack v4 como entorno documentado de servidor externo de respaldo y contingencia para
-futuros proyectos departamentales y tesistas, y (3) el dominio de integración MQTT, persistencia
+abierto ChirpStack v4 \parencite{chirpstack_v4} como entorno documentado de servidor externo de respaldo y contingencia para
+futuros proyectos departamentales y tesistas, y (3) el dominio de integración mediante el protocolo estándar MQTT \parencite{oasis_mqtt}, persistencia
 y visualización.
 
 \begin{figure}[!htbp]
@@ -1470,7 +1470,7 @@ calidad de servicio (QoS) intra-campus, la red opera con una arquitectura estruc
     Como estrategia formal de transferencia tecnológica hacia el Departamento de Informática y
     futuros estudiantes o tesistas que requieran escalar la red hacia un despliegue multi-concentrador
     distribuido en el campus o integrar servicios cloud multi-inquilino (\textit{multi-tenant}), la
-    arquitectura mantiene completamente especificada y probada la integración con ChirpStack v4. En
+    arquitectura mantiene completamente especificada y probada la integración con ChirpStack v4 \parencite{chirpstack_v4}. En
     esta modalidad alternativa de contingencia, los gateways UG65 y UG63 conmutan su modo de reenvío
     a \textit{Packet Forwarder} estándar (Semtech UDP en puerto 1700 o Semtech Basic Station)
     apuntando a una instancia centralizada de ChirpStack (\texttt{chirpstack.uct.cl:1700} o un servidor
@@ -1484,7 +1484,7 @@ En la Figura~\ref{fig:flujo-extremo-extremo} se ilustra el flujo de datos extrem
 prototipo validado en la Etapa~3, detallando la articulación de las cinco capas tecnológicas:
 desde la sensórica y modulación LoRa en los nodos Heltec V3, pasando por la concentración y
 deduplicación en la flota Milesight (UG65 controlador y UG63 agente), hasta la ingesta en el
-broker MQTT Mosquitto, la persistencia en SQLite y la visualización en el dashboard local.
+broker MQTT \parencite{oasis_mqtt} Mosquitto, la persistencia en SQLite y la visualización en el dashboard local.
 
 \begin{figure}[H]
 \centering
